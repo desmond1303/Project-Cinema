@@ -435,29 +435,54 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-32-Utf">
-                                            <rect key="frame" x="8" y="8" width="584" height="2"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="sIA-3a-fWx">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <subviews>
+                                                <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YE3-BB-h73">
+                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                                    <subviews>
+                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-32-Utf">
+                                                            <rect key="frame" x="8" y="8" width="284" height="2"/>
+                                                            <animations/>
+                                                            <color key="progressTintColor" red="1" green="0.83529411760000005" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </progressView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.7 | 543879 votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORs-Mb-ODD">
+                                                            <rect key="frame" x="8" y="14" width="284" height="21"/>
+                                                            <animations/>
+                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="HBk-32-Utf" firstAttribute="leading" secondItem="YE3-BB-h73" secondAttribute="leading" constant="8" id="8GK-l9-VEF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ORs-Mb-ODD" secondAttribute="bottom" constant="8" id="H7A-B0-gfg"/>
+                                                        <constraint firstAttribute="trailing" secondItem="HBk-32-Utf" secondAttribute="trailing" constant="8" id="Kux-bU-sPc"/>
+                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="HBk-32-Utf" secondAttribute="bottom" constant="4" id="OvC-pE-VXl"/>
+                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="leading" secondItem="YE3-BB-h73" secondAttribute="leading" constant="8" id="RLh-bo-J7T"/>
+                                                        <constraint firstItem="HBk-32-Utf" firstAttribute="top" secondItem="YE3-BB-h73" secondAttribute="top" constant="8" id="YYc-Gh-egF"/>
+                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="HBk-32-Utf" secondAttribute="bottom" constant="4" id="imF-AC-pgE"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ORs-Mb-ODD" secondAttribute="trailing" constant="8" id="oU5-gD-CqU"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gma-x7-f81">
+                                                    <rect key="frame" x="301" y="0.0" width="299" height="43"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
                                             <animations/>
-                                            <color key="progressTintColor" red="1" green="0.83529411760000005" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                        </progressView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.7 | 543879 votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORs-Mb-ODD">
-                                            <rect key="frame" x="8" y="14" width="584" height="21"/>
-                                            <animations/>
-                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                        </stackView>
                                     </subviews>
                                     <animations/>
+                                    <color key="backgroundColor" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="trailing" secondItem="WOO-yu-c9R" secondAttribute="trailingMargin" id="0hr-4p-iTA"/>
-                                        <constraint firstItem="HBk-32-Utf" firstAttribute="top" secondItem="WOO-yu-c9R" secondAttribute="topMargin" id="7gL-lC-bq9"/>
-                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="HBk-32-Utf" secondAttribute="bottom" constant="4" id="Dn5-vN-eug"/>
-                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="HBk-32-Utf" secondAttribute="bottom" constant="4" id="WXF-yc-MCc"/>
-                                        <constraint firstItem="HBk-32-Utf" firstAttribute="trailing" secondItem="WOO-yu-c9R" secondAttribute="trailingMargin" id="Xmj-sC-PHv"/>
-                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="leading" secondItem="WOO-yu-c9R" secondAttribute="leadingMargin" id="fAW-yK-GXc"/>
-                                        <constraint firstItem="HBk-32-Utf" firstAttribute="leading" secondItem="WOO-yu-c9R" secondAttribute="leadingMargin" id="izX-Ne-4Lh"/>
-                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="bottom" secondItem="WOO-yu-c9R" secondAttribute="bottomMargin" id="p9l-ru-nEc"/>
+                                        <constraint firstAttribute="trailing" secondItem="sIA-3a-fWx" secondAttribute="trailing" id="0mA-1s-mSr"/>
+                                        <constraint firstAttribute="bottom" secondItem="sIA-3a-fWx" secondAttribute="bottom" id="C3P-Hc-iE7"/>
+                                        <constraint firstItem="sIA-3a-fWx" firstAttribute="top" secondItem="WOO-yu-c9R" secondAttribute="top" id="OTQ-kv-HZT"/>
+                                        <constraint firstItem="sIA-3a-fWx" firstAttribute="leading" secondItem="WOO-yu-c9R" secondAttribute="leading" id="Tu7-Ax-M5J"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
