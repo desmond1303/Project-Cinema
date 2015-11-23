@@ -15,6 +15,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     
     var movie: PCMediaItem?
     var cast: [PCMediaItemCast]?
+    var crew: [PCMediaItemCrew]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +28,12 @@ class PCMainDetailsTableViewController: UITableViewController {
                 .responseArray("cast") { (response: Response<[PCMediaItemCast], NSError>) in
                     self.cast = response.result.value
                     self.tableView.reloadData()
+                }
+                .responseArray("crew") { (response: Response<[PCMediaItemCrew], NSError>) in
+                    self.crew = response.result.value
+                    self.tableView.reloadData()
             }
+
         }
         
         // Uncomment the following line to preserve selection between presentations
