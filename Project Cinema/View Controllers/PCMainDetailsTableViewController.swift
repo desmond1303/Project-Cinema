@@ -10,12 +10,31 @@ import UIKit
 import UIKit
 import Alamofire
 import SDWebImage
+import RealmSwift
 
 class PCMainDetailsTableViewController: UITableViewController {
     
     var movie: PCMediaItem?
     var cast: [PCMediaItemCast]?
     var crew: [PCMediaItemCrew]?
+    
+    var currentMediaItemIsInFav: Bool = false
+    let realm = try! Realm()
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        let thisMovieInRealm = realm.objects(PCMediaItem).filter("itemId = \(movie!.itemId)")
+        
+        if thisMovieInRealm.count > 0 {
+            self.currentMediaItemIsInFav = true
+            self.tableView.reloadData()
+        }
+        else {
+            self.currentMediaItemIsInFav = false
+            self.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,18 +98,17 @@ class PCMainDetailsTableViewController: UITableViewController {
             case 0:
                 let cell = tableView.dequeueReusableCellWithIdentifier("movieMainCell", forIndexPath: indexPath) as! PCMainDetailsMainTableViewCell
                 
-                cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w1000/\(movie!.backdropPath)"),
-                    completed: {
-                        (image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
-                        print(self)
-                })
+                cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w1000/\(movie!.backdropPath)"))
                 cell.movie = movie
+                cell.isFav = self.currentMediaItemIsInFav
+                if self.currentMediaItemIsInFav {
+                    cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
+                }
+                else {
+                    cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                }
                 cell.movieTitleLabel.text = movie!.title
-                cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movie!.posterPath)"),
-                    completed: {
-                        (image: UIImage!, error: NSError!, cacheType: SDImageCacheType!, imageURL: NSURL!) -> Void in
-                        print(self)
-                })
+                cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movie!.posterPath)"))
                 
                 return cell
             case 1:

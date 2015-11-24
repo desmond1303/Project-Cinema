@@ -11,10 +11,11 @@ import ObjectMapper
 import AlamofireObjectMapper
 import RealmSwift
 
-class PCMediaItem: /*Object,*/ Mappable {
+class PCMediaItem: Object, Mappable {
     
     // Universal
     
+    /*
     struct Genre {
         var id: Int
         var name: String
@@ -23,16 +24,16 @@ class PCMediaItem: /*Object,*/ Mappable {
     struct ProductionCompany {
         var name: String
         var id: Int
-    }
+    }*/
     
     dynamic var itemType:String = "" // Movie or TV
     
     dynamic var backdropPath: String = ""
-    var genresArray = [Genre]() {
+    /*var genresArray = [Genre]() {
         didSet {
             self.genres = String(genresArray)
         }
-    }
+    }*/
     dynamic var genres: String = ""
     dynamic var homepage: String = ""
     dynamic var itemId: Int = 0
@@ -41,7 +42,7 @@ class PCMediaItem: /*Object,*/ Mappable {
     dynamic var overview: String = ""
     dynamic var popularity: Double = 0
     dynamic var posterPath: String = ""
-    var productionCompanies = [ProductionCompany]()
+    //var productionCompanies = [ProductionCompany]()
     dynamic var status: String = ""
     dynamic var title: String = "" // "name" for tv
     dynamic var voteAverage: Double = 0
@@ -49,8 +50,9 @@ class PCMediaItem: /*Object,*/ Mappable {
     
     //var cast
     
+    /*
     // Movie Only
-    
+    /*
     struct ProductionCountry {
         var iso_3166_1: String
         var name: String
@@ -59,23 +61,23 @@ class PCMediaItem: /*Object,*/ Mappable {
     struct SpokenLanguage {
         var iso_639_1: String
         var name: String
-    }
+    }*/
     
     dynamic var adult: Bool = false
     dynamic var belongs_to_collection: Int = 0
     dynamic var budget: Int = 0
     dynamic var imdb_id: Int = 0
-    var production_countries = [ProductionCountry]()
+    //var production_countries = [ProductionCountry]()
     dynamic var release_date: String = ""
     dynamic var revenue: Int = 0
     dynamic var runtime: Int = 0
-    var spoken_languages = [SpokenLanguage]()
+    //var spoken_languages = [SpokenLanguage]()
     dynamic var tagline: String = ""
     dynamic var video: Bool = false
     
     
     // TV Only
-    
+    /*
     struct Creator {
         var id: Int
         var name: String
@@ -93,22 +95,23 @@ class PCMediaItem: /*Object,*/ Mappable {
         var id: Int
         var poster_path: String
         var season_number: Int
-    }
+    }*/
     
-    var created_by = [Creator]()
-    dynamic var episode_run_time = [Int]()
+    //var created_by = [Creator]()
+    //dynamic var episode_run_time = [Int]()
     dynamic var first_air_date: String = ""
     dynamic var in_production: Bool = false
     dynamic var languages = [String]()
     dynamic var last_air_date: String = ""
-    var networks = [Network]()
+    //var networks = [Network]()
     dynamic var number_of_episodes: Int = 0
     dynamic var number_of_seasons: Int = 0
-    dynamic var origin_country = [String]()
-    var seasons = [Season]()
+    //dynamic var origin_country = [String]()
+    //var seasons = [Season]()
     dynamic var type: String = ""
     
-    var test: AnyObject?
+    //var test: AnyObject?
+     */
     
     required convenience init?(_ map: Map) {
         self.init()
@@ -118,7 +121,7 @@ class PCMediaItem: /*Object,*/ Mappable {
         self.title <- map["title"]
         self.itemType = self.title != "" ? "movie" : "tv"
         self.title <- map["name"]
-        self.test <- map["production_companies"]
+        //self.test <- map["production_companies"]
         
         self.backdropPath <- map["backdrop_path"]
         //self.genresArray <- map["genres"]
@@ -135,9 +138,9 @@ class PCMediaItem: /*Object,*/ Mappable {
         self.voteAverage <- map["vote_average"]
         self.voteCount <- map["vote_count"]
     }
-
-}
-
-class ProductionCompanies {
     
+    override class func primaryKey() -> String {
+        return "itemId"
+    }
+
 }

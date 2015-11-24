@@ -18,7 +18,42 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
     @IBOutlet weak var favoriteButtonOutlet: UIButton!
     @IBAction func favortieButtonAction(sender: UIButton) {
         
+        self.favoriteButtonOutlet.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        
+        UIView.animateWithDuration(1.0,
+            delay: 0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 10,
+            options: .CurveLinear,
+            animations: {
+                self.favoriteButtonOutlet.transform = CGAffineTransformIdentity
+            },
+            completion: nil
+        )
+        
+        if isFav! {
+            let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId)")
+            try! self.realm.write {
+                self.realm.delete(realmObject)
+            }
+            
+            self.isFav = false
+            self.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+            
+        }
+        else {
+            try! self.realm.write {
+                self.realm.add(self.movie!)
+            }
+            
+            self.isFav = true
+            self.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
+            
+        }
+    
     }
+    
+    var isFav: Bool?
     
     var movie: PCMediaItem?
     let realm = try! Realm()

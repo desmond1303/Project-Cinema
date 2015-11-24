@@ -7,8 +7,59 @@
 //
 
 import UIKit
+import RealmSwift
+
+import CoreSpotlight
+import MobileCoreServices
 
 class PCFavoritesTableViewController: UITableViewController {
+    
+    var favorites = [PCMediaItem]()
+    let realm = try! Realm()
+    
+    func getRealmMovies() {
+        let realmFavorites = realm.objects(PCMediaItem).sorted("title")
+        self.favorites.removeAll()
+        for fav in realmFavorites {
+            self.favorites.append(fav)
+            self.tableView.reloadData()
+        }
+        
+        var searchableItems: [CSSearchableItem] = []
+        for show in self.favorites {
+            let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+            
+            attributeSet.title = show.title
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.timeStyle = .ShortStyle
+            
+            //attributeSet.thumbnailURL = NSURL(string: "http://image.tmdb.org/t/p/w342/\(show.posterPath)")
+            attributeSet.contentDescription = show.title + "\n" + String(show.voteAverage) + "/10"
+            
+            var keywords = show.title.componentsSeparatedByString(" ")
+            keywords.append(show.title)
+            attributeSet.keywords = keywords
+            
+            let item = CSSearchableItem(uniqueIdentifier: show.title, domainIdentifier: "tv-shows", attributeSet: attributeSet)
+            searchableItems.append(item)
+        }
+        
+        CSSearchableIndex.defaultSearchableIndex().indexSearchableItems(searchableItems) { (error) -> Void in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+            else {
+                // Items were indexed successfully
+            }
+        }
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.getRealmMovies()
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,23 +80,24 @@ class PCFavoritesTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.favorites.count
     }
 
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("favoriteMovie", forIndexPath: indexPath) as! PCFavoritesTableViewCell
 
-        // Configure the cell...
-
+        cell.movie = self.favorites[indexPath.row]
+        cell.titleLabel.text = self.favorites[indexPath.row].title
+        cell.posterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(self.favorites[indexPath.row].posterPath)"))
+    
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
