@@ -26,6 +26,9 @@ class PCFavoritesTableViewController: UITableViewController {
         }
         
         var searchableItems: [CSSearchableItem] = []
+        CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["tv-shows"]) { (error: NSError?) -> Void in
+            //code
+        }
         for show in self.favorites {
             let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
             
@@ -41,7 +44,7 @@ class PCFavoritesTableViewController: UITableViewController {
             keywords.append(show.title)
             attributeSet.keywords = keywords
             
-            let item = CSSearchableItem(uniqueIdentifier: show.title, domainIdentifier: "tv-shows", attributeSet: attributeSet)
+            let item = CSSearchableItem(uniqueIdentifier: show.title, domainIdentifier: "MediaItems", attributeSet: attributeSet)
             searchableItems.append(item)
         }
         
@@ -134,14 +137,19 @@ class PCFavoritesTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let senderCell = sender as? PCFavoritesTableViewCell
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
+        //destinationViewController.movie = self
+        
+        destinationViewController.title = senderCell?.movie?.title
+        destinationViewController.movie = senderCell?.movie
     }
-    */
+
 
 }
