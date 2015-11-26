@@ -9,9 +9,6 @@
 import UIKit
 import RealmSwift
 
-import CoreSpotlight
-import MobileCoreServices
-
 class PCFavoritesTableViewController: UITableViewController {
     
     var favorites = [PCMediaItem]()
@@ -25,37 +22,6 @@ class PCFavoritesTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
         
-        var searchableItems: [CSSearchableItem] = []
-        CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["tv-shows"]) { (error: NSError?) -> Void in
-            //code
-        }
-        for show in self.favorites {
-            let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-            
-            attributeSet.title = show.title
-            
-            let dateFormatter = NSDateFormatter()
-            dateFormatter.timeStyle = .ShortStyle
-            
-            //attributeSet.thumbnailURL = NSURL(string: "http://image.tmdb.org/t/p/w342/\(show.posterPath)")
-            attributeSet.contentDescription = show.title + "\n" + String(show.voteAverage) + "/10"
-            
-            var keywords = show.title.componentsSeparatedByString(" ")
-            keywords.append(show.title)
-            attributeSet.keywords = keywords
-            
-            let item = CSSearchableItem(uniqueIdentifier: show.title, domainIdentifier: "MediaItems", attributeSet: attributeSet)
-            searchableItems.append(item)
-        }
-        
-        CSSearchableIndex.defaultSearchableIndex().indexSearchableItems(searchableItems) { (error) -> Void in
-            if error != nil {
-                print(error?.localizedDescription)
-            }
-            else {
-                // Items were indexed successfully
-            }
-        }
     }
     
     override func viewWillAppear(animated: Bool) {

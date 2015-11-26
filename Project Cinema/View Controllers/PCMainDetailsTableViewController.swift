@@ -12,9 +12,73 @@ import Alamofire
 import SDWebImage
 import RealmSwift
 
+import CoreSpotlight
+import MobileCoreServices
+
 class PCMainDetailsTableViewController: UITableViewController {
     
-    var movie: PCMediaItem?
+    @IBAction func favoriteButton(sender: AnyObject) {
+        
+        let sender = sender as! UIButton
+        
+        if currentMediaItemIsInFav {
+            let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId)")
+            
+            try! self.realm.write {
+                self.realm.delete(realmObject[0])
+            }
+            
+            self.currentMediaItemIsInFav = false
+            sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+            
+            CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers([realmObject[0].title]) { (error: NSError?) -> Void in
+                //code
+            }
+            
+        }
+        else {
+            try! self.realm.write {
+                self.realm.add(self.movie!)
+            }
+            
+            self.currentMediaItemIsInFav = true
+            sender.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
+            
+            
+            let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
+                
+            attributeSet.title = self.movie!.title
+                
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.timeStyle = .ShortStyle
+                
+            //attributeSet.thumbnailURL = NSURL(string: "http://image.tmdb.org/t/p/w342/\(show.posterPath)")
+            attributeSet.contentDescription = self.movie!.title + "\n" + String(self.movie!.voteAverage) + "/10"
+                
+            var keywords = self.movie!.title.componentsSeparatedByString(" ")
+            keywords.append(self.movie!.title)
+            attributeSet.keywords = keywords
+                
+            let item = CSSearchableItem(uniqueIdentifier: self.movie!.title, domainIdentifier: "MediaItems", attributeSet: attributeSet)
+            
+            CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error) -> Void in
+                if error != nil {
+                    print(error?.localizedDescription)
+                }
+                else {
+                    // Items were indexed successfully
+                }
+            }
+
+            
+        }
+        
+    }
+    var movie: PCMediaItem? {
+        didSet {
+            NSLog("Movie var changed")
+        }
+    }
     var cast: [PCMediaItemCast]?
     var crew: [PCMediaItemCrew]?
     

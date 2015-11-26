@@ -142,5 +142,5 @@ class PCMediaItem: Object, Mappable {
     override class func primaryKey() -> String {
         return "itemId"
     }
-
+    
 }

@@ -291,7 +291,8 @@
                                                         </constraints>
                                                         <state key="normal" image="FavoritesFullBarIcon"/>
                                                         <connections>
-                                                            <action selector="favortieButtonAction:" destination="dxP-Hi-Gez" eventType="touchUpInside" id="ikX-Ox-8jO"/>
+                                                            <action selector="favoriteButton:" destination="j8L-WV-aGZ" eventType="touchUpInside" id="w9k-78-MLj"/>
+                                                            <action selector="favortieButtonAction:" destination="dxP-Hi-Gez" eventType="touchUpInside" id="fSa-7B-1Qd"/>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-66-reF">
