@@ -21,28 +21,41 @@ class PCMainDetailsTableViewController: UITableViewController {
         
         let sender = sender as! UIButton
         
+        sender.transform = CGAffineTransformMakeScale(0.5, 0.5)
+        
+        UIView.animateWithDuration(1.0,
+            delay: 0,
+            usingSpringWithDamping: 0.5,
+            initialSpringVelocity: 10,
+            options: .CurveLinear,
+            animations: {
+                sender.transform = CGAffineTransformIdentity
+            },
+            completion: nil
+        )
+        
         if currentMediaItemIsInFav {
             let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId)")
             
             try! self.realm.write {
-                self.realm.delete(realmObject[0])
-            }
-            
-            self.currentMediaItemIsInFav = false
-            sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
-            
-            CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers([realmObject[0].title]) { (error: NSError?) -> Void in
-                //code
+                for rObject in realmObject {
+                    CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers([rObject.title]) { (error: NSError?) -> Void in
+                        //code
+                    }
+                    self.realm.delete(rObject)
+                    self.currentMediaItemIsInFav = false
+                    sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                }
             }
             
         }
         else {
             try! self.realm.write {
                 self.realm.add(self.movie!)
+                
+                self.currentMediaItemIsInFav = true
+                sender.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
             }
-            
-            self.currentMediaItemIsInFav = true
-            sender.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
             
             
             let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
@@ -69,16 +82,12 @@ class PCMainDetailsTableViewController: UITableViewController {
                     // Items were indexed successfully
                 }
             }
-
             
         }
         
     }
-    var movie: PCMediaItem? {
-        didSet {
-            NSLog("Movie var changed")
-        }
-    }
+    
+    var movie: PCMediaItem?
     var cast: [PCMediaItemCast]?
     var crew: [PCMediaItemCrew]?
     
@@ -103,9 +112,22 @@ class PCMainDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let url = "https://api.themoviedb.org/3/movie/\(self.movie!.itemId)"
+        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
+        Alamofire
+            .request(.GET, url, parameters: urlParamteres)
+            .responseObject { (response: Response<PCMediaItem, NSError>) in
+                self.movie = response.result.value
+                
+                try! self.realm.write {
+                    self.realm.add(self.movie!, update: true)
+                }
+                
+                self.tableView.reloadData()
+        }
+        
         if let movie = self.movie {
             let url = "https://api.themoviedb.org/3/\(movie.itemType)/\(movie.itemId)/credits"
-            let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
             Alamofire
                 .request(.GET, url, parameters: urlParamteres)
                 .responseArray("cast") { (response: Response<[PCMediaItemCast], NSError>) in
@@ -171,7 +193,8 @@ class PCMainDetailsTableViewController: UITableViewController {
                 else {
                     cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
                 }
-                cell.movieTitleLabel.text = movie!.title
+                cell.movieTitleLabel.text = self.movie!.title
+                cell.movieRuntimeAndGenres.text = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
                 cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movie!.posterPath)"))
                 
                 return cell

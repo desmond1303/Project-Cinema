@@ -12,28 +12,12 @@ import RealmSwift
 class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var movieRuntimeAndGenres: UILabel!
     @IBOutlet weak var movieBackdropImageView: UIImageView!
     @IBOutlet weak var moviePosterImageView: UIImageView!
     
     @IBOutlet weak var favoriteButtonOutlet: UIButton!
-    
-    @IBAction func favortieButtonAction(sender: UIButton) {
         
-        self.favoriteButtonOutlet.transform = CGAffineTransformMakeScale(0.5, 0.5)
-        
-        UIView.animateWithDuration(1.0,
-            delay: 0,
-            usingSpringWithDamping: 0.5,
-            initialSpringVelocity: 10,
-            options: .CurveLinear,
-            animations: {
-                self.favoriteButtonOutlet.transform = CGAffineTransformIdentity
-            },
-            completion: nil
-        )
-    
-    }
-    
     var isFav: Bool?
     
     var movie: PCMediaItem?

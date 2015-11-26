@@ -50,7 +50,7 @@ class PCMediaItem: Object, Mappable {
     
     //var cast
     
-    /*
+    
     // Movie Only
     /*
     struct ProductionCountry {
@@ -95,7 +95,7 @@ class PCMediaItem: Object, Mappable {
         var id: Int
         var poster_path: String
         var season_number: Int
-    }*/
+    }
     
     //var created_by = [Creator]()
     //dynamic var episode_run_time = [Int]()
@@ -111,7 +111,7 @@ class PCMediaItem: Object, Mappable {
     dynamic var type: String = ""
     
     //var test: AnyObject?
-     */
+    */
     
     required convenience init?(_ map: Map) {
         self.init()
@@ -137,6 +137,18 @@ class PCMediaItem: Object, Mappable {
         self.status <- map["status"]
         self.voteAverage <- map["vote_average"]
         self.voteCount <- map["vote_count"]
+        
+        self.adult <- map["adult"]
+        self.belongs_to_collection <- map["belongs_to_collection"]
+        self.budget <- map["budget"]
+        self.imdb_id <- map["imdb_id"]
+        //self.production_countries = [ProductionCountry]()
+        self.release_date <- map["release_date"]
+        self.revenue <- map["revenue"]
+        self.runtime <- map["runtime"]
+        //self.spoken_languages = [SpokenLanguage]()
+        self.tagline <- map["tagline"]
+        self.video <- map["video"]
     }
     
     override class func primaryKey() -> String {
