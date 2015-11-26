@@ -50,8 +50,9 @@ class PCMainDetailsTableViewController: UITableViewController {
             
         }
         else {
+            let realmObject = PCMediaItem(object: self.movie!)
             try! self.realm.write {
-                self.realm.add(self.movie!)
+                self.realm.add(realmObject)
                 
                 self.currentMediaItemIsInFav = true
                 sender.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
@@ -119,8 +120,10 @@ class PCMainDetailsTableViewController: UITableViewController {
             .responseObject { (response: Response<PCMediaItem, NSError>) in
                 self.movie = response.result.value
                 
-                try! self.realm.write {
-                    self.realm.add(self.movie!, update: true)
+                if self.currentMediaItemIsInFav {
+                    try! self.realm.write {
+                        self.realm.add(self.movie!, update: true)
+                    }
                 }
                 
                 self.tableView.reloadData()

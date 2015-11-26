@@ -117,6 +117,41 @@ class PCMediaItem: Object, Mappable {
         self.init()
     }
     
+    convenience init(object: PCMediaItem) {
+        self.init()
+        
+        self.title = object.title
+        self.itemType = object.itemType
+        //self.test = object.production_companies
+        
+        self.backdropPath = object.backdropPath
+        //self.genresArray = object.genres
+        //self.genres: String =  ""
+        self.homepage = object.homepage
+        self.itemId  = object.itemId
+        self.original_language = object.original_language
+        self.original_title = object.original_title
+        self.overview = object.overview
+        self.popularity = object.popularity
+        self.posterPath = object.posterPath
+        //self.productionCompanies = object.production_companies
+        self.status = object.status
+        self.voteAverage = object.voteAverage
+        self.voteCount = object.voteCount
+        
+        self.adult = object.adult
+        self.belongs_to_collection = object.belongs_to_collection
+        self.budget = object.budget
+        self.imdb_id = object.imdb_id
+        //self.production_countries =  [ProductionCountry]()
+        self.release_date = object.release_date
+        self.revenue = object.revenue
+        self.runtime = object.runtime
+        //self.spoken_languages = [SpokenLanguage]()
+        self.tagline = object.tagline
+        self.video = object.video
+    }
+    
     func mapping(map: Map) {
         self.title <- map["title"]
         self.itemType = self.title != "" ? "movie" : "tv"

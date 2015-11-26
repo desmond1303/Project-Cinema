@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 
 class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITableViewDataSource {
     
@@ -18,14 +17,19 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
     
     @IBOutlet weak var favoriteButtonOutlet: UIButton!
         
-    var isFav: Bool?
+    var isFav: Bool? = false
     
     var movie: PCMediaItem?
-    let realm = try! Realm()
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        if isFav == true {
+            self.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
+        }
+        else {
+            self.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+        }
     }
     
     override func setSelected(selected: Bool, animated: Bool) {
