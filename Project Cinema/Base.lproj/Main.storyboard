@@ -181,17 +181,17 @@
                                             </connections>
                                         </collectionView>
                                         <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftEdgeIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="rLc-HX-vKY">
-                                            <rect key="frame" x="0.0" y="37" width="60" height="218"/>
+                                            <rect key="frame" x="0.0" y="37" width="35" height="218"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="8qD-Kr-ffh"/>
+                                                <constraint firstAttribute="width" constant="35" id="8qD-Kr-ffh"/>
                                             </constraints>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightEdgeIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-OC-kmS">
-                                            <rect key="frame" x="540" y="37" width="60" height="218"/>
+                                            <rect key="frame" x="565" y="37" width="35" height="218"/>
                                             <animations/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="60" id="51a-ae-3rX"/>
+                                                <constraint firstAttribute="width" constant="35" id="51a-ae-3rX"/>
                                             </constraints>
                                         </imageView>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-4B-uzo">
@@ -693,6 +693,6 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="raM-0z-gmg"/>
+        <segue reference="ARj-tT-Kvi"/>
     </inferredMetricsTieBreakers>
 </document>
