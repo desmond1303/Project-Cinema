@@ -25,12 +25,22 @@
                                     <constraint firstAttribute="width" constant="150" id="Mgc-8L-BBw"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="1FF-Z8-JLs">
+                                <rect key="frame" x="290" y="340" width="20" height="20"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="maI-sE-nbS"/>
+                                    <constraint firstAttribute="width" constant="20" id="o8T-ZK-Sp0"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oWV-vB-77b" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="54M-ED-dZL"/>
                             <constraint firstItem="oWV-vB-77b" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tb2-9O-WST"/>
+                            <constraint firstItem="1FF-Z8-JLs" firstAttribute="top" secondItem="oWV-vB-77b" secondAttribute="bottom" constant="-35" id="Zez-nl-RZJ"/>
+                            <constraint firstItem="1FF-Z8-JLs" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="egP-8Y-r5N"/>
                         </constraints>
                     </view>
                 </viewController>
