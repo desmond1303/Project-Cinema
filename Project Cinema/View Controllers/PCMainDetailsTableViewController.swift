@@ -65,7 +65,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = .ShortStyle
-                
+            
             //attributeSet.thumbnailURL = NSURL(string: "http://image.tmdb.org/t/p/w342/\(show.posterPath)")
             attributeSet.contentDescription = self.movie!.title + "\n" + String(self.movie!.voteAverage) + "/10"
                 
@@ -83,6 +83,16 @@ class PCMainDetailsTableViewController: UITableViewController {
                     // Items were indexed successfully
                 }
             }
+            
+            let notification:UILocalNotification = UILocalNotification()
+            notification.category = "Entertainment"
+            notification.alertAction = "OK!"
+            notification.alertBody = "\(self.movie!.title) is about to hit theatres!"
+            notification.timeZone = NSTimeZone.defaultTimeZone()
+            let dateMaker = NSDateFormatter()
+            dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
+            notification.fireDate = dateMaker.dateFromString("\(self.movie!.release_date) 12-00")
+            UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
         }
         
