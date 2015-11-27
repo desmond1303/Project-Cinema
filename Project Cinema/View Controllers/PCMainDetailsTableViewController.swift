@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UIKit
 import Alamofire
 import SDWebImage
 import RealmSwift
@@ -123,7 +122,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let url = "https://api.themoviedb.org/3/movie/\(self.movie!.itemId)"
+        let url = "https://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
         Alamofire
             .request(.GET, url, parameters: urlParamteres)
