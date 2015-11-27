@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 47;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -201,6 +201,7 @@
 		7DE076B21C0085D600448979 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = PC;
 				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Dino Praso";
@@ -211,7 +212,7 @@
 				};
 			};
 			buildConfigurationList = 7DE076B51C0085D600448979 /* Build configuration list for PBXProject "Project Cinema" */;
-			compatibilityVersion = "Xcode 3.2";
+			compatibilityVersion = "Xcode 6.3";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
