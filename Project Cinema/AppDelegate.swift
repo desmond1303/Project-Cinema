@@ -13,6 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
+        let rootViewController = self.window?.rootViewController as! UITabBarController
+        let rootNavController = rootViewController.viewControllers?.first as! UINavigationController
+        let mainViewController = rootNavController.viewControllers.first as! PCFeedTableViewController
+        mainViewController.restoreUserActivityState(userActivity)
+        
+        return true
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

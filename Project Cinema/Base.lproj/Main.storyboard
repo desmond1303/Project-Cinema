@@ -174,7 +174,7 @@
                                                         <outlet property="movieImageView" destination="h4T-Xh-qrU" id="kgr-Y2-obA"/>
                                                         <outlet property="movieTitleLabel" destination="to7-Zd-GlT" id="DIh-FJ-mVu"/>
                                                         <outlet property="movieYearLabel" destination="Zk0-Vf-eeb" id="GrF-3x-umG"/>
-                                                        <segue destination="j8L-WV-aGZ" kind="show" id="ARj-tT-Kvi"/>
+                                                        <segue destination="j8L-WV-aGZ" kind="show" identifier="showMediaItemDetailPage" id="ARj-tT-Kvi"/>
                                                     </connections>
                                                 </collectionViewCell>
                                             </cells>

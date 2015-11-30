@@ -16,6 +16,8 @@ import MobileCoreServices
 
 class PCMainDetailsTableViewController: UITableViewController {
     
+    var lastActivity: NSUserActivity?
+    
     @IBAction func favoriteButton(sender: AnyObject) {
         
         let sender = sender as! UIButton
@@ -57,32 +59,35 @@ class PCMainDetailsTableViewController: UITableViewController {
                 sender.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
             }
             
-            
             let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
-                
-            attributeSet.title = self.movie!.title
-                
+            
+            //attributeSet.title = self.movie!.title
+
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = .ShortStyle
             
-            //attributeSet.thumbnailURL = NSURL(string: "http://image.tmdb.org/t/p/w342/\(show.posterPath)")
             attributeSet.contentDescription = self.movie!.title + "\n" + String(self.movie!.voteAverage) + "/10"
-                
-            var keywords = self.movie!.title.componentsSeparatedByString(" ")
-            keywords.append(self.movie!.title)
-            attributeSet.keywords = keywords
-                
-            let item = CSSearchableItem(uniqueIdentifier: "\(self.movie!.itemType)_\(self.movie!.itemId)", domainIdentifier: "MediaItems", attributeSet: attributeSet)
             
-            CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error) -> Void in
-                if error != nil {
-                    print(error?.localizedDescription)
-                }
-                else {
-                    // Items were indexed successfully
-                }
-            }
+            let keywords = self.movie!.title.componentsSeparatedByString(" ")
+            //keywords.append(self.movie!.title)
+            //attributeSet.keywords = keywords
             
+            // NSUseractiviyy Start
+
+            let activity = NSUserActivity(activityType: "com.atlantbh.Project-Cinema.openDetailsView")
+            activity.title = self.movie!.title
+            activity.userInfo = ["type": self.movie!.itemType, "id": self.movie!.itemId]
+            activity.keywords = Set(keywords)
+            activity.contentAttributeSet = attributeSet
+            activity.eligibleForHandoff = false
+            activity.eligibleForSearch = true
+            //activity.eligibleForPublicIndexing = true
+            //activity.expirationDate = NSDate()
+            
+            
+            activity.becomeCurrent()
+            self.lastActivity = activity
+
             let notification:UILocalNotification = UILocalNotification()
             notification.category = "Entertainment"
             notification.alertAction = "OK!"
@@ -118,6 +123,8 @@ class PCMainDetailsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

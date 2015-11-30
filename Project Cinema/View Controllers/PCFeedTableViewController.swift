@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class PCFeedTableViewController: UITableViewController {
     
@@ -152,17 +153,34 @@ class PCFeedTableViewController: UITableViewController {
     
     // MARK: - Navigation
     
+    var requestFromActivity: Bool = false
+    var mediaItemActivityData = [NSObject: AnyObject]()
+    
+    override func restoreUserActivityState(activity: NSUserActivity) {
+        self.mediaItemActivityData = activity.userInfo!
+        self.requestFromActivity = true
+        self.performSegueWithIdentifier("showMediaItemDetailPage", sender: self)
+    }
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let senderCell = sender as? PCMediaItemCollectionViewCell
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
         
         let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
-        //destinationViewController.movie = self
         
-        destinationViewController.title = senderCell?.movie?.title
-        destinationViewController.movie = senderCell?.movie
+        if self.requestFromActivity {
+            let realm = try! Realm()
+            let movie = realm.objects(PCMediaItem).filter("itemId = \(self.mediaItemActivityData["id"]!)")
+            destinationViewController.title = movie[0].title
+            destinationViewController.movie = movie[0]
+            self.requestFromActivity = false
+        }
+        else {
+            let senderCell = sender as? PCMediaItemCollectionViewCell
+            
+            destinationViewController.title = senderCell?.movie?.title
+            destinationViewController.movie = senderCell?.movie
+        }
+        
     }
     
 }
