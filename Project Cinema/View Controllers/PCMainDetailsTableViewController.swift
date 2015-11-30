@@ -67,7 +67,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             dateFormatter.timeStyle = .ShortStyle
             
             attributeSet.contentDescription = self.movie!.title + "\n" + String(self.movie!.voteAverage) + "/10"
-            attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
+            //attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
             let keywords = self.movie!.title.componentsSeparatedByString(" ")
             //keywords.append(self.movie!.title)
             //attributeSet.keywords = keywords
