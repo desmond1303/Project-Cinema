@@ -38,7 +38,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             
             try! self.realm.write {
                 for rObject in realmObject {
-                    CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers([rObject.title]) { (error: NSError?) -> Void in
+                    CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(rObject.itemType)_\(rObject.itemId)"]) { (error: NSError?) -> Void in
                         //code
                     }
                     self.realm.delete(rObject)
@@ -72,7 +72,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             keywords.append(self.movie!.title)
             attributeSet.keywords = keywords
                 
-            let item = CSSearchableItem(uniqueIdentifier: self.movie!.title, domainIdentifier: "MediaItems", attributeSet: attributeSet)
+            let item = CSSearchableItem(uniqueIdentifier: "\(self.movie!.itemType)_\(self.movie!.itemId)", domainIdentifier: "MediaItems", attributeSet: attributeSet)
             
             CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error) -> Void in
                 if error != nil {
