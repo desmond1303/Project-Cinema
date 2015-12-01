@@ -61,16 +61,16 @@ class PCMainDetailsTableViewController: UITableViewController {
             
             let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
             
-            //attributeSet.title = self.movie!.title
+            attributeSet.title = self.movie!.title
 
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = .ShortStyle
             
             attributeSet.contentDescription = self.movie!.title + "\n" + String(self.movie!.voteAverage) + "/10"
-            //attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
-            let keywords = self.movie!.title.componentsSeparatedByString(" ")
-            //keywords.append(self.movie!.title)
-            //attributeSet.keywords = keywords
+            attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
+            var keywords = self.movie!.title.componentsSeparatedByString(" ")
+            keywords.append(self.movie!.title)
+            attributeSet.keywords = keywords
             
             // NSUseractiviyy Start
 
@@ -84,9 +84,19 @@ class PCMainDetailsTableViewController: UITableViewController {
             //activity.eligibleForPublicIndexing = true
             //activity.expirationDate = NSDate()
             
-            
-            activity.becomeCurrent()
             self.lastActivity = activity
+            activity.becomeCurrent()
+            
+            let item = CSSearchableItem(uniqueIdentifier: "\(self.movie!.itemType)_\(self.movie!.itemId)", domainIdentifier: "MediaItems", attributeSet: attributeSet)
+            
+            CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error) -> Void in
+                if error != nil {
+                    print(error?.localizedDescription)
+                }
+                else {
+                    // Items were indexed successfully
+                }
+            }
 
             let notification:UILocalNotification = UILocalNotification()
             notification.category = "Entertainment"

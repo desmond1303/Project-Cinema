@@ -169,7 +169,8 @@ class PCFeedTableViewController: UITableViewController {
         
         if self.requestFromActivity {
             let realm = try! Realm()
-            let movie = realm.objects(PCMediaItem).filter("itemId = \(self.mediaItemActivityData["id"]!)")
+            let mediaItemIdentifiers = self.mediaItemActivityData["kCSSearchableItemActivityIdentifier"]!.componentsSeparatedByString("_")
+            let movie = realm.objects(PCMediaItem).filter("itemType = '\(mediaItemIdentifiers[0])' AND itemId = \(mediaItemIdentifiers[1])")
             destinationViewController.title = movie[0].title
             destinationViewController.movie = movie[0]
             self.requestFromActivity = false
