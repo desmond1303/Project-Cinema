@@ -138,6 +138,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.scrollsToTop = true
         
         let url = "https://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
@@ -241,6 +242,8 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 1:
             let cell = tableView.dequeueReusableCellWithIdentifier("castCollectionCell", forIndexPath: indexPath) as! PCMainDetailsCastTableViewCell
             cell.cast = self.cast
+            
+            cell.collectionView.scrollsToTop = false
             cell.collectionView.reloadData()
             return cell
         default:

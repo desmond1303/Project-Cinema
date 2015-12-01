@@ -16,6 +16,7 @@ class PCFeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.scrollsToTop = true
         
         self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
         
@@ -111,6 +112,8 @@ class PCFeedTableViewController: UITableViewController {
             cell.movies = self.mediaItems["top_rated_tv"]
         default: break
         }
+        
+        cell.collectionView.scrollsToTop = false
         
         cell.collectionView.reloadData()
         return cell
