@@ -141,7 +141,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     func triggerFacebookShare() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
             let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            
+            fbShare.setInitialText("You should check out \(self.movie!.title)!\nhttps://www.themoviedb.org/\(self.movie!.itemType)/\(self.movie!.itemId)")
             self.presentViewController(fbShare, animated: true, completion: nil)
             
         } else {
@@ -156,7 +156,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
             
             let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            
+            tweetShare.setInitialText("You should check out \(self.movie!.title)!\nhttps://www.themoviedb.org/\(self.movie!.itemType)/\(self.movie!.itemId)")
             self.presentViewController(tweetShare, animated: true, completion: nil)
             
         } else {
