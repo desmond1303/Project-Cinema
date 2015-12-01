@@ -15,6 +15,7 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
     @IBOutlet weak var movieBackdropImageView: UIImageView!
     @IBOutlet weak var moviePosterImageView: UIImageView!
     
+    @IBOutlet weak var movieDetailsMainSubTableView: UITableView!
     @IBOutlet weak var favoriteButtonOutlet: UIButton!
         
     var isFav: Bool? = false
@@ -68,6 +69,26 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
             return CGFloat(44)
         }
         
+    }
+    
+    var parentViewController: PCMainDetailsTableViewController?
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if indexPath.row != 0 {
+            return
+        }
+        
+        let alertController = UIAlertController(title: "\(self.movie!.title)", message: "\(self.movie!.overview)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            self.movieDetailsMainSubTableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
+        alertController.addAction(textAction)
+        
+        self.parentViewController?.presentViewController(alertController, animated: true) { () -> Void in
+            //code
+        }
     }
     
 }

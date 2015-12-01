@@ -135,11 +135,27 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     
+    var animator:UIDynamicAnimator?
     
+    
+    @IBAction func shareButtonAction(sender: AnyObject) {
+        let alertController = UIAlertController(title: "\(self.movie!.title)", message: "\(self.movie!.overview)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        
+        let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            //
+        }
+        
+        alertController.addAction(textAction)
+        
+        self.presentViewController(alertController, animated: true) { () -> Void in
+            //code
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
+        
         
         let url = "https://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
@@ -214,7 +230,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             switch indexPath.row {
             case 0:
                 let cell = tableView.dequeueReusableCellWithIdentifier("movieMainCell", forIndexPath: indexPath) as! PCMainDetailsMainTableViewCell
-                
+                cell.parentViewController = self
                 cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w1000/\(movie!.backdropPath)"))
                 cell.movie = movie
                 cell.isFav = self.currentMediaItemIsInFav

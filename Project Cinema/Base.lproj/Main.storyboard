@@ -255,7 +255,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="1445"/>
         </scene>
-        <!--Main Details Table View Controller-->
+        <!--Title-->
         <scene sceneID="fft-5l-s1s">
             <objects>
                 <tableViewController id="j8L-WV-aGZ" customClass="PCMainDetailsTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
@@ -348,15 +348,15 @@
                                             <animations/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <prototypes>
-                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieDescriptionCell" id="ong-Mv-Bcu" customClass="PCMainDetailsDescriptionTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="movieDescriptionCell" id="ong-Mv-Bcu" customClass="PCMainDetailsDescriptionTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="28" width="464" height="44"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ong-Mv-Bcu" id="iLw-dH-CM0">
-                                                        <rect key="frame" x="0.0" y="0.0" width="431" height="43"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="417" height="43"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jj-9Y-5ug">
-                                                                <rect key="frame" x="8" y="8" width="415" height="27"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="7" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jj-9Y-5ug">
+                                                                <rect key="frame" x="8" y="8" width="401" height="27"/>
                                                                 <animations/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -437,6 +437,7 @@
                                 <connections>
                                     <outlet property="favoriteButtonOutlet" destination="yYv-BZ-dIy" id="vX4-BQ-jsC"/>
                                     <outlet property="movieBackdropImageView" destination="GGG-PQ-Rhv" id="dNF-IP-UsV"/>
+                                    <outlet property="movieDetailsMainSubTableView" destination="0qC-Bf-G8g" id="jPI-2v-RYA"/>
                                     <outlet property="moviePosterImageView" destination="4PB-CM-YxK" id="k4S-aA-2Bv"/>
                                     <outlet property="movieRuntimeAndGenres" destination="eln-P8-ekk" id="ncc-m2-cgb"/>
                                     <outlet property="movieTitleLabel" destination="eXR-66-reF" id="Byw-my-JcX"/>
@@ -628,6 +629,13 @@
                             <outlet property="delegate" destination="j8L-WV-aGZ" id="aaM-Xo-koz"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="4Nz-pu-U5s">
+                        <barButtonItem key="rightBarButtonItem" title="Share" id="mcr-Ji-RsC">
+                            <connections>
+                                <action selector="shareButtonAction:" destination="j8L-WV-aGZ" id="9eS-in-4lT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
                 </tableViewController>
