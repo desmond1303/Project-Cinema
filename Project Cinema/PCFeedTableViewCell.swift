@@ -16,7 +16,11 @@ class PCFeedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var edgeLeftMoreIndicator: UIImageView!
     @IBOutlet weak var edgeRightMoreIndicator: UIImageView!
     
-    var movies: [PCMediaItem]?
+    var movies: [PCMediaItem]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
