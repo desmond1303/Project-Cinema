@@ -66,10 +66,11 @@ class PCMainDetailsTableViewController: UITableViewController {
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = .ShortStyle
             
-            attributeSet.contentDescription = self.movie!.title + "\n" + String(self.movie!.voteAverage) + "/10"
+            attributeSet.contentDescription = "\(self.movie!.release_date.componentsSeparatedByString("-")[0])\n\(self.movie!.voteAverage)/10"
             attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
             var keywords = self.movie!.title.componentsSeparatedByString(" ")
             keywords.append(self.movie!.title)
+            keywords.append(self.movie!.itemType)
             attributeSet.keywords = keywords
             
             // NSUseractiviyy Start
@@ -223,7 +224,15 @@ class PCMainDetailsTableViewController: UITableViewController {
                 else {
                     cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
                 }
-                cell.movieTitleLabel.text = self.movie!.title
+                
+                let attributedMediaTitleString = NSMutableAttributedString(string: "\(self.movie!.title) ")
+                let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]
+                let gString = NSMutableAttributedString(string: "(\(self.movie!.release_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                
+                attributedMediaTitleString.appendAttributedString(gString)
+                
+                
+                cell.movieTitleLabel.attributedText = attributedMediaTitleString
                 cell.movieRuntimeAndGenres.text = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
                 cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movie!.posterPath)"))
                 
