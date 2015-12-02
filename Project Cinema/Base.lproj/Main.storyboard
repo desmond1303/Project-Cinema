@@ -630,7 +630,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="4Nz-pu-U5s">
-                        <barButtonItem key="rightBarButtonItem" title="Share" id="mcr-Ji-RsC">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="mcr-Ji-RsC">
                             <connections>
                                 <action selector="shareButtonAction:" destination="j8L-WV-aGZ" id="9eS-in-4lT"/>
                             </connections>

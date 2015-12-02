@@ -10,7 +10,6 @@ import UIKit
 import Alamofire
 import SDWebImage
 import RealmSwift
-import Social
 
 import CoreSpotlight
 import MobileCoreServices
@@ -136,57 +135,11 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     
-    var animator:UIDynamicAnimator?
-    
-    func triggerFacebookShare() {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
-            let fbShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
-            fbShare.setInitialText("You should check out \(self.movie!.title)!\nhttps://www.themoviedb.org/\(self.movie!.itemType)/\(self.movie!.itemId)")
-            self.presentViewController(fbShare, animated: true, completion: nil)
-            
-        } else {
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-    
-    func triggerTwitterShare() {
-        if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
-            
-            let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            tweetShare.setInitialText("You should check out \(self.movie!.title)!\nhttps://www.themoviedb.org/\(self.movie!.itemType)/\(self.movie!.itemId)")
-            self.presentViewController(tweetShare, animated: true, completion: nil)
-            
-        } else {
-            
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
-            
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
-            
-            self.presentViewController(alert, animated: true, completion: nil)
-        }
-    }
-    
     @IBAction func shareButtonAction(sender: AnyObject) {
-        let alertController = UIAlertController(title: "Share \(self.movie!.title)", message: "Choose where to share this movie", preferredStyle: UIAlertControllerStyle.ActionSheet)
-        
-        let faceookAction = UIAlertAction(title: "Facebook", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            self.triggerFacebookShare()
-        }
-        let twitterAction = UIAlertAction(title: "Twitter", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-            self.triggerTwitterShare()
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
-            //
-        }
-        
-        alertController.addAction(faceookAction)
-        alertController.addAction(twitterAction)
-        alertController.addAction(cancelAction)
-        
-        self.presentViewController(alertController, animated: true) { () -> Void in
+        let objectsToShare: [String] = ["You should check out \(self.movie!.title)!", "https://www.themoviedb.org/\(self.movie!.itemType)/\(self.movie!.itemId)"]
+        let activityController = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        activityController.setValue(self.movie!.title, forKey: "Subject")
+        self.presentViewController(activityController, animated: true) { () -> Void in
             //code
         }
     }
