@@ -24,7 +24,7 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
         if isFav == true {
             self.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
         }
@@ -51,7 +51,6 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCellWithIdentifier("movieDescriptionCell", forIndexPath: indexPath) as! PCMainDetailsDescriptionTableViewCell
-            
             cell.movieOverviewLabel.text = movie!.overview
             return cell
         default:
@@ -80,7 +79,6 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
         }
         
         let alertController = UIAlertController(title: "\(self.movie!.title)", message: "\(self.movie!.overview)", preferredStyle: UIAlertControllerStyle.Alert)
-        
         
         let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
             self.movieDetailsMainSubTableView.deselectRowAtIndexPath(indexPath, animated: true)
