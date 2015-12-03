@@ -62,6 +62,7 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
         switch indexPath.row {
         case 0:
             return CGFloat(125)
@@ -78,7 +79,8 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
             return
         }
         
-        let alertController = UIAlertController(title: "\(self.movie!.title)", message: "\(self.movie!.overview)", preferredStyle: UIAlertControllerStyle.ActionSheet)
+        let alertController = UIAlertController(title: "\(self.movie!.title)", message: "\(self.movie!.overview)", preferredStyle: UIAlertControllerStyle.Alert)
+        
         
         let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
             self.movieDetailsMainSubTableView.deselectRowAtIndexPath(indexPath, animated: true)

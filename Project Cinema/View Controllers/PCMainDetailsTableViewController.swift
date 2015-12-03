@@ -113,9 +113,31 @@ class PCMainDetailsTableViewController: UITableViewController {
         
     }
     
-    var movie: PCMediaItem?
-    var cast: [PCMediaItemCast]?
-    var crew: [PCMediaItemCrew]?
+    var movie: PCMediaItem? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var cast: [PCMediaItemCast]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var crew: [PCMediaItemCrew]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var reviews: [PCMediaReview]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    var seasons: [PCMediaSeason]? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     
     var currentMediaItemIsInFav: Bool = false
     let realm = try! Realm()
@@ -161,21 +183,35 @@ class PCMainDetailsTableViewController: UITableViewController {
                         self.realm.add(self.movie!, update: true)
                     }
                 }
-                
-                self.tableView.reloadData()
         }
         
+        
         if let movie = self.movie {
-            let url = "https://api.themoviedb.org/3/\(movie.itemType)/\(movie.itemId)/credits"
+            var url = "https://api.themoviedb.org/3/\(movie.itemType)/\(movie.itemId)/credits"
             Alamofire
                 .request(.GET, url, parameters: urlParamteres)
                 .responseArray("cast") { (response: Response<[PCMediaItemCast], NSError>) in
                     self.cast = response.result.value
-                    self.tableView.reloadData()
                 }
                 .responseArray("crew") { (response: Response<[PCMediaItemCrew], NSError>) in
                     self.crew = response.result.value
-                    self.tableView.reloadData()
+            }
+            
+            if self.movie?.itemType == "movie" {
+                url = "https://api.themoviedb.org/3/movie/\(self.movie!.itemId)/reviews"
+                Alamofire
+                    .request(.GET, url, parameters: urlParamteres)
+                    .responseArray("results") { (response: Response<[PCMediaReview], NSError>) in
+                        self.reviews = response.result.value
+                }
+            }
+            else {
+                url = "https://api.themoviedb.org/3/tv/\(self.movie!.itemId)/season/"
+                Alamofire
+                    .request(.GET, url, parameters: urlParamteres)
+                    .responseArray { (response: Response<[PCMediaSeason], NSError>) in
+                        self.seasons = response.result.value
+                }
             }
 
         }
@@ -195,7 +231,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -203,6 +239,8 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
+            return 1
+        case 2:
             return 1
         default:
             return 0
@@ -261,7 +299,21 @@ class PCMainDetailsTableViewController: UITableViewController {
             cell.cast = self.cast
             
             cell.collectionView.scrollsToTop = false
-            cell.collectionView.reloadData()
+            return cell
+        case 2:
+            let cell = tableView.dequeueReusableCellWithIdentifier("reviewTableCell", forIndexPath: indexPath) as! PCMainDetialsReviewTableViewCell
+            
+            cell.reviewTable.scrollsToTop = false
+            
+            if self.movie!.itemType == "movie" {
+                cell.cellTitleLabel.text = "Reviews"
+                cell.reviews = self.reviews
+            }
+            else {
+                cell.cellTitleLabel.text = "Seasons"
+                cell.seasons = self.seasons
+            }
+            
             return cell
         default:
             break
@@ -279,6 +331,8 @@ class PCMainDetailsTableViewController: UITableViewController {
                 return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
             }
         case 1:
+            return 213
+        case 2:
             return 213
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)

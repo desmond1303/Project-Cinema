@@ -12,7 +12,11 @@ import SDWebImage
 
 class PCMainDetailsCastTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    var cast: [PCMediaItemCast]?
+    var cast: [PCMediaItemCast]? {
+        didSet {
+            self.collectionView.reloadData()
+        }
+    }
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cellTitleLabel: UILabel!

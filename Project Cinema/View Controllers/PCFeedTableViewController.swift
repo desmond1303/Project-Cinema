@@ -114,8 +114,6 @@ class PCFeedTableViewController: UITableViewController {
         }
         
         cell.collectionView.scrollsToTop = false
-        
-        //cell.collectionView.reloadData()
         return cell
     }
     

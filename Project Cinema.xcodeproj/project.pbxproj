@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		0F9254833D2A25C2BD68D71C /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */; };
 		7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */; };
+		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
+		7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */; };
+		7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */; };
 		7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */; };
 		7D9046DF1C046FEB00184C00 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */; };
 		7D9046E11C046FFE00184C00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */; };
@@ -33,6 +36,9 @@
 		20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Cinema.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema.debug.xcconfig"; sourceTree = "<group>"; };
 		64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Cinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSearchTableViewController.swift; path = "View Controllers/PCSearchTableViewController.swift"; sourceTree = "<group>"; };
+		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
+		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
+		7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaSeason.swift; path = Models/PCMediaSeason.swift; sourceTree = "<group>"; };
 		7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCFavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -107,6 +113,7 @@
 				7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */,
 				7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */,
 				7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */,
+				7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -167,7 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				7DE076D61C008BE500448979 /* PCMediaItem.swift */,
+				7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */,
 				7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */,
+				7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -298,10 +307,12 @@
 				7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */,
 				7DD98ECF1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift in Sources */,
 				7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */,
+				7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */,
 				7DD98EDA1C03183B00113FB3 /* PCMediaItemCast.swift in Sources */,
 				7DD98ED71C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift in Sources */,
 				7DD98ED31C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift in Sources */,
 				7DE076D01C00890F00448979 /* PCFeedTableViewController.swift in Sources */,
+				7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */,
 				7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */,
 				7DD98ED11C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift in Sources */,
 				7DE076BE1C0085D600448979 /* AppDelegate.swift in Sources */,
@@ -309,6 +320,7 @@
 				7DD98ED51C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift in Sources */,
 				7DD98ECB1C030AFA00113FB3 /* PCFeedTableViewCell.swift in Sources */,
 				7DE076D31C00897900448979 /* PCFavoritesTableViewController.swift in Sources */,
+				7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
