@@ -146,7 +146,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let thisMovieInRealm = realm.objects(PCMediaItem).filter("itemId = \(movie!.itemId)")
+        let thisMovieInRealm = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId)")
         
         if thisMovieInRealm.count > 0 {
             self.currentMediaItemIsInFav = true
@@ -170,6 +170,38 @@ class PCMainDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
+        
+//        let dateFormatter = NSDateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd"
+//        let todayAsString = dateFormatter.stringFromDate(NSDate())
+//        
+//        let accessStatistics = self.realm.objects(PCAccessStatistics).filter("date = \(todayAsString)")
+//        
+//        if accessStatistics.count == 0 {
+//            let newAccessStatistics = PCAccessStatistics()
+//            newAccessStatistics.date = todayAsString
+//            if self.movie!.itemType == movie {
+//                newAccessStatistics.movieCount = 1
+//            }
+//            else {
+//                newAccessStatistics.tvCount = 1
+//            }
+//            try! realm.write {
+//                self.realm.add(newAccessStatistics)
+//            }
+//        }
+//        else {
+//            if self.movie!.itemType == movie {
+//                accessStatistics[0].movieCount++
+//            }
+//            else {
+//                accessStatistics[0].tvCount++
+//            }
+//            
+//            try! realm.write {
+//                self.realm.add(accessStatistics[0], update: true)
+//            }
+//        }
         
         
         let url = "https://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)"

@@ -86,6 +86,7 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Project Cinema/Alamofire.framework"
   install_framework "Pods-Project Cinema/AlamofireObjectMapper.framework"
+  install_framework "Pods-Project Cinema/Charts.framework"
   install_framework "Pods-Project Cinema/ObjectMapper.framework"
   install_framework "Pods-Project Cinema/Realm.framework"
   install_framework "Pods-Project Cinema/RealmSwift.framework"
@@ -95,6 +96,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Project Cinema/Alamofire.framework"
   install_framework "Pods-Project Cinema/AlamofireObjectMapper.framework"
+  install_framework "Pods-Project Cinema/Charts.framework"
   install_framework "Pods-Project Cinema/ObjectMapper.framework"
   install_framework "Pods-Project Cinema/Realm.framework"
   install_framework "Pods-Project Cinema/RealmSwift.framework"

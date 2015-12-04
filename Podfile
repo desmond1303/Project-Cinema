@@ -11,6 +11,7 @@ pod 'AlamofireObjectMapper'
 pod 'SDWebImage'
 pod 'RealmSwift'
 pod 'youtube-ios-player-helper'
+pod 'Charts'
 
 end
 

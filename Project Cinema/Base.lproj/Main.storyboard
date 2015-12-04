@@ -82,10 +82,10 @@
             </objects>
             <point key="canvasLocation" x="1253" y="734"/>
         </scene>
-        <!--View Controller-->
+        <!--Statistics View Controller-->
         <scene sceneID="j7w-vj-NTz">
             <objects>
-                <viewController id="4x0-f1-dwd" sceneMemberID="viewController">
+                <viewController id="4x0-f1-dwd" customClass="PCStatisticsViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eTC-Gm-WRn"/>
                         <viewControllerLayoutGuide type="bottom" id="hiL-Sg-dBS"/>
@@ -93,10 +93,26 @@
                     <view key="view" contentMode="scaleToFill" id="1if-kV-jAt">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-42-Z56" customClass="BarChartView" customModule="Charts">
+                                <rect key="frame" x="20" y="20" width="560" height="523"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hiL-Sg-dBS" firstAttribute="top" secondItem="Un4-42-Z56" secondAttribute="bottom" constant="8" id="0L8-0K-uBq"/>
+                            <constraint firstItem="Un4-42-Z56" firstAttribute="top" secondItem="eTC-Gm-WRn" secondAttribute="bottom" id="3ww-0z-Jbm"/>
+                            <constraint firstItem="Un4-42-Z56" firstAttribute="trailing" secondItem="1if-kV-jAt" secondAttribute="trailingMargin" id="JKM-Fz-L9e"/>
+                            <constraint firstItem="Un4-42-Z56" firstAttribute="leading" secondItem="1if-kV-jAt" secondAttribute="leadingMargin" id="bsl-Sl-0fi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="more" id="68B-0C-CTv"/>
+                    <connections>
+                        <outlet property="barChartView" destination="Un4-42-Z56" id="zsI-J4-Qaj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="irH-cH-55z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
