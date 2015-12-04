@@ -374,15 +374,20 @@ class PCMainDetailsTableViewController: UITableViewController {
     }
     */
     
-    /*
+    
     // MARK: - Navigation
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showTrailers" {
+            let destinationViewController = segue.destinationViewController as! PCTrailersTableViewController
+            destinationViewController.mediaItemType = self.movie!.itemType
+            destinationViewController.mediaItemId = self.movie!.itemId
+        }
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
     }
-    */
+    
     
 }
 

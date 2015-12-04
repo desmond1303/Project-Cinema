@@ -400,6 +400,9 @@
                                                         <animations/>
                                                     </tableViewCellContentView>
                                                     <animations/>
+                                                    <connections>
+                                                        <segue destination="qmv-pF-Glj" kind="show" identifier="showTrailers" id="CIs-8G-4dt"/>
+                                                    </connections>
                                                 </tableViewCell>
                                             </prototypes>
                                             <connections>
@@ -717,6 +720,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7g-UL-b4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="2543"/>
+        </scene>
+        <!--Trailers Table View Controller-->
+        <scene sceneID="Jct-Fr-sDh">
+            <objects>
+                <tableViewController id="qmv-pF-Glj" customClass="PCTrailersTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="300" sectionHeaderHeight="18" sectionFooterHeight="18" id="8RV-Qu-OhE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trailerCell" id="Poo-2n-9dC" customClass="PCTrailerTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="114" width="600" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Poo-2n-9dC" id="gcD-WV-Nae">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ngt-3p-Rcu" customClass="YTPlayerView">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="ngt-3p-Rcu" secondAttribute="bottom" id="LGP-mE-v6r"/>
+                                        <constraint firstAttribute="trailing" secondItem="ngt-3p-Rcu" secondAttribute="trailing" id="ZBl-iI-UGA"/>
+                                        <constraint firstItem="ngt-3p-Rcu" firstAttribute="top" secondItem="gcD-WV-Nae" secondAttribute="top" id="dHx-Lu-98b"/>
+                                        <constraint firstItem="ngt-3p-Rcu" firstAttribute="leading" secondItem="gcD-WV-Nae" secondAttribute="leading" id="fwW-2F-VCW"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="trailerView" destination="ngt-3p-Rcu" id="fjE-1d-Bmb"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="qmv-pF-Glj" id="Dps-XA-07p"/>
+                            <outlet property="delegate" destination="qmv-pF-Glj" id="FvH-Qj-8Xy"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Th4-Vf-Zjx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="670" y="2543"/>
         </scene>
         <!--Favorites Table View Controller-->
         <scene sceneID="5n6-3C-Q6X">

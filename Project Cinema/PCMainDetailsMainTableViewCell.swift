@@ -55,7 +55,7 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("movieTraillerCell", forIndexPath: indexPath)
-            cell.textLabel?.text = "Watch Trailer"
+            cell.textLabel?.text = "Videos"
             return cell
         }
     }

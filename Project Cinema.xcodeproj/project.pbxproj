@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0F9254833D2A25C2BD68D71C /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */; };
+		7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */; };
+		7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */; };
+		7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19479B1C11897A000796FB /* PCTrailer.swift */; };
 		7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */; };
 		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
 		7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */; };
@@ -36,6 +39,9 @@
 /* Begin PBXFileReference section */
 		20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Cinema.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema.debug.xcconfig"; sourceTree = "<group>"; };
 		64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Cinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailersTableViewController.swift; path = "View Controllers/PCTrailersTableViewController.swift"; sourceTree = "<group>"; };
+		7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCTrailerTableViewCell.swift; sourceTree = "<group>"; };
+		7D19479B1C11897A000796FB /* PCTrailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailer.swift; path = Models/PCTrailer.swift; sourceTree = "<group>"; };
 		7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSearchTableViewController.swift; path = "View Controllers/PCSearchTableViewController.swift"; sourceTree = "<group>"; };
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
@@ -48,7 +54,7 @@
 		7DD98ECE1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsMainTableViewCell.swift; sourceTree = "<group>"; };
 		7DD98ED01C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsDescriptionTableViewCell.swift; sourceTree = "<group>"; };
 		7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsRatingTableViewCell.swift; sourceTree = "<group>"; };
-		7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsCastTableViewCell.swift; sourceTree = "<group>"; };
+		7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsCastTableViewCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		7DD98ED61C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMediaItemCollectionViewCell.swift; sourceTree = "<group>"; };
 		7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaItemCast.swift; path = Models/PCMediaItemCast.swift; sourceTree = "<group>"; };
 		7DE076BA1C0085D600448979 /* Project Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +103,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7D1947951C1186E0000796FB /* Feed Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7DD98ECA1C030AFA00113FB3 /* PCFeedTableViewCell.swift */,
+			);
+			name = "Feed Cells";
+			sourceTree = "<group>";
+		};
+		7D1947961C1186F0000796FB /* Details Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7DD98ECE1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift */,
+				7DD98ED01C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift */,
+				7D67CE031C1052CF00BC1101 /* PCMainDetailsTrailerTableViewCell.swift */,
+				7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */,
+				7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */,
+				7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */,
+			);
+			name = "Details Cells";
+			sourceTree = "<group>";
+		};
+		7D1947971C1186FC000796FB /* Favorites Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */,
+			);
+			name = "Favorites Cells";
+			sourceTree = "<group>";
+		};
+		7D19479A1C11871C000796FB /* Details Trailers Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */,
+			);
+			name = "Details Trailers Cells";
+			sourceTree = "<group>";
+		};
 		7DD98ECC1C030B1F00113FB3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,14 +152,10 @@
 		7DD98ECD1C030B2600113FB3 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				7DD98ECA1C030AFA00113FB3 /* PCFeedTableViewCell.swift */,
-				7DD98ECE1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift */,
-				7DD98ED01C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift */,
-				7D67CE031C1052CF00BC1101 /* PCMainDetailsTrailerTableViewCell.swift */,
-				7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */,
-				7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */,
-				7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */,
-				7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */,
+				7D1947951C1186E0000796FB /* Feed Cells */,
+				7D1947961C1186F0000796FB /* Details Cells */,
+				7D1947971C1186FC000796FB /* Favorites Cells */,
+				7D19479A1C11871C000796FB /* Details Trailers Cells */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -169,6 +208,7 @@
 				7DE076D21C00897900448979 /* PCFavoritesTableViewController.swift */,
 				7DE076D41C0089F500448979 /* PCMainDetailsTableViewController.swift */,
 				7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */,
+				7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -180,6 +220,7 @@
 				7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */,
 				7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */,
 				7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */,
+				7D19479B1C11897A000796FB /* PCTrailer.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -310,10 +351,13 @@
 				7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */,
 				7DD98ECF1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift in Sources */,
 				7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */,
+				7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */,
+				7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */,
 				7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */,
 				7D67CE041C1052CF00BC1101 /* PCMainDetailsTrailerTableViewCell.swift in Sources */,
 				7DD98EDA1C03183B00113FB3 /* PCMediaItemCast.swift in Sources */,
 				7DD98ED71C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift in Sources */,
+				7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */,
 				7DD98ED31C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift in Sources */,
 				7DE076D01C00890F00448979 /* PCFeedTableViewController.swift in Sources */,
 				7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */,

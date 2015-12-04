@@ -90,6 +90,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Project Cinema/Realm.framework"
   install_framework "Pods-Project Cinema/RealmSwift.framework"
   install_framework "Pods-Project Cinema/SDWebImage.framework"
+  install_framework "Pods-Project Cinema/youtube_ios_player_helper.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Project Cinema/Alamofire.framework"
@@ -98,4 +99,5 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Project Cinema/Realm.framework"
   install_framework "Pods-Project Cinema/RealmSwift.framework"
   install_framework "Pods-Project Cinema/SDWebImage.framework"
+  install_framework "Pods-Project Cinema/youtube_ios_player_helper.framework"
 fi
