@@ -96,12 +96,12 @@ class PCMediaItem: Object, Mappable {
         var poster_path: String
         var season_number: Int
     }
-    
+    */
     //var created_by = [Creator]()
     //dynamic var episode_run_time = [Int]()
     dynamic var first_air_date: String = ""
     dynamic var in_production: Bool = false
-    dynamic var languages = [String]()
+    //dynamic var languages = [String]()
     dynamic var last_air_date: String = ""
     //var networks = [Network]()
     dynamic var number_of_episodes: Int = 0
@@ -110,8 +110,6 @@ class PCMediaItem: Object, Mappable {
     //var seasons = [Season]()
     dynamic var type: String = ""
     
-    //var test: AnyObject?
-    */
     
     required convenience init?(_ map: Map) {
         self.init()
@@ -150,6 +148,17 @@ class PCMediaItem: Object, Mappable {
         //self.spoken_languages = [SpokenLanguage]()
         self.tagline = object.tagline
         self.video = object.video
+        
+        self.first_air_date = object.first_air_date
+        self.in_production = object.in_production
+        //self.languages = [String]()
+        self.last_air_date = object.last_air_date
+        //self.networks = [Network]()
+        self.number_of_episodes = object.number_of_episodes
+        self.number_of_seasons = object.number_of_seasons
+        //self.origin_country = [String]()
+        //self.seasons = [Season]()
+        self.type = object.type
     }
     
     func mapping(map: Map) {
@@ -184,6 +193,17 @@ class PCMediaItem: Object, Mappable {
         //self.spoken_languages = [SpokenLanguage]()
         self.tagline <- map["tagline"]
         self.video <- map["video"]
+        
+        self.first_air_date <- map["first_air_date"]
+        self.in_production <- map["in_production"]
+        //self.languages <- map["languages"]
+        self.last_air_date <- map["last_air_date"]
+        //self.networks = [Network]()
+        self.number_of_episodes <- map["number_of_episodes"]
+        self.number_of_seasons <- map["number_of_seasons"]
+        //self.origin_country = [String]()
+        //self.seasons = [Season]()
+        self.type <- map["type"]
     }
     
     override class func primaryKey() -> String {

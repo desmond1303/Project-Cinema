@@ -273,10 +273,16 @@ class PCMainDetailsTableViewController: UITableViewController {
                 
                 let attributedMediaTitleString = NSMutableAttributedString(string: "\(self.movie!.title) ")
                 let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]
-                let gString = NSMutableAttributedString(string: "(\(self.movie!.release_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
                 
-                attributedMediaTitleString.appendAttributedString(gString)
-                
+                if self.movie!.itemType == "movie" {
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.release_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    attributedMediaTitleString.appendAttributedString(gString)
+                }
+                else {
+                    
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.first_air_date.componentsSeparatedByString("-")[0]) - \(self.movie!.in_production ? " " : self.movie!.last_air_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    attributedMediaTitleString.appendAttributedString(gString)
+                }
                 
                 cell.movieTitleLabel.attributedText = attributedMediaTitleString
                 cell.movieRuntimeAndGenres.text = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
@@ -387,8 +393,6 @@ class PCMainDetailsTableViewController: UITableViewController {
             let senderCell = sender as! PCMainDetailsTrailerTableViewCell
             senderCell.selected = false
         }
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
     }
     
     

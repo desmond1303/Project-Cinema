@@ -21,7 +21,6 @@ class PCFavoritesTableViewController: UITableViewController {
             self.favorites.append(fav)
             self.tableView.reloadData()
         }
-        
     }
     
     override func viewWillAppear(animated: Bool) {

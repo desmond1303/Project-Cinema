@@ -21,6 +21,7 @@
                         <segue destination="Bon-iA-ich" kind="relationship" relationship="viewControllers" id="HcX-2d-t43"/>
                         <segue destination="HRU-NU-k4f" kind="relationship" relationship="viewControllers" id="kCh-id-uPF"/>
                         <segue destination="D6c-j3-Ifg" kind="relationship" relationship="viewControllers" id="Tp9-VT-JSA"/>
+                        <segue destination="4x0-f1-dwd" kind="relationship" relationship="viewControllers" id="xgL-Pb-jru"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -80,6 +81,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7F2-lM-H0e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1253" y="734"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="j7w-vj-NTz">
+            <objects>
+                <viewController id="4x0-f1-dwd" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="eTC-Gm-WRn"/>
+                        <viewControllerLayoutGuide type="bottom" id="hiL-Sg-dBS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1if-kV-jAt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="68B-0C-CTv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="irH-cH-55z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1880" y="734"/>
         </scene>
         <!--Feed-->
         <scene sceneID="a31-vY-IQz">
@@ -768,7 +789,7 @@
             </objects>
             <point key="canvasLocation" x="670" y="2543"/>
         </scene>
-        <!--Favorites Table View Controller-->
+        <!--Favorites-->
         <scene sceneID="5n6-3C-Q6X">
             <objects>
                 <tableViewController id="j8I-Z9-EVM" customClass="PCFavoritesTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
@@ -821,13 +842,13 @@
                             <outlet property="delegate" destination="j8I-Z9-EVM" id="pHr-n9-vPP"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="9p6-a3-LxL"/>
+                    <navigationItem key="navigationItem" title="Favorites" id="9p6-a3-LxL"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VpL-0E-mfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="626" y="1445"/>
         </scene>
-        <!--Search Table View Controller-->
+        <!--Search-->
         <scene sceneID="TNa-CH-kaE">
             <objects>
                 <tableViewController id="AQM-OP-FIr" customClass="PCSearchTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
@@ -874,7 +895,7 @@
                             <outlet property="delegate" destination="AQM-OP-FIr" id="ADr-FF-9ed"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Ttv-K5-Mmw"/>
+                    <navigationItem key="navigationItem" title="Search" id="Ttv-K5-Mmw"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yAm-L3-CBK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -892,6 +913,6 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ARj-tT-Kvi"/>
+        <segue reference="AZk-xC-Llh"/>
     </inferredMetricsTieBreakers>
 </document>
