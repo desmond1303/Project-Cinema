@@ -55,7 +55,17 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
             return cell
         default:
             let cell = tableView.dequeueReusableCellWithIdentifier("movieTraillerCell", forIndexPath: indexPath)
+            
             cell.textLabel?.text = "Videos"
+            
+//            if self.movie!.video == false {
+//                cell.userInteractionEnabled = true
+//                cell.alpha = 1
+//            }
+//            else {
+//                cell.userInteractionEnabled = false
+//                cell.alpha = 0.5
+//            }
             return cell
         }
     }

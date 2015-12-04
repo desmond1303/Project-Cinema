@@ -383,6 +383,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             let destinationViewController = segue.destinationViewController as! PCTrailersTableViewController
             destinationViewController.mediaItemType = self.movie!.itemType
             destinationViewController.mediaItemId = self.movie!.itemId
+            destinationViewController.title = "Videos"
         }
     // Get the new view controller using segue.destinationViewController.
     // Pass the selected object to the new view controller.
