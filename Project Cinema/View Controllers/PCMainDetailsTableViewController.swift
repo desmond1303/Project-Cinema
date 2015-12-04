@@ -286,7 +286,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 }
                 else {
                     
-                    let gString = NSMutableAttributedString(string: "(\(self.movie!.first_air_date.componentsSeparatedByString("-")[0]) - \(self.movie!.in_production ? " " : self.movie!.last_air_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.first_air_date.componentsSeparatedByString("-")[0]) - \(self.movie!.in_production ? "Present" : self.movie!.last_air_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
                     //runtimeAndGenres = "\(self.episodeRuntimes![0]/60)h \(self.episodeRuntimes![0]%60)m - \(self.episodeRuntimes![1]/60)h \(self.episodeRuntimes![1]%60)m"
