@@ -138,6 +138,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             self.tableView.reloadData()
         }
     }
+
     
     var currentMediaItemIsInFav: Bool = false
     let realm = try! Realm()
@@ -212,6 +213,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                     .responseArray { (response: Response<[PCMediaSeason], NSError>) in
                         self.seasons = response.result.value
                 }
+                
             }
 
         }
@@ -274,18 +276,24 @@ class PCMainDetailsTableViewController: UITableViewController {
                 let attributedMediaTitleString = NSMutableAttributedString(string: "\(self.movie!.title) ")
                 let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]
                 
+                var runtimeAndGenres = ""
+                
                 if self.movie!.itemType == "movie" {
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.release_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
+                    
+                    runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
                 }
                 else {
                     
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.first_air_date.componentsSeparatedByString("-")[0]) - \(self.movie!.in_production ? " " : self.movie!.last_air_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
+                    
+                    //runtimeAndGenres = "\(self.episodeRuntimes![0]/60)h \(self.episodeRuntimes![0]%60)m - \(self.episodeRuntimes![1]/60)h \(self.episodeRuntimes![1]%60)m"
                 }
                 
                 cell.movieTitleLabel.attributedText = attributedMediaTitleString
-                cell.movieRuntimeAndGenres.text = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
+                cell.movieRuntimeAndGenres.text = runtimeAndGenres
                 cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movie!.posterPath)"))
                 
                 return cell
