@@ -21,7 +21,7 @@
                         <segue destination="Bon-iA-ich" kind="relationship" relationship="viewControllers" id="HcX-2d-t43"/>
                         <segue destination="HRU-NU-k4f" kind="relationship" relationship="viewControllers" id="kCh-id-uPF"/>
                         <segue destination="D6c-j3-Ifg" kind="relationship" relationship="viewControllers" id="Tp9-VT-JSA"/>
-                        <segue destination="4x0-f1-dwd" kind="relationship" relationship="viewControllers" id="xgL-Pb-jru"/>
+                        <segue destination="eLK-El-ety" kind="relationship" relationship="viewControllers" id="L0f-Gg-N5A"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
@@ -82,41 +82,53 @@
             </objects>
             <point key="canvasLocation" x="1253" y="734"/>
         </scene>
-        <!--Statistics View Controller-->
-        <scene sceneID="j7w-vj-NTz">
+        <!--Settings Table View Controller-->
+        <scene sceneID="nM4-uh-IIf">
             <objects>
-                <viewController id="4x0-f1-dwd" customClass="PCStatisticsViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eTC-Gm-WRn"/>
-                        <viewControllerLayoutGuide type="bottom" id="hiL-Sg-dBS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1if-kV-jAt">
+                <tableViewController id="eLK-El-ety" customClass="PCSettingsTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="250" sectionHeaderHeight="18" sectionFooterHeight="18" id="UcM-at-11T">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-42-Z56" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="20" width="560" height="523"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="hiL-Sg-dBS" firstAttribute="top" secondItem="Un4-42-Z56" secondAttribute="bottom" constant="8" id="0L8-0K-uBq"/>
-                            <constraint firstItem="Un4-42-Z56" firstAttribute="top" secondItem="eTC-Gm-WRn" secondAttribute="bottom" id="3ww-0z-Jbm"/>
-                            <constraint firstItem="Un4-42-Z56" firstAttribute="trailing" secondItem="1if-kV-jAt" secondAttribute="trailingMargin" id="JKM-Fz-L9e"/>
-                            <constraint firstItem="Un4-42-Z56" firstAttribute="leading" secondItem="1if-kV-jAt" secondAttribute="leadingMargin" id="bsl-Sl-0fi"/>
-                        </constraints>
-                    </view>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="68B-0C-CTv"/>
-                    <connections>
-                        <outlet property="barChartView" destination="Un4-42-Z56" id="zsI-J4-Qaj"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="irH-cH-55z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityChartCell" id="Fdx-2U-tX5" customClass="PCActivityChartTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="50" width="600" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fdx-2U-tX5" id="0Mu-Iq-9tj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-42-Z56" customClass="BarChartView" customModule="Charts">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                            <animations/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Un4-42-Z56" firstAttribute="leading" secondItem="0Mu-Iq-9tj" secondAttribute="leading" id="JQ9-VN-kIf"/>
+                                        <constraint firstItem="Un4-42-Z56" firstAttribute="top" secondItem="0Mu-Iq-9tj" secondAttribute="top" id="m6f-SG-eqi"/>
+                                        <constraint firstAttribute="bottom" secondItem="Un4-42-Z56" secondAttribute="bottom" id="nVh-zT-VVi"/>
+                                        <constraint firstAttribute="trailing" secondItem="Un4-42-Z56" secondAttribute="trailing" id="o0J-sD-rGr"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <connections>
+                                    <outlet property="barChartView" destination="Un4-42-Z56" id="T6Z-zb-wA8"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="eLK-El-ety" id="X21-yv-LnB"/>
+                            <outlet property="delegate" destination="eLK-El-ety" id="etw-Oz-gvv"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="FHN-JW-K7b"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9F-tb-HMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1880" y="734"/>
+            <point key="canvasLocation" x="1876" y="734"/>
         </scene>
         <!--Feed-->
         <scene sceneID="a31-vY-IQz">

@@ -12,6 +12,8 @@
 		7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */; };
 		7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19479B1C11897A000796FB /* PCTrailer.swift */; };
 		7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */; };
+		7D65DA0A1C1599E4004F1326 /* PCSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */; };
+		7D65DA0C1C159A1B004F1326 /* PCActivityChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */; };
 		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
 		7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */; };
 		7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */; };
@@ -33,7 +35,6 @@
 		7DE076D31C00897900448979 /* PCFavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D21C00897900448979 /* PCFavoritesTableViewController.swift */; };
 		7DE076D51C0089F500448979 /* PCMainDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D41C0089F500448979 /* PCMainDetailsTableViewController.swift */; };
 		7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D61C008BE500448979 /* PCMediaItem.swift */; };
-		7DE5706B1C119F540039299C /* PCStatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE5706A1C119F540039299C /* PCStatisticsViewController.swift */; };
 		7DE5706D1C11A5790039299C /* PCAccessStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,8 @@
 		7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCTrailerTableViewCell.swift; sourceTree = "<group>"; };
 		7D19479B1C11897A000796FB /* PCTrailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailer.swift; path = Models/PCTrailer.swift; sourceTree = "<group>"; };
 		7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSearchTableViewController.swift; path = "View Controllers/PCSearchTableViewController.swift"; sourceTree = "<group>"; };
+		7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSettingsTableViewController.swift; path = "View Controllers/PCSettingsTableViewController.swift"; sourceTree = "<group>"; };
+		7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCActivityChartTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
 		7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaSeason.swift; path = Models/PCMediaSeason.swift; sourceTree = "<group>"; };
@@ -67,7 +70,6 @@
 		7DE076D21C00897900448979 /* PCFavoritesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCFavoritesTableViewController.swift; path = "View Controllers/PCFavoritesTableViewController.swift"; sourceTree = "<group>"; };
 		7DE076D41C0089F500448979 /* PCMainDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMainDetailsTableViewController.swift; path = "View Controllers/PCMainDetailsTableViewController.swift"; sourceTree = "<group>"; };
 		7DE076D61C008BE500448979 /* PCMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaItem.swift; path = Models/PCMediaItem.swift; sourceTree = "<group>"; };
-		7DE5706A1C119F540039299C /* PCStatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCStatisticsViewController.swift; path = "View Controllers/PCStatisticsViewController.swift"; sourceTree = "<group>"; };
 		7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCAccessStatistics.swift; path = "View Controllers/PCAccessStatistics.swift"; sourceTree = "<group>"; };
 		E9985CB536935E7781E6914C /* Pods-Project Cinema.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Cinema.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,14 @@
 			name = "Details Trailers Cells";
 			sourceTree = "<group>";
 		};
+		7D65DA0D1C159A1F004F1326 /* Settings Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */,
+			);
+			name = "Settings Cells";
+			sourceTree = "<group>";
+		};
 		7DD98ECC1C030B1F00113FB3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,6 +167,7 @@
 				7D1947961C1186F0000796FB /* Details Cells */,
 				7D1947971C1186FC000796FB /* Favorites Cells */,
 				7D19479A1C11871C000796FB /* Details Trailers Cells */,
+				7D65DA0D1C159A1F004F1326 /* Settings Cells */,
 			);
 			name = "Table Cells";
 			sourceTree = "<group>";
@@ -210,7 +221,7 @@
 				7DE076D41C0089F500448979 /* PCMainDetailsTableViewController.swift */,
 				7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */,
 				7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */,
-				7DE5706A1C119F540039299C /* PCStatisticsViewController.swift */,
+				7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -354,12 +365,14 @@
 				7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */,
 				7DD98ECF1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift in Sources */,
 				7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */,
+				7D65DA0A1C1599E4004F1326 /* PCSettingsTableViewController.swift in Sources */,
 				7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */,
 				7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */,
 				7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */,
 				7DD98EDA1C03183B00113FB3 /* PCMediaItemCast.swift in Sources */,
 				7DD98ED71C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift in Sources */,
 				7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */,
+				7D65DA0C1C159A1B004F1326 /* PCActivityChartTableViewCell.swift in Sources */,
 				7DD98ED31C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift in Sources */,
 				7DE5706D1C11A5790039299C /* PCAccessStatistics.swift in Sources */,
 				7DE076D01C00890F00448979 /* PCFeedTableViewController.swift in Sources */,
@@ -367,7 +380,6 @@
 				7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */,
 				7DD98ED11C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift in Sources */,
 				7DE076BE1C0085D600448979 /* AppDelegate.swift in Sources */,
-				7DE5706B1C119F540039299C /* PCStatisticsViewController.swift in Sources */,
 				7DE076D51C0089F500448979 /* PCMainDetailsTableViewController.swift in Sources */,
 				7DD98ED51C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift in Sources */,
 				7DD98ECB1C030AFA00113FB3 /* PCFeedTableViewCell.swift in Sources */,

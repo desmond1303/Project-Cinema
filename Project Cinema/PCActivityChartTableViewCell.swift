@@ -1,8 +1,8 @@
 //
-//  PCStatisticsViewController.swift
+//  PCActivityChartTableViewCell.swift
 //  Project Cinema
 //
-//  Created by Dino Praso on 4.12.15.
+//  Created by Dino Praso on 7.12.15.
 //  Copyright © 2015 Dino Praso. All rights reserved.
 //
 
@@ -22,12 +22,11 @@ extension Array {
     }
 }
 
-class PCStatisticsViewController: UIViewController, ChartViewDelegate {
+class PCActivityChartTableViewCell: UITableViewCell, ChartViewDelegate {
 
     @IBOutlet weak var barChartView: BarChartView!
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         let realm = try! Realm()
         let dateMaker = NSDateFormatter()
@@ -67,20 +66,20 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
         let todayName = dayMaker.stringFromDate(NSDate())
         
         switch todayName {
-            case "Monday":
-                xVals = xVals.shiftRight(1)
-            case "Tuesday":
-                xVals = xVals.shiftRight(2)
-            case "Wednsday":
-                xVals = xVals.shiftRight(3)
-            case "Thursday":
-                xVals = xVals.shiftRight(4)
-            case "Friday":
-                xVals = xVals.shiftRight(5)
-            case "Saturday":
-                xVals = xVals.shiftRight(6)
-            default:
-                xVals = xVals.shiftRight(0)
+        case "Monday":
+            xVals = xVals.shiftRight(1)
+        case "Tuesday":
+            xVals = xVals.shiftRight(2)
+        case "Wednsday":
+            xVals = xVals.shiftRight(3)
+        case "Thursday":
+            xVals = xVals.shiftRight(4)
+        case "Friday":
+            xVals = xVals.shiftRight(5)
+        case "Saturday":
+            xVals = xVals.shiftRight(6)
+        default:
+            xVals = xVals.shiftRight(0)
         }
         
         let MovieDataSet = BarChartDataSet(yVals: [
@@ -91,7 +90,7 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
             BarChartDataEntry(value: Double(todayMinusFourStatObject?.movieCount ?? 0), xIndex: 2),
             BarChartDataEntry(value: Double(todayMinusFiveStatObject?.movieCount ?? 0), xIndex: 1),
             BarChartDataEntry(value: Double(todayMinusSixStatObject?.movieCount ?? 0), xIndex: 0)
-        ], label: "Movies")
+            ], label: "Movies")
         
         let TVDataSet = BarChartDataSet(yVals: [
             BarChartDataEntry(value: Double(todayStatObject?.tvCount ?? 0), xIndex: 6),
@@ -101,13 +100,13 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
             BarChartDataEntry(value: Double(todayMinusFourStatObject?.tvCount ?? 0), xIndex: 2),
             BarChartDataEntry(value: Double(todayMinusFiveStatObject?.tvCount ?? 0), xIndex: 1),
             BarChartDataEntry(value: Double(todayMinusSixStatObject?.tvCount ?? 0), xIndex: 0)
-        ], label: "TV Shows")
+            ], label: "TV Shows")
         
-        MovieDataSet.colors = [UIColor.redColor()]
+        MovieDataSet.colors = [UIColor(red: 0.1294117647, green: 0.5882352941, blue: 0.9529411765, alpha: 1)]
         MovieDataSet.valueFormatter = NSNumberFormatter()
         MovieDataSet.valueFormatter?.minimumFractionDigits = 0
         
-        TVDataSet.colors = [UIColor.blueColor()]
+        TVDataSet.colors = [UIColor(red: 0.5647058824, green: 0.7921568627, blue: 0.9764705882, alpha: 1)]
         TVDataSet.valueFormatter = NSNumberFormatter()
         TVDataSet.valueFormatter?.minimumFractionDigits = 0
         
@@ -115,31 +114,21 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
         data.setValueFont(UIFont(name: "Avenir", size: 12))
         self.barChartView.data = data
         
+        let leftAxis = self.barChartView.getAxis(ChartYAxis.AxisDependency.Left)
+        let rightAxis = self.barChartView.getAxis(ChartYAxis.AxisDependency.Right)
+        
+        leftAxis.valueFormatter = NSNumberFormatter()
+        leftAxis.valueFormatter?.minimumFractionDigits = 0
+        rightAxis.enabled = false
+        
         self.barChartView.descriptionText = ""
         // self.view.reloadInputViews()
-
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.barChartView.delegate = self;
-
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        // Configure the view for the selected state
     }
-    */
 
 }
