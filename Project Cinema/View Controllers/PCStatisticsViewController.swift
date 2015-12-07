@@ -10,6 +10,18 @@ import UIKit
 import RealmSwift
 import Charts
 
+extension Array {
+    func shiftRight(var amount: Int = 1) -> [Element] {
+        assert(-count...count ~= amount, "Shift amount out of bounds")
+        if amount < 0 { amount += count }  // this needs to be >= 0
+        return Array(self[amount ..< count] + self[0 ..< amount])
+    }
+    
+    mutating func shiftRightInPlace(amount: Int = 1) {
+        self = shiftRight(amount)
+    }
+}
+
 class PCStatisticsViewController: UIViewController, ChartViewDelegate {
 
     @IBOutlet weak var barChartView: BarChartView!
@@ -37,16 +49,6 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
         let todayMinusFiveStatObject = realm.objects(PCAccessStatistics).filter("date = '\(todayMinusFive)'").first
         let todayMinusSixStatObject = realm.objects(PCAccessStatistics).filter("date = '\(todayMinusSix)'").first
         
-        //        if todaysStatObject.count == 0 {
-        //            try! realm.write {
-        //                let newToday = PCAccessStatistics()
-        //                newToday.date = todayString
-        //                newToday.movieCount = 0
-        //                newToday.tvCount = 0
-        //                realm.add(newToday)
-        //            }
-        //        }
-        
         self.barChartView.drawBarShadowEnabled = false
         self.barChartView.drawValueAboveBarEnabled = true
         
@@ -57,7 +59,32 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
         self.barChartView.drawGridBackgroundEnabled = true
         self.barChartView.drawBordersEnabled = false
         
-        let xVals = ["M", "T", "W", "T", "F", "S", "S"]
+        var xVals = ["M", "T", "W", "T", "F", "S", "S"]
+        
+        let dayMaker = NSDateFormatter()
+        dayMaker.dateFormat = "EEEE"
+        
+        let todayName = dayMaker.stringFromDate(NSDate())
+        
+        switch todayName {
+            case "Monday":
+                xVals = xVals.shiftRight(1)
+            case "Tuesday":
+                xVals = xVals.shiftRight(2)
+            case "Wednsday":
+                xVals = xVals.shiftRight(3)
+            case "Thursday":
+                xVals = xVals.shiftRight(4)
+            case "Friday":
+                xVals = xVals.shiftRight(5)
+            case "Saturday":
+                xVals = xVals.shiftRight(6)
+            default:
+                xVals = xVals.shiftRight(0)
+        }
+        
+        xVals.shiftRight(3)
+        
         let yValsMovie = [
             BarChartDataEntry(value: Double(todayStatObject?.movieCount ?? 0), xIndex: 6),
             BarChartDataEntry(value: Double(todayMinusOneStatObject?.movieCount ?? 0), xIndex: 5),
