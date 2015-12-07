@@ -9,6 +9,12 @@
 import UIKit
 
 class PCSettingsTableViewController: UITableViewController {
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.tableView.reloadData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +45,7 @@ class PCSettingsTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("ActivityChartCell", forIndexPath: indexPath) as! PCActivityChartTableViewCell
-
+        cell.setupChart()
         return cell
     }
     

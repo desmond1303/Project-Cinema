@@ -27,7 +27,16 @@ class PCActivityChartTableViewCell: UITableViewCell, ChartViewDelegate {
     @IBOutlet weak var barChartView: BarChartView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.setupChart()
+    }
+
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+    
+    func setupChart() {
         let realm = try! Realm()
         let dateMaker = NSDateFormatter()
         dateMaker.dateFormat = "yyyy-MM-dd"
@@ -123,12 +132,6 @@ class PCActivityChartTableViewCell: UITableViewCell, ChartViewDelegate {
         
         self.barChartView.descriptionText = ""
         // self.view.reloadInputViews()
-    }
-
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
 
 }
