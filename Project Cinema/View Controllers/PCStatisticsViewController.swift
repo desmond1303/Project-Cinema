@@ -83,9 +83,7 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
                 xVals = xVals.shiftRight(0)
         }
         
-        xVals.shiftRight(3)
-        
-        let yValsMovie = [
+        let MovieDataSet = BarChartDataSet(yVals: [
             BarChartDataEntry(value: Double(todayStatObject?.movieCount ?? 0), xIndex: 6),
             BarChartDataEntry(value: Double(todayMinusOneStatObject?.movieCount ?? 0), xIndex: 5),
             BarChartDataEntry(value: Double(todayMinusTwoStatObject?.movieCount ?? 0), xIndex: 4),
@@ -93,8 +91,9 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
             BarChartDataEntry(value: Double(todayMinusFourStatObject?.movieCount ?? 0), xIndex: 2),
             BarChartDataEntry(value: Double(todayMinusFiveStatObject?.movieCount ?? 0), xIndex: 1),
             BarChartDataEntry(value: Double(todayMinusSixStatObject?.movieCount ?? 0), xIndex: 0)
-        ]
-        let yValsTV = [
+        ], label: "Movies")
+        
+        let TVDataSet = BarChartDataSet(yVals: [
             BarChartDataEntry(value: Double(todayStatObject?.tvCount ?? 0), xIndex: 6),
             BarChartDataEntry(value: Double(todayMinusOneStatObject?.tvCount ?? 0), xIndex: 5),
             BarChartDataEntry(value: Double(todayMinusTwoStatObject?.tvCount ?? 0), xIndex: 4),
@@ -102,12 +101,17 @@ class PCStatisticsViewController: UIViewController, ChartViewDelegate {
             BarChartDataEntry(value: Double(todayMinusFourStatObject?.tvCount ?? 0), xIndex: 2),
             BarChartDataEntry(value: Double(todayMinusFiveStatObject?.tvCount ?? 0), xIndex: 1),
             BarChartDataEntry(value: Double(todayMinusSixStatObject?.tvCount ?? 0), xIndex: 0)
-        ]
+        ], label: "TV Shows")
         
-        let sets = [BarChartDataSet(yVals: yValsMovie, label: "Movies"), BarChartDataSet(yVals: yValsTV, label: "TV Shows")]
-        sets[0].colors = [UIColor.redColor()]
+        MovieDataSet.colors = [UIColor.redColor()]
+        MovieDataSet.valueFormatter = NSNumberFormatter()
+        MovieDataSet.valueFormatter?.minimumFractionDigits = 0
         
-        let data = BarChartData(xVals: xVals, dataSets: sets)
+        TVDataSet.colors = [UIColor.blueColor()]
+        TVDataSet.valueFormatter = NSNumberFormatter()
+        TVDataSet.valueFormatter?.minimumFractionDigits = 0
+        
+        let data = BarChartData(xVals: xVals, dataSets: [MovieDataSet, TVDataSet])
         data.setValueFont(UIFont(name: "Avenir", size: 12))
         self.barChartView.data = data
         
