@@ -171,37 +171,22 @@ class PCMainDetailsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
         
-//        let dateFormatter = NSDateFormatter()
-//        dateFormatter.dateFormat = "yyyy-MM-dd"
-//        let todayAsString = dateFormatter.stringFromDate(NSDate())
-//        
-//        let accessStatistics = self.realm.objects(PCAccessStatistics).filter("date = \(todayAsString)")
-//        
-//        if accessStatistics.count == 0 {
-//            let newAccessStatistics = PCAccessStatistics()
-//            newAccessStatistics.date = todayAsString
-//            if self.movie!.itemType == movie {
-//                newAccessStatistics.movieCount = 1
-//            }
-//            else {
-//                newAccessStatistics.tvCount = 1
-//            }
-//            try! realm.write {
-//                self.realm.add(newAccessStatistics)
-//            }
-//        }
-//        else {
-//            if self.movie!.itemType == movie {
-//                accessStatistics[0].movieCount++
-//            }
-//            else {
-//                accessStatistics[0].tvCount++
-//            }
-//            
-//            try! realm.write {
-//                self.realm.add(accessStatistics[0], update: true)
-//            }
-//        }
+        let dateMaker = NSDateFormatter()
+        dateMaker.dateFormat = "yyyy-MM-dd"
+        let todayString = dateMaker.stringFromDate(NSDate())
+        
+        let todaysStatObject = realm.objects(PCAccessStatistics).filter("date = '\(todayString)'").first
+        
+        try! realm.write {
+            if self.movie!.itemType == "movie" {
+                todaysStatObject?.movieCount++
+            }
+            else {
+                todaysStatObject?.tvCount++
+            }
+            self.realm.add(todaysStatObject!, update: true)
+        }
+        
         
         
         let url = "https://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)"
@@ -430,7 +415,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             destinationViewController.mediaItemType = self.movie!.itemType
             destinationViewController.mediaItemId = self.movie!.itemId
             destinationViewController.title = "Videos"
-            let senderCell = sender as! PCMainDetailsTrailerTableViewCell
+            let senderCell = sender as! UITableViewCell
             senderCell.selected = false
         }
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -44,6 +45,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        let realm = try! Realm()
+        let dateMaker = NSDateFormatter()
+        dateMaker.dateFormat = "yyyy-MM-dd"
+        let todayString = dateMaker.stringFromDate(NSDate())
+        let todaysStatObject = realm.objects(PCAccessStatistics).filter("date = '\(todayString)'")
+        if todaysStatObject.count == 0 {
+            try! realm.write {
+                let newToday = PCAccessStatistics()
+                newToday.date = todayString
+                newToday.movieCount = 0
+                newToday.tvCount = 0
+                realm.add(newToday)
+            }
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {
