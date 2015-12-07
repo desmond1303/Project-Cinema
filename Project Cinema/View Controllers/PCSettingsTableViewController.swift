@@ -50,7 +50,7 @@ class PCSettingsTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Activirty Chart"
+        return "Activity Chart"
     }
     /*
     // Override to support conditional editing of the table view.
