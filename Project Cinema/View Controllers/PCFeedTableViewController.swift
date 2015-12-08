@@ -17,17 +17,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     let searchController = UISearchController(searchResultsController: UITableViewController(style: UITableViewStyle.Plain))
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
-        let tableView = searchController.searchResultsController as! PCSearchTableViewController
         
-        let url = "https://api.themoviedb.org/3/search/movie"
-        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(searchController.searchBar.text!)"]
-        
-        Alamofire
-            .request(.GET, url, parameters: urlParamteres)
-            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                tableView.searchResults = response.result.value
-                tableView.tableView.reloadData()
-        }
     }
     
     override func viewDidLoad() {
