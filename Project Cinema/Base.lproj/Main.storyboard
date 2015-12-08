@@ -33,10 +33,15 @@
             <objects>
                 <navigationController id="Bon-iA-ich" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="FeedOutlineBarIcon" selectedImage="FeedFullBarIcon" id="Yrx-aZ-N6c"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Lz-Dr-2BA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="1Lz-Dr-2BA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.16078431372549018" green="0.43529411764705883" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="Rjp-qg-PNC" kind="relationship" relationship="rootViewController" id="BlZ-WM-piW"/>
@@ -51,10 +56,12 @@
             <objects>
                 <navigationController id="HRU-NU-k4f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="FavoritesOutlineBarIcon" selectedImage="FavoritesFullBarIcon" id="LCR-ph-qdT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9HX-lI-HvO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="9HX-lI-HvO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.16078431369999999" green="0.43529411759999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="j8I-Z9-EVM" kind="relationship" relationship="rootViewController" id="gn5-k5-jHd"/>
@@ -69,10 +76,12 @@
             <objects>
                 <navigationController id="D6c-j3-Ifg" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Search" image="SearchBarIcon" id="zI6-OH-gN1"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="rAg-qJ-dTv">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="rAg-qJ-dTv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.16078431369999999" green="0.43529411759999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="AQM-OP-FIr" kind="relationship" relationship="rootViewController" id="xGt-eS-vAD"/>
@@ -312,7 +321,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieMainCell" rowHeight="377" id="dxP-Hi-Gez" customClass="PCMainDetailsMainTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="377"/>
@@ -341,6 +350,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="32" id="PKN-5W-eiH"/>
                                                         </constraints>
+                                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
                                                         <state key="normal" image="FavoritesFullBarIcon"/>
                                                         <connections>
                                                             <action selector="favoriteButton:" destination="j8L-WV-aGZ" eventType="touchUpInside" id="w9k-78-MLj"/>
@@ -358,7 +368,7 @@
                                                             </fragment>
                                                         </attributedString>
                                                         <nil key="highlightedColor"/>
-                                                        <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="shadowColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                         <size key="shadowOffset" width="1" height="1"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2h 25m | Action, Drama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eln-P8-ekk">
