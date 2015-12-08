@@ -73,7 +73,12 @@ class PCFeedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         cell.movieTitleLabel.text = movies![indexPath.item].title
         cell.movieImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movies![indexPath.item].posterPath)"))
         
-        cell.movieYearLabel.text = movies![indexPath.item].release_date
+        if movies![indexPath.row].itemType == "movie" {
+            cell.movieYearLabel.text = movies![indexPath.item].release_date.componentsSeparatedByString("-")[0]
+        }
+        else {
+            cell.movieYearLabel.text = "From \(movies![indexPath.item].first_air_date.componentsSeparatedByString("-")[0])"
+        }
         
         return cell
     }
