@@ -67,7 +67,7 @@ class PCActivityChartTableViewCell: UITableViewCell, ChartViewDelegate {
         self.barChartView.drawGridBackgroundEnabled = true
         self.barChartView.drawBordersEnabled = false
         
-        var xVals = ["M", "T", "W", "T", "F", "S", "S"]
+        var xVals = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
         
         let dayMaker = NSDateFormatter()
         dayMaker.dateFormat = "EEEE"
