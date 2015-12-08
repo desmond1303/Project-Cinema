@@ -16,6 +16,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.16078431372549018" green="0.43529411764705883" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="Bon-iA-ich" kind="relationship" relationship="viewControllers" id="HcX-2d-t43"/>
@@ -139,7 +145,7 @@
             </objects>
             <point key="canvasLocation" x="1876" y="734"/>
         </scene>
-        <!--Feed-->
+        <!--Project Cinema-->
         <scene sceneID="a31-vY-IQz">
             <objects>
                 <tableViewController id="Rjp-qg-PNC" customClass="PCFeedTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,7 +309,9 @@
                             <outlet property="delegate" destination="Rjp-qg-PNC" id="O26-3g-S0V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Feed" id="uRG-G1-pi8"/>
+                    <navigationItem key="navigationItem" title="Project Cinema" id="uRG-G1-pi8">
+                        <barButtonItem key="backBarButtonItem" title="Feed" id="1xj-1t-cSh"/>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="zSg-0Y-zVf">
                         <autoresizingMask key="autoresizingMask"/>
                         <animations/>

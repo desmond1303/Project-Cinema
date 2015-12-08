@@ -10,13 +10,45 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class PCFeedTableViewController: UITableViewController {
+class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     var mediaItems = [String:[PCMediaItem]]()
+    
+    let searchController = UISearchController(searchResultsController: UITableViewController(style: UITableViewStyle.Plain))
+    
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let tableView = searchController.searchResultsController as! PCSearchTableViewController
+        
+        let url = "https://api.themoviedb.org/3/search/movie"
+        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(searchController.searchBar.text!)"]
+        
+        Alamofire
+            .request(.GET, url, parameters: urlParamteres)
+            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
+                tableView.searchResults = response.result.value
+                tableView.tableView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
+        
+//        let statusView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: -20), size: CGSize(width: self.navigationController!.navigationBar.frame.width , height: 20)))
+//        statusView.backgroundColor = UIColor.blackColor()
+//        statusView.alpha = 0.1
+//        
+//        self.navigationController?.navigationBar.addSubview(statusView)
+        
+        self.searchController.searchResultsUpdater = self
+        self.searchController.searchBar.delegate = self
+        self.searchController.hidesNavigationBarDuringPresentation = false
+        self.searchController.dimsBackgroundDuringPresentation = false
+        self.searchController.searchBar.sizeToFit()
+        self.searchController.searchBar.placeholder = "Search for Movies or TV Shows"
+        navigationItem.titleView = searchController.searchBar
+        
+        self.navigationItem.titleView = searchController.searchBar
         
         self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
         
