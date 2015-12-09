@@ -13,11 +13,29 @@ import RealmSwift
 class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
     
     var mediaItems = [String:[PCMediaItem]]()
+    var searchResult: PCMediaItem?
     
-    let searchController = UISearchController(searchResultsController: UITableViewController(style: UITableViewStyle.Plain))
+    let searchController = UISearchController(searchResultsController: PCSearchTableViewController())
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let resultsTable = searchController.searchResultsController as! PCSearchTableViewController
+        resultsTable.tableView.frame.origin = CGPoint(x: 0, y: 64)
+        resultsTable.tableView.tableHeaderView = nil
+        resultsTable.parentController = self
+        //let resultCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "searchResultCell")
+        resultsTable.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "searchResultCell")
         
+        let url = "https://api.themoviedb.org/3/search/movie"
+        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(self.searchController.searchBar.text!)"]
+        
+        Alamofire
+            .request(.GET, url, parameters: urlParamteres)
+            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
+                resultsTable.searchResults = response.result.value
+                resultsTable.tableView.reloadData()
+        }
+        
+
     }
     
     override func viewDidLoad() {
@@ -29,6 +47,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
 //        statusView.alpha = 0.1
 //        
 //        self.navigationController?.navigationBar.addSubview(statusView)
+
         
         self.searchController.searchResultsUpdater = self
         self.searchController.searchBar.delegate = self
@@ -36,7 +55,9 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.searchController.dimsBackgroundDuringPresentation = false
         self.searchController.searchBar.sizeToFit()
         self.searchController.searchBar.placeholder = "Search for Movies or TV Shows"
-        navigationItem.titleView = searchController.searchBar
+        self.searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
+        self.searchController.searchBar.barStyle = UIBarStyle.Black
+        UILabel.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = UIColor.lightTextColor()
         
         self.navigationItem.titleView = searchController.searchBar
         
@@ -198,11 +219,14 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             destinationViewController.movie = movie[0]
             self.requestFromActivity = false
         }
-        else {
-            let senderCell = sender as? PCMediaItemCollectionViewCell
-            
-            destinationViewController.title = senderCell?.movie?.title
-            destinationViewController.movie = senderCell?.movie
+        else if let senderCell = sender as? PCMediaItemCollectionViewCell {
+            destinationViewController.title = senderCell.movie?.title
+            destinationViewController.movie = senderCell.movie
+        }
+        else if let searchResult = self.searchResult {
+            self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+            destinationViewController.title = searchResult.title
+            destinationViewController.movie = searchResult
         }
         
     }
