@@ -20,7 +20,10 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let resultsTable = searchController.searchResultsController as! PCSearchTableViewController
         resultsTable.tableView.frame.origin = CGPoint(x: 0, y: 64)
+        resultsTable.tableView.frame.size.height = self.tableView.frame.height - 113
         resultsTable.tableView.tableHeaderView = nil
+        resultsTable.tableView.contentInset = UIEdgeInsetsZero
+        resultsTable.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         resultsTable.parentController = self
         //let resultCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "searchResultCell")
         resultsTable.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "searchResultCell")
@@ -35,7 +38,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
                 resultsTable.tableView.reloadData()
         }
         
-
     }
     
     override func viewDidLoad() {
