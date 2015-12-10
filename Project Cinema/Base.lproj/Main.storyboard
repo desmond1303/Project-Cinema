@@ -142,7 +142,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkH-q8-7qA">
-                                            <rect key="frame" x="8" y="8" width="486" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="584" height="21"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="xBu-bj-sct"/>
@@ -240,27 +240,14 @@
                                                 <constraint firstAttribute="width" constant="35" id="51a-ae-3rX"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gAb-4B-uzo">
-                                            <rect key="frame" x="502" y="8" width="90" height="21"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="90" id="9b4-mR-irk"/>
-                                                <constraint firstAttribute="height" constant="21" id="aj7-1T-Nkb"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                            <state key="normal" title="Show All &gt;"/>
-                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
                                         <constraint firstItem="MkH-q8-7qA" firstAttribute="top" secondItem="N1L-h8-vNf" secondAttribute="topMargin" id="1yT-R0-H5F"/>
-                                        <constraint firstItem="gAb-4B-uzo" firstAttribute="top" secondItem="N1L-h8-vNf" secondAttribute="topMargin" id="2pU-6W-QoM"/>
-                                        <constraint firstItem="gAb-4B-uzo" firstAttribute="leading" secondItem="MkH-q8-7qA" secondAttribute="trailing" constant="8" id="5Jy-s3-2KR"/>
                                         <constraint firstAttribute="trailing" secondItem="o5n-sD-fuH" secondAttribute="trailing" id="I33-0m-lP6"/>
                                         <constraint firstItem="MkH-q8-7qA" firstAttribute="leading" secondItem="N1L-h8-vNf" secondAttribute="leadingMargin" id="PXD-eE-z9A"/>
-                                        <constraint firstItem="gAb-4B-uzo" firstAttribute="trailing" secondItem="N1L-h8-vNf" secondAttribute="trailingMargin" id="XuB-9n-10l"/>
                                         <constraint firstItem="o5n-sD-fuH" firstAttribute="top" secondItem="N1L-h8-vNf" secondAttribute="topMargin" constant="29" id="f56-R0-Am2"/>
-                                        <constraint firstItem="o5n-sD-fuH" firstAttribute="top" secondItem="gAb-4B-uzo" secondAttribute="bottom" constant="8" id="hLW-03-uU7"/>
+                                        <constraint firstItem="MkH-q8-7qA" firstAttribute="trailing" secondItem="N1L-h8-vNf" secondAttribute="trailingMargin" id="hrU-Hk-r43"/>
                                         <constraint firstItem="o5n-sD-fuH" firstAttribute="bottom" secondItem="N1L-h8-vNf" secondAttribute="bottomMargin" id="lee-Ia-Aj6"/>
                                         <constraint firstItem="o5n-sD-fuH" firstAttribute="leading" secondItem="N1L-h8-vNf" secondAttribute="leading" id="xOp-FX-dsZ"/>
                                     </constraints>
@@ -882,6 +869,6 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="raM-0z-gmg"/>
+        <segue reference="ARj-tT-Kvi"/>
     </inferredMetricsTieBreakers>
 </document>
