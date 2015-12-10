@@ -60,16 +60,11 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
         self.searchController.searchBar.barStyle = UIBarStyle.Black
         UILabel.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = UIColor.lightTextColor()
+        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = UIColor.whiteColor()
         
         self.navigationItem.titleView = searchController.searchBar
         
         self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         var url = "https://api.themoviedb.org/3/movie/popular"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
@@ -227,6 +222,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         }
         else if let searchResult = self.searchResult {
             self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+            self.searchController.searchBar.text = nil
             destinationViewController.title = searchResult.title
             destinationViewController.movie = searchResult
         }
