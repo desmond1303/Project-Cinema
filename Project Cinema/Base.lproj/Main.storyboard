@@ -268,7 +268,7 @@
         <!--Title-->
         <scene sceneID="fft-5l-s1s">
             <objects>
-                <tableViewController id="j8L-WV-aGZ" customClass="PCMainDetailsTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="PCMainDetailsTableViewController" id="j8L-WV-aGZ" customClass="PCMainDetailsTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="E8M-LI-ZCf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -853,6 +853,6 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="raM-0z-gmg"/>
+        <segue reference="ARj-tT-Kvi"/>
     </inferredMetricsTieBreakers>
 </document>

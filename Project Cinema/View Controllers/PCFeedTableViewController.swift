@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate {
+class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate {
     
     var mediaItems = [String:[PCMediaItem]]()
     var searchResult: PCMediaItem?
@@ -48,8 +48,37 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.searchBarCancelButtonClicked(self.searchController!.searchBar)
     }
     
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        let tableRowIndexPath = tableView.indexPathForRowAtPoint(location)
+        let tableRowCell = tableView.cellForRowAtIndexPath(tableRowIndexPath!) as! PCFeedTableViewCell
+        
+        let collectionCellIndexPath = tableRowCell.collectionView.indexPathForItemAtPoint(location)
+        let collectionViewCell = tableRowCell.collectionView.cellForItemAtIndexPath(collectionCellIndexPath!) as! PCMediaItemCollectionViewCell
+        
+        let detailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PCMainDetailsTableViewController") as! PCMainDetailsTableViewController
+        
+        detailsViewController.movie = collectionViewCell.movie
+        detailsViewController.preferredContentSize = CGSize(width: 0, height: 300)
+        
+        previewingContext.sourceRect = collectionViewCell.frame
+        
+        return detailsViewController
+    }
+    
+    func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
+        
+        showDetailViewController(viewControllerToCommit, sender: self)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if traitCollection.forceTouchCapability == .Available {
+            registerForPreviewingWithDelegate(self, sourceView: self.view)
+        }
+        
         self.tableView.scrollsToTop = true
         
         let searchRresultsController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController")
