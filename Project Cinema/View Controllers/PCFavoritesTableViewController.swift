@@ -95,9 +95,15 @@ class PCFavoritesTableViewController: UITableViewController {
         let attrsMedium = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]
         let attrsSmall = [NSFontAttributeName : UIFont.systemFontOfSize(10.0)]
         
-        let date = self.favorites[indexPath.row].release_date.componentsSeparatedByString("-")[0] ?? self.favorites[indexPath.row].first_air_date.componentsSeparatedByString("-")[0]
+        var date: String?
+        if self.favorites[indexPath.row].itemType == "movie" {
+            date = self.favorites[indexPath.row].release_date.componentsSeparatedByString("-")[0]
+        }
+        else {
+            date = "From \(self.favorites[indexPath.row].first_air_date.componentsSeparatedByString("-")[0])"
+        }
         
-        favTitleText.appendAttributedString(NSAttributedString(string: "\n\(date)", attributes: attrsMedium))
+        favTitleText.appendAttributedString(NSAttributedString(string: "\n\(date!)", attributes: attrsMedium))
         favTitleText.appendAttributedString(NSAttributedString(string: "\n\(self.favorites[indexPath.row].voteAverage)/10", attributes: attrsSmall))
         
         cell.titleLabel.attributedText = favTitleText

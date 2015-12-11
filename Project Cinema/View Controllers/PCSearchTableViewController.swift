@@ -46,7 +46,13 @@ class PCSearchTableViewController: UITableViewController{
         
         if let currentResult = self.searchResults?[indexPath.row] {
             cell.textLabel?.text = currentResult.title
-            cell.detailTextLabel?.text = currentResult.release_date
+            
+            if currentResult.itemType == "movie" {
+                cell.detailTextLabel?.text = currentResult.release_date.componentsSeparatedByString("-")[0]
+            }
+            else {
+                cell.detailTextLabel?.text = "From \(currentResult.first_air_date.componentsSeparatedByString("-")[0])"
+            }
         }
         
         return cell

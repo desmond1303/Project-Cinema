@@ -25,8 +25,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         resultsTable.tableView.contentInset = UIEdgeInsetsZero
         resultsTable.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         resultsTable.parentController = self
-        //let resultCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "searchResultCell")
-        resultsTable.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "searchResultCell")
         
         let url = "https://api.themoviedb.org/3/search/multi"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(self.searchController!.searchBar.text!)"]
