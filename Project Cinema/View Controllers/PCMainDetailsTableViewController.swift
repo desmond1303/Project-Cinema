@@ -280,7 +280,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             case 0:
                 let cell = tableView.dequeueReusableCellWithIdentifier("movieMainCell", forIndexPath: indexPath) as! PCMainDetailsMainTableViewCell
                 cell.parentViewController = self
-                cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w1000/\(movie!.backdropPath)"))
+                cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w780/\(movie!.backdropPath)"))
                 cell.movie = movie
                 cell.isFav = self.currentMediaItemIsInFav
                 if self.currentMediaItemIsInFav {
@@ -311,7 +311,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 
                 cell.movieTitleLabel.attributedText = attributedMediaTitleString
                 cell.movieRuntimeAndGenres.text = runtimeAndGenres
-                cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movie!.posterPath)"))
+                cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(movie!.posterPath)"))
                 
                 return cell
             case 1:

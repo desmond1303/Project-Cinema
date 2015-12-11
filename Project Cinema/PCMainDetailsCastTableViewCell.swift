@@ -46,7 +46,7 @@ class PCMainDetailsCastTableViewCell: UITableViewCell, UICollectionViewDataSourc
         if let cast = self.cast {
             cell.movieTitleLabel.text = cast[indexPath.item].name
             cell.movieYearLabel.text = cast[indexPath.item].character
-            cell.movieImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(cast[indexPath.item].profilePath)"))
+            cell.movieImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(cast[indexPath.item].profilePath)"))
             
         }
         return cell
