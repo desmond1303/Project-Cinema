@@ -40,10 +40,20 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
     }
     
-    override func viewDidDisappear(animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.searchController!.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
-        self.searchController!.searchBar.text = nil
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        self.searchController!.searchResultsController?.dismissViewControllerAnimated(false, completion: nil)
+        searchBar.text = nil
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.searchBarCancelButtonClicked(self.searchController!.searchBar)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.searchBarCancelButtonClicked(self.searchController!.searchBar)
     }
     
     override func viewDidLoad() {
@@ -231,8 +241,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             destinationViewController.movie = searchResult
         }
         
-        self.searchController!.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
-        self.searchController!.searchBar.text = nil
+        self.searchBarCancelButtonClicked(self.searchController!.searchBar)
     }
     
 }

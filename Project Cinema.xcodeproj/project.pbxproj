@@ -12,6 +12,7 @@
 		7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */; };
 		7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19479B1C11897A000796FB /* PCTrailer.swift */; };
 		7D4DAE5F1C08660D0095D212 /* PCSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */; };
+		7D58745F1C1AC1D600437C73 /* PCTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */; };
 		7D65DA0A1C1599E4004F1326 /* PCSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */; };
 		7D65DA0C1C159A1B004F1326 /* PCActivityChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */; };
 		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 		7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCTrailerTableViewCell.swift; sourceTree = "<group>"; };
 		7D19479B1C11897A000796FB /* PCTrailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailer.swift; path = Models/PCTrailer.swift; sourceTree = "<group>"; };
 		7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSearchTableViewController.swift; path = "View Controllers/PCSearchTableViewController.swift"; sourceTree = "<group>"; };
+		7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTabBarViewController.swift; path = "View Controllers/PCTabBarViewController.swift"; sourceTree = "<group>"; };
 		7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSettingsTableViewController.swift; path = "View Controllers/PCSettingsTableViewController.swift"; sourceTree = "<group>"; };
 		7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCActivityChartTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 				7D4DAE5E1C08660D0095D212 /* PCSearchTableViewController.swift */,
 				7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */,
 				7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */,
+				7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				7D65DA0C1C159A1B004F1326 /* PCActivityChartTableViewCell.swift in Sources */,
 				7DD98ED31C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift in Sources */,
 				7DE5706D1C11A5790039299C /* PCAccessStatistics.swift in Sources */,
+				7D58745F1C1AC1D600437C73 /* PCTabBarViewController.swift in Sources */,
 				7DE076D01C00890F00448979 /* PCFeedTableViewController.swift in Sources */,
 				7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */,
 				7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */,
