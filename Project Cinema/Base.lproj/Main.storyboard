@@ -753,28 +753,31 @@
                                             <rect key="frame" x="8" y="8" width="55" height="74"/>
                                             <color key="backgroundColor" red="0.83011744970000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="74" id="D90-hB-LJ8"/>
-                                                <constraint firstAttribute="width" constant="55" id="uQK-mv-syP"/>
+                                                <constraint firstAttribute="width" constant="55" id="Rjc-GQ-R9c"/>
+                                                <constraint firstAttribute="height" constant="74" id="sbM-j2-zBy"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vb-Oo-kPm">
-                                            <rect key="frame" x="71" y="8" width="521" height="21"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="21" id="6H2-cZ-Qbj"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Vb-Oo-kPm">
+                                            <rect key="frame" x="71" y="8" width="521" height="74"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Label">
+                                                    <attributes>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="4Es-2t-DaV" firstAttribute="bottom" secondItem="eKc-by-L7y" secondAttribute="bottomMargin" id="1SJ-3M-M3v"/>
-                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="trailing" secondItem="eKc-by-L7y" secondAttribute="trailingMargin" id="7w0-nk-ZhL"/>
-                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="leading" secondItem="4Es-2t-DaV" secondAttribute="trailing" constant="8" id="BQc-j0-AUl"/>
-                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="leading" secondItem="4Es-2t-DaV" secondAttribute="trailing" constant="8" id="GK1-Ee-aBT"/>
-                                        <constraint firstItem="4Es-2t-DaV" firstAttribute="leading" secondItem="eKc-by-L7y" secondAttribute="leadingMargin" id="ZaH-lo-PM5"/>
-                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="top" secondItem="eKc-by-L7y" secondAttribute="topMargin" id="eOr-7M-nhd"/>
-                                        <constraint firstItem="4Es-2t-DaV" firstAttribute="top" secondItem="eKc-by-L7y" secondAttribute="topMargin" id="xbH-ol-vLx"/>
+                                        <constraint firstItem="4Es-2t-DaV" firstAttribute="top" secondItem="eKc-by-L7y" secondAttribute="topMargin" id="3in-x3-K7M"/>
+                                        <constraint firstItem="4Es-2t-DaV" firstAttribute="leading" secondItem="eKc-by-L7y" secondAttribute="leadingMargin" id="62j-6W-9vE"/>
+                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="leading" secondItem="4Es-2t-DaV" secondAttribute="trailing" constant="8" id="DzN-zf-cpY"/>
+                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="bottom" secondItem="eKc-by-L7y" secondAttribute="bottomMargin" id="OnX-3f-NRI"/>
+                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="top" secondItem="eKc-by-L7y" secondAttribute="topMargin" id="ZJe-kZ-hVL"/>
+                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="leading" secondItem="4Es-2t-DaV" secondAttribute="trailing" constant="8" id="dQP-bt-ohz"/>
+                                        <constraint firstItem="2Vb-Oo-kPm" firstAttribute="trailing" secondItem="eKc-by-L7y" secondAttribute="trailingMargin" id="oTw-bH-j28"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

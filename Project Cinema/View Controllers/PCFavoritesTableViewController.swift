@@ -89,8 +89,18 @@ class PCFavoritesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("favoriteMovie", forIndexPath: indexPath) as! PCFavoritesTableViewCell
 
         cell.movie = self.favorites[indexPath.row]
-        cell.titleLabel.text = self.favorites[indexPath.row].title
         cell.posterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(self.favorites[indexPath.row].posterPath)"))
+        
+        let favTitleText = NSMutableAttributedString(string: self.favorites[indexPath.row].title)
+        let attrsMedium = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]
+        let attrsSmall = [NSFontAttributeName : UIFont.systemFontOfSize(10.0)]
+        
+        let date = self.favorites[indexPath.row].release_date.componentsSeparatedByString("-")[0] ?? self.favorites[indexPath.row].first_air_date.componentsSeparatedByString("-")[0]
+        
+        favTitleText.appendAttributedString(NSAttributedString(string: "\n\(date)", attributes: attrsMedium))
+        favTitleText.appendAttributedString(NSAttributedString(string: "\n\(self.favorites[indexPath.row].voteAverage)/10", attributes: attrsSmall))
+        
+        cell.titleLabel.attributedText = favTitleText
     
         return cell
     }
