@@ -260,7 +260,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 1:
             return 1
         case 2:
-            return 1
+            return self.reviews?.count > 0 || self.seasons?.count > 0 ? 1 : 0
         default:
             return 0
         }

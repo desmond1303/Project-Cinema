@@ -9,6 +9,9 @@
 import UIKit
 import RealmSwift
 
+import CoreSpotlight
+import MobileCoreServices
+
 class PCFavoritesTableViewController: UITableViewController {
     
     var favorites = [PCMediaItem]()
@@ -45,6 +48,30 @@ class PCFavoritesTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == UITableViewCellEditingStyle.Delete {
+            
+            let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.favorites[indexPath.row].itemId)")
+            try! self.realm.write {
+                for rObject in realmObject {
+                    CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(rObject.itemType)_\(rObject.itemId)"], completionHandler: nil)
+                    self.realm.delete(rObject)
+                }
+            }
+            
+            self.favorites.removeAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Left)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return UITableViewCellEditingStyle.Delete
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
