@@ -15,21 +15,21 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     var mediaItems = [String:[PCMediaItem]]()
     var searchResult: PCMediaItem?
     
-    let searchController = UISearchController(searchResultsController: PCSearchTableViewController())
+    var searchController: UISearchController?
     
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         let resultsTable = searchController.searchResultsController as! PCSearchTableViewController
         resultsTable.tableView.frame.origin = CGPoint(x: 0, y: 64)
-        resultsTable.tableView.frame.size.height = self.tableView.frame.height - 113
+        resultsTable.tableView.frame.size.height = self.tableView.frame.height - 64
         resultsTable.tableView.tableHeaderView = nil
         resultsTable.tableView.contentInset = UIEdgeInsetsZero
-        resultsTable.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        resultsTable.tableView.scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 49, right: 0)
         resultsTable.parentController = self
         //let resultCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "searchResultCell")
         resultsTable.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "searchResultCell")
         
         let url = "https://api.themoviedb.org/3/search/movie"
-        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(self.searchController.searchBar.text!)"]
+        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(self.searchController!.searchBar.text!)"]
         
         Alamofire
             .request(.GET, url, parameters: urlParamteres)
@@ -40,29 +40,36 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
     }
     
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.searchController!.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+        self.searchController!.searchBar.text = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
         
-//        let statusView = UIView(frame: CGRect(origin: CGPoint(x: 0, y: -20), size: CGSize(width: self.navigationController!.navigationBar.frame.width , height: 20)))
-//        statusView.backgroundColor = UIColor.blackColor()
-//        statusView.alpha = 0.1
-//        
-//        self.navigationController?.navigationBar.addSubview(statusView)
-
+        let searchRresultsController = self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController")
         
-        self.searchController.searchResultsUpdater = self
-        self.searchController.searchBar.delegate = self
-        self.searchController.hidesNavigationBarDuringPresentation = false
-        self.searchController.dimsBackgroundDuringPresentation = false
-        self.searchController.searchBar.sizeToFit()
-        self.searchController.searchBar.placeholder = "Search for Movies or TV Shows"
-        self.searchController.searchBar.searchBarStyle = UISearchBarStyle.Minimal
-        self.searchController.searchBar.barStyle = UIBarStyle.Black
-        UILabel.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = UIColor.lightTextColor()
-        UITextField.appearanceWhenContainedInInstancesOfClasses([UISearchBar.self]).textColor = UIColor.whiteColor()
+        self.searchController = UISearchController(searchResultsController: searchRresultsController)
         
-        self.navigationItem.titleView = searchController.searchBar
+        self.searchController!.searchResultsUpdater = self;
+        
+        self.searchController!.hidesNavigationBarDuringPresentation = false
+        self.searchController!.dimsBackgroundDuringPresentation = false
+        
+        self.searchController!.searchBar.frame = CGRectMake(
+            self.searchController!.searchBar.frame.origin.x,
+            self.searchController!.searchBar.frame.origin.y,
+            self.searchController!.searchBar.frame.size.width, 44.0
+        )
+        
+        self.searchController!.searchBar.searchBarStyle = .Prominent
+        self.searchController!.searchBar.barTintColor = UIColor(red: 81/255, green: 151/255, blue: 195/225, alpha: 0.1)
+        self.searchController!.searchBar.tintColor = UIColor.lightTextColor()
+        
+        self.navigationItem.titleView = self.searchController!.searchBar
         
         self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
         
@@ -205,7 +212,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
         let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
         
         if self.requestFromActivity {
@@ -221,12 +227,12 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             destinationViewController.movie = senderCell.movie
         }
         else if let searchResult = self.searchResult {
-            self.searchController.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
-            self.searchController.searchBar.text = nil
             destinationViewController.title = searchResult.title
             destinationViewController.movie = searchResult
         }
         
+        self.searchController!.searchResultsController?.dismissViewControllerAnimated(true, completion: nil)
+        self.searchController!.searchBar.text = nil
     }
     
 }
