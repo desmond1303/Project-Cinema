@@ -28,7 +28,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         //let resultCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "searchResultCell")
         resultsTable.tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "searchResultCell")
         
-        let url = "https://api.themoviedb.org/3/search/movie"
+        let url = "https://api.themoviedb.org/3/search/multi"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "query":"\(self.searchController!.searchBar.text!)"]
         
         Alamofire
