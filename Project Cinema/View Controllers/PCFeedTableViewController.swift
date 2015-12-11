@@ -49,11 +49,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.searchBarCancelButtonClicked(self.searchController!.searchBar)
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        self.searchBarCancelButtonClicked(self.searchController!.searchBar)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
