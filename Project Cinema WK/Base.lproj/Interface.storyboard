@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9515"/>
+    </dependencies>
+    <scenes>
+        <!--Favorites-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Favorites" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Project_Cinema_WK" customModuleProvider="target">
+                    <items>
+                        <table alignment="left" id="zeP-Hh-d3a">
+                            <items>
+                                <tableRow identifier="WKFavoriteRow" id="qDM-rF-ygP" customClass="PCWKFavortiesRowController" customModule="Project_Cinema_WK_Extension">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="Ur7-nA-4Ag">
+                                        <items>
+                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="Ruh-WH-sKG">
+                                                <color key="color" red="0.98039215686274506" green="0.066666666666666666" blue="0.30980392156862746" alpha="1" colorSpace="calibratedRGB"/>
+                                            </separator>
+                                            <group alignment="left" layout="vertical" spacing="2" id="Kem-zL-8Y1">
+                                                <items>
+                                                    <group width="1" alignment="left" layout="vertical" spacing="4" id="2uq-bu-vT5">
+                                                        <items>
+                                                            <label width="1" alignment="left" text="A Probably Very Long Movie Title" numberOfLines="3" id="Mmc-GC-0yR">
+                                                                <fontDescription key="font" style="UICTFontTextStyleBody"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                    <group width="1" alignment="left" layout="vertical" spacing="0.0" id="ygg-JR-pth">
+                                                        <items>
+                                                            <label width="1" alignment="left" text="2015" id="4oF-xY-uOG">
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
+                                                            </label>
+                                                            <label alignment="left" text="8.7" id="LeH-wh-x7m">
+                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
+                                                            </label>
+                                                        </items>
+                                                    </group>
+                                                </items>
+                                            </group>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="colorIndicator" destination="Ruh-WH-sKG" id="y2n-3E-qcU"/>
+                                        <outlet property="mediaItemTitle" destination="Mmc-GC-0yR" id="hbr-lO-2wZ"/>
+                                        <outlet property="mediaItemVoteAverage" destination="LeH-wh-x7m" id="TJB-sQ-UuO"/>
+                                        <outlet property="mediaItemYear" destination="4oF-xY-uOG" id="kjD-Qt-Plj"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="favortiesTable" destination="zeP-Hh-d3a" id="rif-XH-vn3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="220" y="345"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Project_Cinema_WK" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>

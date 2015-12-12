@@ -4,6 +4,16 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Notification - Project Cinema WK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>12</integer>
+		</dict>
+		<key>Project Cinema WK.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>11</integer>
+		</dict>
 		<key>Project Cinema.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -12,6 +22,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7D716C9A1C1C9A40008AFB2A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7DE076B91C0085D600448979</key>
 		<dict>
 			<key>primary</key>

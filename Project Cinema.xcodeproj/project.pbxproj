@@ -18,6 +18,15 @@
 		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
 		7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */; };
 		7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */; };
+		7D716C9F1C1C9A40008AFB2A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D716C9D1C1C9A40008AFB2A /* Interface.storyboard */; };
+		7D716CA11C1C9A40008AFB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D716CA01C1C9A40008AFB2A /* Assets.xcassets */; };
+		7D716CA81C1C9A40008AFB2A /* Project Cinema WK Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D716CA71C1C9A40008AFB2A /* Project Cinema WK Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7D716CAF1C1C9A40008AFB2A /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CAE1C1C9A40008AFB2A /* InterfaceController.swift */; };
+		7D716CB11C1C9A40008AFB2A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CB01C1C9A40008AFB2A /* ExtensionDelegate.swift */; };
+		7D716CB31C1C9A40008AFB2A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CB21C1C9A40008AFB2A /* NotificationController.swift */; };
+		7D716CB51C1C9A40008AFB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D716CB41C1C9A40008AFB2A /* Assets.xcassets */; };
+		7D716CB91C1C9A40008AFB2A /* Project Cinema WK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */; };
+		7D716CC31C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */; };
 		7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */; };
 		7D9046DF1C046FEB00184C00 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */; };
 		7D9046E11C046FFE00184C00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */; };
@@ -39,6 +48,48 @@
 		7DE5706D1C11A5790039299C /* PCAccessStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		7D716CA91C1C9A40008AFB2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D716CA61C1C9A40008AFB2A;
+			remoteInfo = "Project Cinema WK Extension";
+		};
+		7D716CB71C1C9A40008AFB2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D716C9A1C1C9A40008AFB2A;
+			remoteInfo = "Project Cinema WK";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7D716CBF1C1C9A40008AFB2A /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7D716CA81C1C9A40008AFB2A /* Project Cinema WK Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D716CC11C1C9A40008AFB2A /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				7D716CB91C1C9A40008AFB2A /* Project Cinema WK.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Cinema.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema.debug.xcconfig"; sourceTree = "<group>"; };
 		64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Cinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,6 +103,18 @@
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
 		7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaSeason.swift; path = Models/PCMediaSeason.swift; sourceTree = "<group>"; };
+		7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Cinema WK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D716C9E1C1C9A40008AFB2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		7D716CA01C1C9A40008AFB2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D716CA21C1C9A40008AFB2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D716CA71C1C9A40008AFB2A /* Project Cinema WK Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Project Cinema WK Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D716CAD1C1C9A40008AFB2A /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		7D716CAE1C1C9A40008AFB2A /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		7D716CB01C1C9A40008AFB2A /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		7D716CB21C1C9A40008AFB2A /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		7D716CB41C1C9A40008AFB2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7D716CB61C1C9A40008AFB2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCWKFavortiesRowController.swift; path = "WK Controllers/PCWKFavortiesRowController.swift"; sourceTree = "<group>"; };
 		7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCFavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
@@ -77,6 +140,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7D716CA41C1C9A40008AFB2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DE076B71C0085D600448979 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -153,6 +223,46 @@
 			name = "Settings Cells";
 			sourceTree = "<group>";
 		};
+		7D716C9C1C1C9A40008AFB2A /* Project Cinema WK */ = {
+			isa = PBXGroup;
+			children = (
+				7D716C9D1C1C9A40008AFB2A /* Interface.storyboard */,
+				7D716CA01C1C9A40008AFB2A /* Assets.xcassets */,
+				7D716CA21C1C9A40008AFB2A /* Info.plist */,
+			);
+			path = "Project Cinema WK";
+			sourceTree = "<group>";
+		};
+		7D716CAB1C1C9A40008AFB2A /* Project Cinema WK Extension */ = {
+			isa = PBXGroup;
+			children = (
+				7D716CAE1C1C9A40008AFB2A /* InterfaceController.swift */,
+				7D716CB01C1C9A40008AFB2A /* ExtensionDelegate.swift */,
+				7D716CB21C1C9A40008AFB2A /* NotificationController.swift */,
+				7D716CC41C1CA0C1008AFB2A /* WK Controllers */,
+				7D716CB41C1C9A40008AFB2A /* Assets.xcassets */,
+				7D716CB61C1C9A40008AFB2A /* Info.plist */,
+				7D716CAC1C1C9A40008AFB2A /* Supporting Files */,
+			);
+			path = "Project Cinema WK Extension";
+			sourceTree = "<group>";
+		};
+		7D716CAC1C1C9A40008AFB2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7D716CAD1C1C9A40008AFB2A /* PushNotificationPayload.apns */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7D716CC41C1CA0C1008AFB2A /* WK Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */,
+			);
+			name = "WK Controllers";
+			sourceTree = "<group>";
+		};
 		7DD98ECC1C030B1F00113FB3 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -186,6 +296,8 @@
 			isa = PBXGroup;
 			children = (
 				7DE076BC1C0085D600448979 /* Project Cinema */,
+				7D716C9C1C1C9A40008AFB2A /* Project Cinema WK */,
+				7D716CAB1C1C9A40008AFB2A /* Project Cinema WK Extension */,
 				7DE076BB1C0085D600448979 /* Products */,
 				1CE381ADB00510CCC0D02C5E /* Pods */,
 				5ABA49350F0283E0D9719A5F /* Frameworks */,
@@ -196,6 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				7DE076BA1C0085D600448979 /* Project Cinema.app */,
+				7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */,
+				7D716CA71C1C9A40008AFB2A /* Project Cinema WK Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -245,6 +359,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7D716C9A1C1C9A40008AFB2A /* Project Cinema WK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D716CC01C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK" */;
+			buildPhases = (
+				7D716C991C1C9A40008AFB2A /* Resources */,
+				7D716CBF1C1C9A40008AFB2A /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D716CAA1C1C9A40008AFB2A /* PBXTargetDependency */,
+			);
+			name = "Project Cinema WK";
+			productName = "Project Cinema WK";
+			productReference = 7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		7D716CA61C1C9A40008AFB2A /* Project Cinema WK Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D716CBE1C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK Extension" */;
+			buildPhases = (
+				7D716CA31C1C9A40008AFB2A /* Sources */,
+				7D716CA41C1C9A40008AFB2A /* Frameworks */,
+				7D716CA51C1C9A40008AFB2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Project Cinema WK Extension";
+			productName = "Project Cinema WK Extension";
+			productReference = 7D716CA71C1C9A40008AFB2A /* Project Cinema WK Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		7DE076B91C0085D600448979 /* Project Cinema */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7DE076CC1C0085D600448979 /* Build configuration list for PBXNativeTarget "Project Cinema" */;
@@ -255,10 +403,12 @@
 				7DE076B81C0085D600448979 /* Resources */,
 				5E29BEB5D661BD0F4770C984 /* Embed Pods Frameworks */,
 				4DBB7B4EE32A05202EF2B755 /* Copy Pods Resources */,
+				7D716CC11C1C9A40008AFB2A /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7D716CB81C1C9A40008AFB2A /* PBXTargetDependency */,
 			);
 			name = "Project Cinema";
 			productName = "Project Cinema";
@@ -272,10 +422,17 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = PC;
-				LastSwiftUpdateCheck = 0710;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Dino Praso";
 				TargetAttributes = {
+					7D716C9A1C1C9A40008AFB2A = {
+						CreatedOnToolsVersion = 7.2;
+					};
+					7D716CA61C1C9A40008AFB2A = {
+						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = TW26GG23GV;
+					};
 					7DE076B91C0085D600448979 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
@@ -295,11 +452,30 @@
 			projectRoot = "";
 			targets = (
 				7DE076B91C0085D600448979 /* Project Cinema */,
+				7D716C9A1C1C9A40008AFB2A /* Project Cinema WK */,
+				7D716CA61C1C9A40008AFB2A /* Project Cinema WK Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7D716C991C1C9A40008AFB2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D716CA11C1C9A40008AFB2A /* Assets.xcassets in Resources */,
+				7D716C9F1C1C9A40008AFB2A /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7D716CA51C1C9A40008AFB2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D716CB51C1C9A40008AFB2A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DE076B81C0085D600448979 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -361,6 +537,17 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7D716CA31C1C9A40008AFB2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D716CB31C1C9A40008AFB2A /* NotificationController.swift in Sources */,
+				7D716CB11C1C9A40008AFB2A /* ExtensionDelegate.swift in Sources */,
+				7D716CC31C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift in Sources */,
+				7D716CAF1C1C9A40008AFB2A /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7DE076B61C0085D600448979 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,7 +581,28 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		7D716CAA1C1C9A40008AFB2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D716CA61C1C9A40008AFB2A /* Project Cinema WK Extension */;
+			targetProxy = 7D716CA91C1C9A40008AFB2A /* PBXContainerItemProxy */;
+		};
+		7D716CB81C1C9A40008AFB2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D716C9A1C1C9A40008AFB2A /* Project Cinema WK */;
+			targetProxy = 7D716CB71C1C9A40008AFB2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
+		7D716C9D1C1C9A40008AFB2A /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D716C9E1C1C9A40008AFB2A /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		7DE076C11C0085D600448979 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -414,6 +622,66 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7D716CBA1C1C9A40008AFB2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Project_Cinema_WK_Extension;
+				INFOPLIST_FILE = "Project Cinema WK/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		7D716CBB1C1C9A40008AFB2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				IBSC_MODULE = Project_Cinema_WK_Extension;
+				INFOPLIST_FILE = "Project Cinema WK/Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
+		7D716CBC1C1C9A40008AFB2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Debug;
+		};
+		7D716CBD1C1C9A40008AFB2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.1;
+			};
+			name = Release;
+		};
 		7DE076CA1C0085D600448979 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -526,6 +794,22 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7D716CBE1C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D716CBC1C1C9A40008AFB2A /* Debug */,
+				7D716CBD1C1C9A40008AFB2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		7D716CC01C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D716CBA1C1C9A40008AFB2A /* Debug */,
+				7D716CBB1C1C9A40008AFB2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7DE076B51C0085D600448979 /* Build configuration list for PBXProject "Project Cinema" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
