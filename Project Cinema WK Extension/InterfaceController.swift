@@ -15,12 +15,12 @@ class InterfaceController: WKInterfaceController {
     @IBOutlet var favortiesTable: WKInterfaceTable!
     
     let mediaItems = [
-        ["title": "Ant-Man", "year": "2015", "voteAverage": "8.7", "itemType": "movie"],
-        ["title": "Avengers", "year": "2014", "voteAverage": "7.9", "itemType": "movie"],
-        ["title": "Marvels: Agents of S.H.I.E.L.D.", "year": "2013 - 2016", "voteAverage": "9.6", "itemType": "tv"],
-        ["title": "Avengers 2", "year": "2015", "voteAverage": "9.6", "itemType": "movie"],
-        ["title": "Civil War", "year": "2016", "voteAverage": "9.9", "itemType": "movie"],
-        ["title": "Iron Man", "year": "2008", "voteAverage": "8.8", "itemType": "movie"],
+        ["title": "Ant-Man", "year": "2015", "voteAverage": "8.7", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
+        ["title": "Avengers", "year": "2014", "voteAverage": "7.9", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
+        ["title": "Marvels: Agents of S.H.I.E.L.D.", "year": "2013 - 2016", "voteAverage": "9.6", "itemType": "tv", "overview": "Lorem Ipsum Dolor ist Amet"],
+        ["title": "Avengers 2", "year": "2015", "voteAverage": "9.6", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
+        ["title": "Civil War", "year": "2016", "voteAverage": "9.9", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
+        ["title": "Iron Man", "year": "2008", "voteAverage": "8.8", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
     ]
 
     override func awakeWithContext(context: AnyObject?) {
@@ -34,6 +34,13 @@ class InterfaceController: WKInterfaceController {
             row.mediaItem = item
         }
         i = 0
+    }
+    
+    override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
+        if segueIdentifier == "showDetials" {
+            return self.mediaItems[rowIndex]
+        }
+        return nil
     }
 
     override func willActivate() {
