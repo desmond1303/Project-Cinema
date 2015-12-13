@@ -33,6 +33,7 @@
 		7D716CB91C1C9A40008AFB2A /* Project Cinema WK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */; };
 		7D716CC31C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */; };
 		7D716CCA1C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CC91C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift */; };
+		7D716CCC1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CCB1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift */; };
 		7D716CCE1C1CAB71008AFB2A /* PCWKDetailsOverviewRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CCD1C1CAB71008AFB2A /* PCWKDetailsOverviewRowController.swift */; };
 		7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */; };
 		7D9046DF1C046FEB00184C00 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */; };
@@ -147,6 +148,7 @@
 		7D716CB61C1C9A40008AFB2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCWKFavortiesRowController.swift; path = "WK Controllers/PCWKFavortiesRowController.swift"; sourceTree = "<group>"; };
 		7D716CC91C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCWKDetailsInterfaceController.swift; path = "WK Controllers/PCWKDetailsInterfaceController.swift"; sourceTree = "<group>"; };
+		7D716CCB1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCWKDetailsGeneralRowController.swift; path = "WK Controllers/PCWKDetailsGeneralRowController.swift"; sourceTree = "<group>"; };
 		7D716CCD1C1CAB71008AFB2A /* PCWKDetailsOverviewRowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCWKDetailsOverviewRowController.swift; path = "WK Controllers/PCWKDetailsOverviewRowController.swift"; sourceTree = "<group>"; };
 		7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCFavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */,
+				7D716CCB1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift */,
 				7D716CCD1C1CAB71008AFB2A /* PCWKDetailsOverviewRowController.swift */,
 			);
 			name = "WK Controllers";
@@ -640,6 +643,7 @@
 			files = (
 				7D716CCE1C1CAB71008AFB2A /* PCWKDetailsOverviewRowController.swift in Sources */,
 				7D716CCA1C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift in Sources */,
+				7D716CCC1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift in Sources */,
 				7D716CB31C1C9A40008AFB2A /* NotificationController.swift in Sources */,
 				7D716CB11C1C9A40008AFB2A /* ExtensionDelegate.swift in Sources */,
 				7D716CC31C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift in Sources */,
@@ -956,7 +960,6 @@
 				7D716CBD1C1C9A40008AFB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		7D716CC01C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK" */ = {
 			isa = XCConfigurationList;
@@ -965,7 +968,6 @@
 				7D716CBB1C1C9A40008AFB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
 		7DE076B51C0085D600448979 /* Build configuration list for PBXProject "Project Cinema" */ = {
 			isa = XCConfigurationList;

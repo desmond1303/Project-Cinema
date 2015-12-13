@@ -24,11 +24,13 @@ class PCWKDetailsInterfaceController: WKInterfaceController {
         super.awakeWithContext(context)
         self.mediaItem = context as? [String: String]
         
+        detailsTable.setNumberOfRows(1, withRowType: "generalDetailsRow")
         detailsTable.setNumberOfRows(1, withRowType: "overviewRow")
         
-        //detailsTable.setRowTypes(["generalDetailsRow", "overviewRow"])
+        detailsTable.setRowTypes(["generalDetailsRow", "overviewRow"])
         
-        let overviewCell = detailsTable.rowControllerAtIndex(0) as! PCWKDetailsOverviewRowController
+        let generalCell = detailsTable.rowControllerAtIndex(0) as! PCWKDetailsGeneralRowController
+        let overviewCell = detailsTable.rowControllerAtIndex(1) as! PCWKDetailsOverviewRowController
         
         overviewCell.overviewLabel.setText(self.mediaItem!["overview"]!)
     }
