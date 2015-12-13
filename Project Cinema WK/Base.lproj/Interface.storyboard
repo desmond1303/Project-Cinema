@@ -90,9 +90,9 @@
                                     </group>
                                 </tableRow>
                                 <tableRow identifier="overviewRow" id="OeP-EI-IDv" customClass="PCWKDetailsOverviewRowController" customModule="Project_Cinema_WK_Extension">
-                                    <group key="rootItem" width="1" alignment="left" id="pyu-Vi-X32">
+                                    <group key="rootItem" width="1" height="0.0" alignment="left" id="pyu-Vi-X32">
                                         <items>
-                                            <label width="1" height="1" alignment="left" text="Very detailed overview Text" numberOfLines="100" id="Gk7-rH-sbe">
+                                            <label width="1" alignment="left" text="Very detailed overview Text" numberOfLines="100" id="Gk7-rH-sbe">
                                                 <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
                                             </label>
                                         </items>

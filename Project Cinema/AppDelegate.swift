@@ -8,11 +8,21 @@
 
 import UIKit
 import RealmSwift
+import WatchConnectivity
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    var session: WCSession? {
+        didSet {
+            if let session = session {
+                session.delegate = self
+                session.activateSession()
+            }
+        }
+    }
 
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         let rootViewController = self.window?.rootViewController as! UITabBarController
@@ -26,6 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
+        
+        if WCSession.isSupported() {
+            self.session = WCSession.defaultSession()
+        }
+        
         return true
     }
 
@@ -65,5 +80,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+}
+
+extension AppDelegate: WCSessionDelegate {
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        if let request = message["request"] as? String {
+            
+            let realm = try! Realm()
+            var favorites = [[String: String]]()
+            
+            if request == "favorites" {
+                let favs = realm.objects(PCMediaItem).sorted("title")
+                for fav in favs {
+                    favorites.append(["title": fav.title, "year": fav.release_date, "voteAverage": String(fav.voteAverage), "itemType": fav.itemType, "overview": fav.overview])
+                }
+            }
+            
+            replyHandler(["favorites": favorites])
+            
+        }
+    }
+    
 }
 

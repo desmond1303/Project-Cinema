@@ -7,24 +7,40 @@
 //
 
 import WatchKit
+import WatchConnectivity
 import Foundation
-
 
 class InterfaceController: WKInterfaceController {
     
     @IBOutlet var favortiesTable: WKInterfaceTable!
     
-    let mediaItems = [
-        ["title": "Ant-Man", "year": "2015", "voteAverage": "8.7", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
-        ["title": "Avengers", "year": "2014", "voteAverage": "7.9", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
-        ["title": "Marvels: Agents of S.H.I.E.L.D.", "year": "2013 - 2016", "voteAverage": "9.6", "itemType": "tv", "overview": "Lorem Ipsum Dolor ist Amet"],
-        ["title": "Avengers 2", "year": "2015", "voteAverage": "9.6", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
-        ["title": "Civil War", "year": "2016", "voteAverage": "9.9", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
-        ["title": "Iron Man", "year": "2008", "voteAverage": "8.8", "itemType": "movie", "overview": "Lorem Ipsum Dolor ist Amet"],
-    ]
+    var mediaItems = [[String: String]]() {
+        didSet {
+            favortiesTable.setNumberOfRows(self.mediaItems.count, withRowType: "WKFavoriteRow")
+            var i = 0
+            for item in self.mediaItems {
+                let row = favortiesTable.rowControllerAtIndex(i++) as! PCWKFavortiesRowController
+                row.mediaItem = item
+            }
+            i = 0
+        }
+    }
+    
+    var session: WCSession? {
+        didSet {
+            if let session = session {
+                session.delegate = self
+                session.activateSession()
+            }
+        }
+    }
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
+        
+        if let context = context {
+            self.mediaItems = context as! [[String: String]]
+        }
         
         // Configure interface objects here.
         favortiesTable.setNumberOfRows(self.mediaItems.count, withRowType: "WKFavoriteRow")
@@ -34,6 +50,25 @@ class InterfaceController: WKInterfaceController {
             row.mediaItem = item
         }
         i = 0
+    }
+    
+    override func didAppear() {
+        super.didAppear()
+        
+        if WCSession.isSupported() {
+            
+            self.session = WCSession.defaultSession()
+            session!.sendMessage(["request": "favorites"], replyHandler: { (response) -> Void in
+                if let favorites = response["favorites"] as? [[String: String]] {
+                    //self.mediaItems = favorites
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        self.mediaItems = favorites
+                    })
+                }
+                }, errorHandler: { (error) -> Void in
+                    print(error)
+            })
+        }
     }
     
     override func contextForSegueWithIdentifier(segueIdentifier: String, inTable table: WKInterfaceTable, rowIndex: Int) -> AnyObject? {
@@ -53,4 +88,8 @@ class InterfaceController: WKInterfaceController {
         super.didDeactivate()
     }
 
+}
+
+extension InterfaceController: WCSessionDelegate {
+    
 }
