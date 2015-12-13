@@ -10,8 +10,9 @@ import UIKit
 import NotificationCenter
 import RealmSwift
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
         
+    @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
@@ -21,7 +22,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         super.viewWillAppear(animated)
         
         let realm = try! Realm()
-        print(realm.objects(PCMediaItem).filter("release_date > '2015-12-13'"))
+        //print(realm.objects(PCMediaItem).filter("release_date > '2015-12-13'"))
     }
     
     override func didReceiveMemoryWarning() {
@@ -37,6 +38,21 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's an update, use NCUpdateResult.NewData
 
         completionHandler(NCUpdateResult.NewData)
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 2
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("upcomingMediaItem", forIndexPath: indexPath)
+        cell.textLabel?.text = "Title"
+        cell.detailTextLabel?.text = "Subtitle"
+        return cell
     }
     
 }

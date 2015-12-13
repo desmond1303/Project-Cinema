@@ -12,7 +12,6 @@
 		7D02A6CE1C1D88000052406D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D02A6CD1C1D88000052406D /* TodayViewController.swift */; };
 		7D02A6D11C1D88000052406D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D02A6CF1C1D88000052406D /* MainInterface.storyboard */; };
 		7D02A6D51C1D88000052406D /* Project Cinema: Upcoming.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */; };
 		7D02A6DC1C1D899F0052406D /* PCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D61C008BE500448979 /* PCMediaItem.swift */; };
 		7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */; };
 		7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */; };
@@ -178,7 +177,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */,
 				7D02A6CB1C1D88000052406D /* NotificationCenter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -949,6 +947,7 @@
 				7D02A6D71C1D88000052406D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D716CBE1C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK Extension" */ = {
 			isa = XCConfigurationList;
