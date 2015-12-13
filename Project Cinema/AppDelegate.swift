@@ -93,7 +93,8 @@ extension AppDelegate: WCSessionDelegate {
             if request == "favorites" {
                 let favs = realm.objects(PCMediaItem).sorted("title")
                 for fav in favs {
-                    favorites.append(["title": fav.title, "year": fav.release_date, "voteAverage": String(fav.voteAverage), "itemType": fav.itemType, "overview": fav.overview])
+                    let date = fav.itemType == "movie" ? fav.release_date.componentsSeparatedByString("-").first! : "From \(fav.first_air_date.componentsSeparatedByString("-").first!)"
+                    favorites.append(["title": fav.title, "year": date, "voteAverage": String(fav.voteAverage), "itemType": fav.itemType, "overview": fav.overview])
                 }
             }
             

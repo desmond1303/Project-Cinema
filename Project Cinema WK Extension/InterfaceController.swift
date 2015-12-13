@@ -34,6 +34,10 @@ class InterfaceController: WKInterfaceController {
             }
         }
     }
+    
+    override func table(table: WKInterfaceTable, didSelectRowAtIndex rowIndex: Int) {
+        //
+    }
 
     override func awakeWithContext(context: AnyObject?) {
         super.awakeWithContext(context)
@@ -41,15 +45,6 @@ class InterfaceController: WKInterfaceController {
         if let context = context {
             self.mediaItems = context as! [[String: String]]
         }
-        
-        // Configure interface objects here.
-        favortiesTable.setNumberOfRows(self.mediaItems.count, withRowType: "WKFavoriteRow")
-        var i = 0
-        for item in self.mediaItems {
-            let row = favortiesTable.rowControllerAtIndex(i++) as! PCWKFavortiesRowController
-            row.mediaItem = item
-        }
-        i = 0
     }
     
     override func didAppear() {
@@ -77,7 +72,7 @@ class InterfaceController: WKInterfaceController {
         }
         return nil
     }
-
+    
     override func willActivate() {
         // This method is called when watch view controller is about to be visible to user
         super.willActivate()
