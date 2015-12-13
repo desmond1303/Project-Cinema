@@ -812,7 +812,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -826,7 +826,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.1;
 			};
@@ -953,6 +953,7 @@
 				7D02A6D71C1D88000052406D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D716CBE1C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK Extension" */ = {
 			isa = XCConfigurationList;
@@ -961,6 +962,7 @@
 				7D716CBD1C1C9A40008AFB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7D716CC01C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK" */ = {
 			isa = XCConfigurationList;
@@ -969,6 +971,7 @@
 				7D716CBB1C1C9A40008AFB2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7DE076B51C0085D600448979 /* Build configuration list for PBXProject "Project Cinema" */ = {
 			isa = XCConfigurationList;
