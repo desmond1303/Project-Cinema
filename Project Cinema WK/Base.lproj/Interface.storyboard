@@ -66,29 +66,6 @@
                     <items>
                         <table alignment="left" id="cag-t3-2gj">
                             <items>
-                                <tableRow identifier="generalDetailsRow" id="auH-IN-fki" customClass="PCWKDetailsGeneralRowController" customModule="Project_Cinema_WK_Extension">
-                                    <group key="rootItem" width="1" height="0.0" alignment="left" spacing="6" id="Ntb-bK-2Mn">
-                                        <items>
-                                            <separator height="1" heightAdjustment="-4" alignment="left" verticalAlignment="center" id="gP7-Xk-hkk">
-                                                <color key="color" red="0.98039215690000003" green="0.066666666669999999" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                            </separator>
-                                            <group alignment="left" layout="vertical" spacing="2" id="lxN-TG-sJB">
-                                                <items>
-                                                    <group width="1" alignment="left" layout="vertical" spacing="0.0" id="2Eb-O2-JQw">
-                                                        <items>
-                                                            <label width="1" alignment="left" text="2015" id="TKR-dW-3or">
-                                                                <fontDescription key="font" style="UICTFontTextStyleCaption1"/>
-                                                            </label>
-                                                            <label alignment="left" text="8.7" id="nuJ-7j-Bmp">
-                                                                <fontDescription key="font" style="UICTFontTextStyleCaption2"/>
-                                                            </label>
-                                                        </items>
-                                                    </group>
-                                                </items>
-                                            </group>
-                                        </items>
-                                    </group>
-                                </tableRow>
                                 <tableRow identifier="overviewRow" id="OeP-EI-IDv" customClass="PCWKDetailsOverviewRowController" customModule="Project_Cinema_WK_Extension">
                                     <group key="rootItem" width="1" height="0.0" alignment="left" id="pyu-Vi-X32">
                                         <items>
