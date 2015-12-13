@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		0F9254833D2A25C2BD68D71C /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */; };
+		7D02A6CB1C1D88000052406D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D02A6CA1C1D88000052406D /* NotificationCenter.framework */; };
+		7D02A6CE1C1D88000052406D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D02A6CD1C1D88000052406D /* TodayViewController.swift */; };
+		7D02A6D11C1D88000052406D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D02A6CF1C1D88000052406D /* MainInterface.storyboard */; };
+		7D02A6D51C1D88000052406D /* Project Cinema: Upcoming.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */; };
+		7D02A6DC1C1D899F0052406D /* PCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D61C008BE500448979 /* PCMediaItem.swift */; };
 		7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */; };
 		7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */; };
 		7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19479B1C11897A000796FB /* PCTrailer.swift */; };
@@ -51,6 +57,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		7D02A6D31C1D88000052406D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7D02A6C81C1D88000052406D;
+			remoteInfo = "Project Cinema: Upcoming";
+		};
 		7D716CA91C1C9A40008AFB2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
@@ -68,6 +81,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		7D02A6D91C1D88000052406D /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7D02A6D51C1D88000052406D /* Project Cinema: Upcoming.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D716CBF1C1C9A40008AFB2A /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -95,6 +119,12 @@
 /* Begin PBXFileReference section */
 		20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Cinema.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema.debug.xcconfig"; sourceTree = "<group>"; };
 		64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Project_Cinema.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Project Cinema: Upcoming.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D02A6CA1C1D88000052406D /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		7D02A6CD1C1D88000052406D /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		7D02A6D01C1D88000052406D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		7D02A6D21C1D88000052406D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Project_Cinema.framework; path = "Pods/../build/Debug-iphoneos/Pods_Project_Cinema.framework"; sourceTree = "<group>"; };
 		7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailersTableViewController.swift; path = "View Controllers/PCTrailersTableViewController.swift"; sourceTree = "<group>"; };
 		7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCTrailerTableViewCell.swift; sourceTree = "<group>"; };
 		7D19479B1C11897A000796FB /* PCTrailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailer.swift; path = Models/PCTrailer.swift; sourceTree = "<group>"; };
@@ -144,6 +174,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7D02A6C61C1D88000052406D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */,
+				7D02A6CB1C1D88000052406D /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D716CA41C1C9A40008AFB2A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -176,11 +215,23 @@
 		5ABA49350F0283E0D9719A5F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */,
 				7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */,
 				7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */,
 				64EEAAA234E1CB9B38A8731A /* Pods_Project_Cinema.framework */,
+				7D02A6CA1C1D88000052406D /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7D02A6CC1C1D88000052406D /* Project Cinema: Upcoming */ = {
+			isa = PBXGroup;
+			children = (
+				7D02A6CD1C1D88000052406D /* TodayViewController.swift */,
+				7D02A6CF1C1D88000052406D /* MainInterface.storyboard */,
+				7D02A6D21C1D88000052406D /* Info.plist */,
+			);
+			path = "Project Cinema: Upcoming";
 			sourceTree = "<group>";
 		};
 		7D1947951C1186E0000796FB /* Feed Cells */ = {
@@ -304,6 +355,7 @@
 				7DE076BC1C0085D600448979 /* Project Cinema */,
 				7D716C9C1C1C9A40008AFB2A /* Project Cinema WK */,
 				7D716CAB1C1C9A40008AFB2A /* Project Cinema WK Extension */,
+				7D02A6CC1C1D88000052406D /* Project Cinema: Upcoming */,
 				7DE076BB1C0085D600448979 /* Products */,
 				1CE381ADB00510CCC0D02C5E /* Pods */,
 				5ABA49350F0283E0D9719A5F /* Frameworks */,
@@ -316,6 +368,7 @@
 				7DE076BA1C0085D600448979 /* Project Cinema.app */,
 				7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */,
 				7D716CA71C1C9A40008AFB2A /* Project Cinema WK Extension.appex */,
+				7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -365,6 +418,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7D02A6C81C1D88000052406D /* Project Cinema: Upcoming */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7D02A6D81C1D88000052406D /* Build configuration list for PBXNativeTarget "Project Cinema: Upcoming" */;
+			buildPhases = (
+				7D02A6C51C1D88000052406D /* Sources */,
+				7D02A6C61C1D88000052406D /* Frameworks */,
+				7D02A6C71C1D88000052406D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Project Cinema: Upcoming";
+			productName = "Project Cinema: Upcoming";
+			productReference = 7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7D716C9A1C1C9A40008AFB2A /* Project Cinema WK */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7D716CC01C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK" */;
@@ -410,11 +480,13 @@
 				5E29BEB5D661BD0F4770C984 /* Embed Pods Frameworks */,
 				4DBB7B4EE32A05202EF2B755 /* Copy Pods Resources */,
 				7D716CC11C1C9A40008AFB2A /* Embed Watch Content */,
+				7D02A6D91C1D88000052406D /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				7D716CB81C1C9A40008AFB2A /* PBXTargetDependency */,
+				7D02A6D41C1D88000052406D /* PBXTargetDependency */,
 			);
 			name = "Project Cinema";
 			productName = "Project Cinema";
@@ -432,6 +504,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Dino Praso";
 				TargetAttributes = {
+					7D02A6C81C1D88000052406D = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					7D716C9A1C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -460,11 +535,20 @@
 				7DE076B91C0085D600448979 /* Project Cinema */,
 				7D716C9A1C1C9A40008AFB2A /* Project Cinema WK */,
 				7D716CA61C1C9A40008AFB2A /* Project Cinema WK Extension */,
+				7D02A6C81C1D88000052406D /* Project Cinema: Upcoming */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7D02A6C71C1D88000052406D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D02A6D11C1D88000052406D /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D716C991C1C9A40008AFB2A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -543,6 +627,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7D02A6C51C1D88000052406D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7D02A6DC1C1D899F0052406D /* PCMediaItem.swift in Sources */,
+				7D02A6CE1C1D88000052406D /* TodayViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7D716CA31C1C9A40008AFB2A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -590,6 +683,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		7D02A6D41C1D88000052406D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7D02A6C81C1D88000052406D /* Project Cinema: Upcoming */;
+			targetProxy = 7D02A6D31C1D88000052406D /* PBXContainerItemProxy */;
+		};
 		7D716CAA1C1C9A40008AFB2A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7D716CA61C1C9A40008AFB2A /* Project Cinema WK Extension */;
@@ -603,6 +701,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		7D02A6CF1C1D88000052406D /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7D02A6D01C1D88000052406D /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		7D716C9D1C1C9A40008AFB2A /* Interface.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -630,6 +736,38 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		7D02A6D61C1D88000052406D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "Project Cinema: Upcoming/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.Project-Cinema--Upcoming";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7D02A6D71C1D88000052406D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
+				INFOPLIST_FILE = "Project Cinema: Upcoming/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.Project-Cinema--Upcoming";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		7D716CBA1C1C9A40008AFB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -778,6 +916,7 @@
 			baseConfigurationReference = 20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -791,6 +930,7 @@
 			baseConfigurationReference = E9985CB536935E7781E6914C /* Pods-Project Cinema.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -802,6 +942,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7D02A6D81C1D88000052406D /* Build configuration list for PBXNativeTarget "Project Cinema: Upcoming" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7D02A6D61C1D88000052406D /* Debug */,
+				7D02A6D71C1D88000052406D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7D716CBE1C1C9A40008AFB2A /* Build configuration list for PBXNativeTarget "Project Cinema WK Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

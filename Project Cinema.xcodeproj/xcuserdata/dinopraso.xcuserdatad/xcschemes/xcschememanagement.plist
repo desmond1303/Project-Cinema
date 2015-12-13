@@ -19,9 +19,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>Project Cinema: Upcoming.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>13</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>7D02A6C81C1D88000052406D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7D716C9A1C1C9A40008AFB2A</key>
 		<dict>
 			<key>primary</key>
