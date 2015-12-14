@@ -36,18 +36,20 @@ class PCMainDetailsTableViewController: UITableViewController {
         )
         
         if currentMediaItemIsInFav {
-            let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId)")
+            let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'").first!
+            
+            self.movie = PCMediaItem(object: realmObject)
             
             try! self.realm.write {
-                for rObject in realmObject {
-                    CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(rObject.itemType)_\(rObject.itemId)"]) { (error: NSError?) -> Void in
-                        //code
-                    }
-                    self.realm.delete(rObject)
-                    self.currentMediaItemIsInFav = false
-                    sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                    
+            CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(realmObject.itemType)_\(realmObject.itemId)"]) { (error: NSError?) -> Void in
+                    //code
                 }
+                self.realm.delete(realmObject)
+                self.currentMediaItemIsInFav = false
+                sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
             }
+            
             
         }
         else {
@@ -113,11 +115,8 @@ class PCMainDetailsTableViewController: UITableViewController {
         
     }
     
-    var movie: PCMediaItem? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
+    var movie: PCMediaItem?
+    
     var cast: [PCMediaItemCast]? {
         didSet {
             self.tableView.reloadData()
@@ -146,7 +145,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let thisMovieInRealm = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId)")
+        let thisMovieInRealm = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'")
         
         if thisMovieInRealm.count > 0 {
             self.currentMediaItemIsInFav = true

@@ -8,7 +8,6 @@
 
 import UIKit
 import NotificationCenter
-import RealmSwift
 
 class TodayViewController: UIViewController, NCWidgetProviding {
         
@@ -20,8 +19,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let realm = try! Realm()
-        print(realm.objects(PCMediaItem).filter("release_date > '2015-12-13'"))
     }
     
     override func didReceiveMemoryWarning() {

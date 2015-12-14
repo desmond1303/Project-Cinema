@@ -515,7 +515,6 @@
 					};
 					7D716CA61C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TW26GG23GV;
 					};
 					7DE076B91C0085D600448979 = {
 						CreatedOnToolsVersion = 7.1.1;
@@ -807,6 +806,7 @@
 		7D716CBC1C1C9A40008AFB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
@@ -821,6 +821,7 @@
 		7D716CBD1C1C9A40008AFB2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
