@@ -50,7 +50,6 @@ class PCMainDetailsTableViewController: UITableViewController {
                 sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
             }
             
-            
         }
         else {
             let realmObject = PCMediaItem(object: self.movie!)
@@ -138,7 +137,6 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
 
-    
     var currentMediaItemIsInFav: Bool = false
     let realm = try! Realm()
     
