@@ -8,17 +8,30 @@
 
 import UIKit
 import NotificationCenter
+import RealmSwift
 
-class TodayViewController: UIViewController, NCWidgetProviding {
+class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
+    
+    @IBOutlet weak var tableView: UITableView!
+    var upcommingMovies = [PCMediaItem]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
+        self.getRealmData()
     }
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
+    func getRealmData() {
+        let realm = try! Realm()
+        let realmObjects = realm.objects(PCMediaItem)
         
+        let dateMaker = NSDateFormatter()
+        dateMaker.dateFormat = "yyyy-MM-dd"
+        for RLMmediaItem in realmObjects {
+            if dateMaker.dateFromString(RLMmediaItem.release_date)?.timeIntervalSinceDate(NSDate()) > 0 && RLMmediaItem.itemType == "movie" {
+                self.upcommingMovies.append(RLMmediaItem)
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -33,7 +46,26 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
 
+        self.getRealmData()
         completionHandler(NCUpdateResult.NewData)
+        
+        self.tableView.reloadData()
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.upcommingMovies.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("upcommingMoive", forIndexPath: indexPath)
+        print(self.upcommingMovies)
+        cell.textLabel?.text = self.upcommingMovies[indexPath.row].title
+        cell.detailTextLabel?.text = self.upcommingMovies[indexPath.row].release_date
+        return cell
     }
     
 }

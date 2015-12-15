@@ -182,8 +182,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */,
 				7D02A6CB1C1D88000052406D /* NotificationCenter.framework in Frameworks */,
+				7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
