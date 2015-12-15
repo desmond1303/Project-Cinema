@@ -39,6 +39,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         // Dispose of any resources that can be recreated.
     }
     
+    func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
+        return UIEdgeInsetsZero
+    }
+    
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
 
@@ -48,7 +52,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
 
         self.getRealmData()
         completionHandler(NCUpdateResult.NewData)
-        
         self.tableView.reloadData()
     }
     
@@ -62,7 +65,6 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("upcommingMoive", forIndexPath: indexPath)
-        print(self.upcommingMovies)
         cell.textLabel?.text = self.upcommingMovies[indexPath.row].title
         cell.detailTextLabel?.text = self.upcommingMovies[indexPath.row].release_date
         return cell
