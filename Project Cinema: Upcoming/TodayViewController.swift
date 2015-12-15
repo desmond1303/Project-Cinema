@@ -86,5 +86,8 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let url = NSURL(string: "pcmediaitem://testMovie")
         self.extensionContext?.openURL(url!, completionHandler: nil)
         
+        let selectedCell = tableView.cellForRowAtIndexPath(indexPath)
+        selectedCell?.selected = false
+        
     }
 }
