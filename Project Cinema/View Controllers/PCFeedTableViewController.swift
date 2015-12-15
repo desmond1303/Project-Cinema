@@ -43,8 +43,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         searchBar.text = nil
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
+    func dismissSearchTable() {
         self.searchBarCancelButtonClicked(self.searchController!.searchBar)
     }
     

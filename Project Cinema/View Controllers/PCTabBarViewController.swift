@@ -22,9 +22,9 @@ class PCTabBarViewController: UITabBarController {
     }
     
     override func tabBar(tabBar: UITabBar, didSelectItem item: UITabBarItem) {
-        if tabBar.items?.indexOf(item) != 0 {
-            self.viewControllers?.first?.viewWillDisappear(false)
-        }
+        let feedNavController = self.viewControllers?.first as! UINavigationController
+        let feedController = feedNavController.viewControllers.first as! PCFeedTableViewController
+        feedController.dismissSearchTable()
     }
 
     /*
