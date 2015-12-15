@@ -59,6 +59,17 @@
 	<array>
 		<string>fontawesome-webfont.ttf</string>
 	</array>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>com.atlantbh.Project-Cinema.urls</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>pcmediaitem</string>
+			</array>
+		</dict>
+	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

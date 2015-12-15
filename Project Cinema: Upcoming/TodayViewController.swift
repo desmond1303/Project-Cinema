@@ -9,12 +9,16 @@
 import UIKit
 import NotificationCenter
 import RealmSwift
+import CoreSpotlight
+import MobileCoreServices
 
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     var upcommingMovies = [PCMediaItem]()
-        
+    
+    let dateMaker = NSDateFormatter()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
@@ -25,10 +29,10 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         let realm = try! Realm()
         let realmObjects = realm.objects(PCMediaItem)
         
-        let dateMaker = NSDateFormatter()
-        dateMaker.dateFormat = "yyyy-MM-dd"
+        self.dateMaker.dateFormat = "yyyy-MM-dd"
+        
         for RLMmediaItem in realmObjects {
-            if dateMaker.dateFromString(RLMmediaItem.release_date)?.timeIntervalSinceDate(NSDate()) > 0 && RLMmediaItem.itemType == "movie" {
+            if self.dateMaker.dateFromString(RLMmediaItem.release_date)?.timeIntervalSinceDate(NSDate()) > 0 && RLMmediaItem.itemType == "movie" {
                 self.upcommingMovies.append(RLMmediaItem)
             }
         }
@@ -66,8 +70,21 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("upcommingMoive", forIndexPath: indexPath)
         cell.textLabel?.text = self.upcommingMovies[indexPath.row].title
-        cell.detailTextLabel?.text = self.upcommingMovies[indexPath.row].release_date
+        
+        self.dateMaker.dateFormat = "yyyy-MM-dd"
+        
+        let interval = self.dateMaker.dateFromString(self.upcommingMovies[indexPath.row].release_date)?.timeIntervalSinceDate(NSDate())
+        
+        let days = Int(ceil(interval!/60/60/24))
+        
+        cell.detailTextLabel?.text = "\(days) Days until release"
         return cell
     }
     
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let url = NSURL(string: "pcmediaitem://testMovie")
+        self.extensionContext?.openURL(url!, completionHandler: nil)
+        
+    }
 }
