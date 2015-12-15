@@ -308,8 +308,12 @@ class PCMainDetailsTableViewController: UITableViewController {
             case 1:
                 let cell = tableView.dequeueReusableCellWithIdentifier("movieRatingCell", forIndexPath: indexPath) as! PCMainDetailsRatingTableViewCell
                 
-                cell.ratingProgrssView.progress = Float(movie!.voteAverage/10)
-                cell.ratingLabel.text = "\(movie!.voteAverage) | \(movie!.voteCount) votes"
+                cell.ratingProgress(Float(movie!.voteAverage))
+                
+                let ratingAttributedString = NSMutableAttributedString(string: "\(movie!.voteAverage)")
+                ratingAttributedString.appendAttributedString(NSAttributedString(string: "\n\(movie!.voteCount)", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(10.0)]))
+                
+                cell.ratingLabel.attributedText = ratingAttributedString
                 
                 return cell
             default:

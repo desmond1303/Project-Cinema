@@ -272,7 +272,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="E8M-LI-ZCf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieMainCell" rowHeight="377" id="dxP-Hi-Gez" customClass="PCMainDetailsMainTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="377"/>
@@ -452,27 +452,44 @@
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YE3-BB-h73">
                                                     <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                                     <subviews>
-                                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HBk-32-Utf">
-                                                            <rect key="frame" x="8" y="8" width="284" height="2"/>
-                                                            <color key="progressTintColor" red="1" green="0.83529411760000005" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                        </progressView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.7 | 543879 votes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORs-Mb-ODD">
-                                                            <rect key="frame" x="8" y="14" width="284" height="21"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ORs-Mb-ODD">
+                                                            <rect key="frame" x="252" y="0.0" width="40" height="43"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="40" id="gBj-xF-foW"/>
+                                                            </constraints>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="8.7 5438">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <font key="NSFont" size="14" name="HelveticaNeue-Medium"/>
+                                                                        <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qNZ-cS-FeN">
+                                                            <rect key="frame" x="8" y="8" width="236" height="27"/>
+                                                            <attributedString key="attributedText">
+                                                                <fragment content="Label">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="HBk-32-Utf" firstAttribute="leading" secondItem="YE3-BB-h73" secondAttribute="leading" constant="8" id="8GK-l9-VEF"/>
-                                                        <constraint firstAttribute="bottom" secondItem="ORs-Mb-ODD" secondAttribute="bottom" constant="8" id="H7A-B0-gfg"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HBk-32-Utf" secondAttribute="trailing" constant="8" id="Kux-bU-sPc"/>
-                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="HBk-32-Utf" secondAttribute="bottom" constant="4" id="OvC-pE-VXl"/>
-                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="leading" secondItem="YE3-BB-h73" secondAttribute="leading" constant="8" id="RLh-bo-J7T"/>
-                                                        <constraint firstItem="HBk-32-Utf" firstAttribute="top" secondItem="YE3-BB-h73" secondAttribute="top" constant="8" id="YYc-Gh-egF"/>
-                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="HBk-32-Utf" secondAttribute="bottom" constant="4" id="imF-AC-pgE"/>
-                                                        <constraint firstAttribute="trailing" secondItem="ORs-Mb-ODD" secondAttribute="trailing" constant="8" id="oU5-gD-CqU"/>
+                                                        <constraint firstItem="qNZ-cS-FeN" firstAttribute="top" secondItem="YE3-BB-h73" secondAttribute="top" constant="8" id="HvP-YF-8E0"/>
+                                                        <constraint firstAttribute="bottom" secondItem="ORs-Mb-ODD" secondAttribute="bottom" id="IxV-Wn-By5"/>
+                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="leading" secondItem="qNZ-cS-FeN" secondAttribute="trailing" constant="8" id="JiB-G8-aV6"/>
+                                                        <constraint firstAttribute="bottom" secondItem="qNZ-cS-FeN" secondAttribute="bottom" constant="8" id="d0U-KO-cck"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ORs-Mb-ODD" secondAttribute="trailing" constant="8" id="f9j-d3-t1H"/>
+                                                        <constraint firstItem="qNZ-cS-FeN" firstAttribute="leading" secondItem="YE3-BB-h73" secondAttribute="leading" constant="8" id="kdn-Te-gX8"/>
+                                                        <constraint firstItem="ORs-Mb-ODD" firstAttribute="top" secondItem="YE3-BB-h73" secondAttribute="top" id="oO6-LP-Ma9"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gma-x7-f81">
@@ -492,7 +509,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="ratingLabel" destination="ORs-Mb-ODD" id="ArB-lP-ULd"/>
-                                    <outlet property="ratingProgrssView" destination="HBk-32-Utf" id="aRI-VO-9Y6"/>
+                                    <outlet property="ratingStarsLabel" destination="qNZ-cS-FeN" id="Mc9-0N-vPv"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="castCollectionCell" rowHeight="213" id="QVg-cZ-pek" customClass="PCMainDetailsCastTableViewCell" customModule="Project_Cinema" customModuleProvider="target">

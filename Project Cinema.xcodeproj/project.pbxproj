@@ -21,6 +21,7 @@
 		7D58745F1C1AC1D600437C73 /* PCTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */; };
 		7D65DA0A1C1599E4004F1326 /* PCSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */; };
 		7D65DA0C1C159A1B004F1326 /* PCActivityChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */; };
+		7D672E601C20122B00A7BB20 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
 		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
 		7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */; };
 		7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */; };
@@ -133,6 +134,7 @@
 		7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTabBarViewController.swift; path = "View Controllers/PCTabBarViewController.swift"; sourceTree = "<group>"; };
 		7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSettingsTableViewController.swift; path = "View Controllers/PCSettingsTableViewController.swift"; sourceTree = "<group>"; };
 		7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCActivityChartTableViewCell.swift; sourceTree = "<group>"; };
+		7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
 		7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaSeason.swift; path = Models/PCMediaSeason.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				7DE076C41C0085D600448979 /* Assets.xcassets */,
 				7DE076C61C0085D600448979 /* LaunchScreen.storyboard */,
 				7DE076C91C0085D600448979 /* Info.plist */,
+				7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */,
 				7DE076D11C00891800448979 /* View Controllers */,
 				7DD98ECC1C030B1F00113FB3 /* Cells */,
 				7DE076D81C008BF200448979 /* Models */,
@@ -573,6 +576,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7DE076C81C0085D600448979 /* LaunchScreen.storyboard in Resources */,
+				7D672E601C20122B00A7BB20 /* fontawesome-webfont.ttf in Resources */,
 				7DE076C51C0085D600448979 /* Assets.xcassets in Resources */,
 				7DE076C31C0085D600448979 /* Main.storyboard in Resources */,
 			);
