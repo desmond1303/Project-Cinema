@@ -134,6 +134,10 @@
 		7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTabBarViewController.swift; path = "View Controllers/PCTabBarViewController.swift"; sourceTree = "<group>"; };
 		7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCSettingsTableViewController.swift; path = "View Controllers/PCSettingsTableViewController.swift"; sourceTree = "<group>"; };
 		7D65DA0B1C159A1B004F1326 /* PCActivityChartTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCActivityChartTableViewCell.swift; sourceTree = "<group>"; };
+		7D6641E81C22DDD0004E06D4 /* Project Cinema.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Project Cinema.entitlements"; sourceTree = "<group>"; };
+		7D6641E91C22DDFA004E06D4 /* Project Cinema WK.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Project Cinema WK.entitlements"; sourceTree = "<group>"; };
+		7D6641EA1C22DE09004E06D4 /* Project Cinema WK Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Project Cinema WK Extension.entitlements"; sourceTree = "<group>"; };
+		7D6641EB1C22DE18004E06D4 /* Project Cinema: Upcoming.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Project Cinema: Upcoming.entitlements"; sourceTree = "<group>"; };
 		7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
@@ -231,6 +235,7 @@
 		7D02A6CC1C1D88000052406D /* Project Cinema: Upcoming */ = {
 			isa = PBXGroup;
 			children = (
+				7D6641EB1C22DE18004E06D4 /* Project Cinema: Upcoming.entitlements */,
 				7D02A6CD1C1D88000052406D /* TodayViewController.swift */,
 				7D02A6CF1C1D88000052406D /* MainInterface.storyboard */,
 				7D02A6D21C1D88000052406D /* Info.plist */,
@@ -285,6 +290,7 @@
 		7D716C9C1C1C9A40008AFB2A /* Project Cinema WK */ = {
 			isa = PBXGroup;
 			children = (
+				7D6641E91C22DDFA004E06D4 /* Project Cinema WK.entitlements */,
 				7D716C9D1C1C9A40008AFB2A /* Interface.storyboard */,
 				7D716CA01C1C9A40008AFB2A /* Assets.xcassets */,
 				7D716CA21C1C9A40008AFB2A /* Info.plist */,
@@ -295,6 +301,7 @@
 		7D716CAB1C1C9A40008AFB2A /* Project Cinema WK Extension */ = {
 			isa = PBXGroup;
 			children = (
+				7D6641EA1C22DE09004E06D4 /* Project Cinema WK Extension.entitlements */,
 				7D716CAE1C1C9A40008AFB2A /* InterfaceController.swift */,
 				7D716CC91C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift */,
 				7D716CB01C1C9A40008AFB2A /* ExtensionDelegate.swift */,
@@ -381,6 +388,7 @@
 		7DE076BC1C0085D600448979 /* Project Cinema */ = {
 			isa = PBXGroup;
 			children = (
+				7D6641E81C22DDD0004E06D4 /* Project Cinema.entitlements */,
 				7DE076BD1C0085D600448979 /* AppDelegate.swift */,
 				7DE076C11C0085D600448979 /* Main.storyboard */,
 				7DE076C41C0085D600448979 /* Assets.xcassets */,
@@ -513,18 +521,38 @@
 					7D02A6C81C1D88000052406D = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = TW26GG23GV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7D716C9A1C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = TW26GG23GV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7D716CA61C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = TW26GG23GV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					7DE076B91C0085D600448979 = {
 						CreatedOnToolsVersion = 7.1.1;
 						DevelopmentTeam = TW26GG23GV;
+						SystemCapabilities = {
+							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -750,6 +778,7 @@
 		7D02A6D61C1D88000052406D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema: Upcoming/Project Cinema: Upcoming.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -769,6 +798,7 @@
 		7D02A6D71C1D88000052406D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema: Upcoming/Project Cinema: Upcoming.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -789,6 +819,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema WK/Project Cinema WK.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -808,6 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema WK/Project Cinema WK.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -826,6 +858,7 @@
 		7D716CBC1C1C9A40008AFB2A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema WK Extension/Project Cinema WK Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
@@ -843,6 +876,7 @@
 		7D716CBD1C1C9A40008AFB2A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema WK Extension/Project Cinema WK Extension.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
@@ -945,6 +979,7 @@
 			baseConfigurationReference = 20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema/Project Cinema.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
@@ -962,6 +997,7 @@
 			baseConfigurationReference = E9985CB536935E7781E6914C /* Pods-Project Cinema.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Project Cinema/Project Cinema.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;

@@ -37,6 +37,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
         
+        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema-Private")!
+        let realmPath = directory.path!.stringByAppendingString("/db.realm")
+        Realm.Configuration.defaultConfiguration.path = realmPath
+        
         if WCSession.isSupported() {
             self.session = WCSession.defaultSession()
         }

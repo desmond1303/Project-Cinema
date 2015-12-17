@@ -34,6 +34,11 @@ class PCFavoritesTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema-Private")!
+        let realmPath = directory.path!.stringByAppendingString("/db.realm")
+        Realm.Configuration.defaultConfiguration.path = realmPath
+        
         self.tableView.scrollsToTop = true
     }
 

@@ -70,6 +70,7 @@
                     <size key="freeformSize" width="320" height="88"/>
                     <connections>
                         <outlet property="tableView" destination="lcV-DS-Bmd" id="WWK-7W-Bue"/>
+                        <outlet property="tableViewHeightConstraint" destination="jnd-Bi-mm6" id="r1F-lO-Vz6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vXp-U4-Rya" userLabel="First Responder" sceneMemberID="firstResponder"/>

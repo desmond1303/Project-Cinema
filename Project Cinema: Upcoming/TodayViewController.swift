@@ -15,6 +15,7 @@ import MobileCoreServices
 class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
     var upcommingMovies = [PCMediaItem]()
     
     let dateMaker = NSDateFormatter()
@@ -22,12 +23,19 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
+        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema-Private")!
+        let realmPath = directory.path!.stringByAppendingString("/db.realm")
+        Realm.Configuration.defaultConfiguration.path = realmPath
+        
         self.getRealmData()
     }
     
     func getRealmData() {
+
         let realm = try! Realm()
-        let realmObjects = realm.objects(PCMediaItem)
+        let realmObjects = realm.objects(PCMediaItem).sorted("release_date")
+        
+        self.upcommingMovies.removeAll()
         
         self.dateMaker.dateFormat = "yyyy-MM-dd"
         
@@ -55,6 +63,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         // If there's an update, use NCUpdateResult.NewData
 
         self.getRealmData()
+        self.tableViewHeightConstraint.constant = CGFloat(self.upcommingMovies.count * 43)
         completionHandler(NCUpdateResult.NewData)
         self.tableView.reloadData()
     }
