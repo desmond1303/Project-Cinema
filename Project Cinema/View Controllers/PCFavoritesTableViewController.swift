@@ -15,10 +15,9 @@ import MobileCoreServices
 class PCFavoritesTableViewController: UITableViewController {
     
     var favorites = [PCMediaItem]()
-    let realm = try! Realm()
     
     func getRealmMovies() {
-        let realmFavorites = realm.objects(PCMediaItem).sorted("title")
+        let realmFavorites = try! Realm().objects(PCMediaItem).sorted("title")
         self.favorites.removeAll()
         for fav in realmFavorites {
             self.favorites.append(fav)
@@ -35,10 +34,6 @@ class PCFavoritesTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema-Private")!
-        let realmPath = directory.path!.stringByAppendingString("/db.realm")
-        Realm.Configuration.defaultConfiguration.path = realmPath
-        
         self.tableView.scrollsToTop = true
     }
 
@@ -54,11 +49,11 @@ class PCFavoritesTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             
-            let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.favorites[indexPath.row].itemId)")
-            try! self.realm.write {
+            let realmObject = try! Realm().objects(PCMediaItem).filter("itemId = \(self.favorites[indexPath.row].itemId)")
+            try! Realm().write {
                 for rObject in realmObject {
                     CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(rObject.itemType)_\(rObject.itemId)"], completionHandler: nil)
-                    self.realm.delete(rObject)
+                    try! Realm().delete(rObject)
                 }
             }
             
