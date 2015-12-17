@@ -49,8 +49,8 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
-        let tableRowIndexPath = tableView.indexPathForRowAtPoint(location)
-        let tableRowCell = tableView.cellForRowAtIndexPath(tableRowIndexPath!) as! PCFeedTableViewCell
+        let tableRowIndexPath = self.tableView.indexPathForRowAtPoint(location)
+        let tableRowCell = self.tableView.cellForRowAtIndexPath(tableRowIndexPath!) as! PCFeedTableViewCell
         
         let collectionCellIndexPath = tableRowCell.collectionView.indexPathForItemAtPoint(location)
         let collectionViewCell = tableRowCell.collectionView.cellForItemAtIndexPath(collectionCellIndexPath!) as! PCMediaItemCollectionViewCell
@@ -67,6 +67,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         
+        //self.presentViewController(viewControllerToCommit, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
         showDetailViewController(viewControllerToCommit, sender: self)
         
     }
@@ -190,6 +191,15 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     // MARK: - Navigation
     
+    var requestFromUrl = false
+    var urlRequest = ""
+    
+    func showDetailsForMediaItem(itemId: String, type: String) {
+        self.requestFromUrl = true
+        self.urlRequest = itemId
+        //self.performSegueWithIdentifier("showMediaItemDetailPage", sender: self)
+    }
+    
     var requestFromActivity: Bool = false
     var mediaItemActivityData = [NSObject: AnyObject]()
     
@@ -209,6 +219,12 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             destinationViewController.title = movie[0].title
             destinationViewController.movie = movie[0]
             self.requestFromActivity = false
+        }
+        else if self.requestFromUrl {
+            //let realm = try! Realm()
+            //let object = realm.objects(PCMediaItem).filter("itemType = 'movie' AND itemId = \(self.urlRequest)")[0]
+            //destinationViewController.movie = object
+            //destinationViewController.title = object.title
         }
         else if let senderCell = sender as? PCMediaItemCollectionViewCell {
             destinationViewController.title = senderCell.movie?.title

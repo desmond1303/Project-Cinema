@@ -512,15 +512,19 @@
 				TargetAttributes = {
 					7D02A6C81C1D88000052406D = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = TW26GG23GV;
 					};
 					7D716C9A1C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = TW26GG23GV;
 					};
 					7D716CA61C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = TW26GG23GV;
 					};
 					7DE076B91C0085D600448979 = {
 						CreatedOnToolsVersion = 7.1.1;
+						DevelopmentTeam = TW26GG23GV;
 					};
 				};
 			};
@@ -746,6 +750,8 @@
 		7D02A6D61C1D88000052406D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -753,8 +759,9 @@
 				INFOPLIST_FILE = "Project Cinema: Upcoming/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.Project-Cinema--Upcoming";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private.Project-Cinema--Upcoming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -762,6 +769,8 @@
 		7D02A6D71C1D88000052406D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/build/Debug-iphoneos",
@@ -769,8 +778,9 @@
 				INFOPLIST_FILE = "Project Cinema: Upcoming/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.Project-Cinema--Upcoming";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private.Project-Cinema--Upcoming";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -779,11 +789,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Project_Cinema_WK_Extension;
 				INFOPLIST_FILE = "Project Cinema WK/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -795,11 +808,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Project_Cinema_WK_Extension;
 				INFOPLIST_FILE = "Project Cinema WK/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -811,10 +827,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -826,10 +844,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Project Cinema WK Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -925,12 +945,15 @@
 			baseConfigurationReference = 20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -939,12 +962,15 @@
 			baseConfigurationReference = E9985CB536935E7781E6914C /* Pods-Project Cinema.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

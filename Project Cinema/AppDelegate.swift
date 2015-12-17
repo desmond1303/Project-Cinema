@@ -53,13 +53,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let itemType = url.host
         let itemId = url.pathComponents![1]
         
-        let realm = try! Realm()
-        let object = realm.objects(PCMediaItem).filter("itemType = '\(itemType)' AND itemId = \(itemId)")[0]
-        
-        
-        let pseudoCell = PCMediaItemCollectionViewCell()
-        pseudoCell.movie = object
-        mainViewController.performSegueWithIdentifier("showMediaItemDetailPage", sender: pseudoCell)
+        mainViewController.showDetailsForMediaItem(itemId, type: itemType!)
         
         return true
         

@@ -28,7 +28,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.atlantbh.Project-Cinema</string>
+	<string>com.atlantbh.Project-Cinema-Private</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
