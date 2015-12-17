@@ -83,7 +83,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let url = NSURL(string: "pcmediaitem://testMovie")
+        let url = NSURL(string: "pcmediaitem://\(self.upcommingMovies[indexPath.row].itemType)/\(self.upcommingMovies[indexPath.row].itemId)")
         self.extensionContext?.openURL(url!, completionHandler: nil)
         
         let selectedCell = tableView.cellForRowAtIndexPath(indexPath)

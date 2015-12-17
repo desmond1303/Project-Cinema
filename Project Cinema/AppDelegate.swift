@@ -44,6 +44,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
+    func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {
+        
+        let rootViewController = self.window?.rootViewController as! UITabBarController
+        let rootNavController = rootViewController.viewControllers?.first as! UINavigationController
+        let mainViewController = rootNavController.viewControllers.first as! PCFeedTableViewController
+        
+        let itemType = url.host
+        let itemId = url.pathComponents![1]
+        
+        let realm = try! Realm()
+        let object = realm.objects(PCMediaItem).filter("itemType = '\(itemType)' AND itemId = \(itemId)")[0]
+        
+        
+        let pseudoCell = PCMediaItemCollectionViewCell()
+        pseudoCell.movie = object
+        mainViewController.performSegueWithIdentifier("showMediaItemDetailPage", sender: pseudoCell)
+        
+        return true
+        
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
