@@ -68,29 +68,8 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
     }
     
-    /*
-    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
-        
-        let tableRowIndexPath = self.tableView.indexPathForRowAtPoint(location)
-        let tableRowCell = self.tableView.cellForRowAtIndexPath(tableRowIndexPath!) as! PCFeedTableViewCell
-        
-        let collectionCellIndexPath = tableRowCell.collectionView.indexPathForItemAtPoint(location)
-        let collectionViewCell = tableRowCell.collectionView.cellForItemAtIndexPath(collectionCellIndexPath!) as! PCMediaItemCollectionViewCell
-        
-        let detailsViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PCMainDetailsTableViewController") as! PCMainDetailsTableViewController
-        
-        detailsViewController.movie = collectionViewCell.movie
-        detailsViewController.preferredContentSize = CGSize(width: 0, height: 300)
-        
-        previewingContext.sourceRect = collectionViewCell.frame
-        
-        return detailsViewController
-    }
-    */
-    
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
-        
-        //self.presentViewController(viewControllerToCommit, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+
         showDetailViewController(viewControllerToCommit, sender: self)
         
     }
