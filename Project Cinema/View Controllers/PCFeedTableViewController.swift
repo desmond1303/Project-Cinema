@@ -39,6 +39,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
         self.searchController!.searchResultsController?.dismissViewControllerAnimated(false, completion: nil)
         searchBar.text = nil
     }
@@ -47,6 +48,27 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.searchBarCancelButtonClicked(self.searchController!.searchBar)
     }
     
+    func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
+        
+        guard let indexPath = tableView.indexPathForRowAtPoint(location),
+            cell = tableView.cellForRowAtIndexPath(indexPath) as? PCFeedTableViewCell else { return nil }
+        
+        guard let collectionIndexPath = cell.collectionView.indexPathForItemAtPoint(location),
+            collectionCell = cell.collectionView.cellForItemAtIndexPath(collectionIndexPath) as? PCMediaItemCollectionViewCell else { return nil }
+        
+        guard let destinationViewController = storyboard?.instantiateViewControllerWithIdentifier("PCMainDetailsTableViewController") as? PCMainDetailsTableViewController else { return nil }
+
+        destinationViewController.movie = collectionCell.movie
+        
+        destinationViewController.preferredContentSize = CGSize(width: 0.0, height: 0.0)
+        
+        previewingContext.sourceRect = collectionCell.frame
+        
+        return destinationViewController
+        
+    }
+    
+    /*
     func previewingContext(previewingContext: UIViewControllerPreviewing, viewControllerForLocation location: CGPoint) -> UIViewController? {
         
         let tableRowIndexPath = self.tableView.indexPathForRowAtPoint(location)
@@ -64,6 +86,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
         return detailsViewController
     }
+    */
     
     func previewingContext(previewingContext: UIViewControllerPreviewing, commitViewController viewControllerToCommit: UIViewController) {
         
