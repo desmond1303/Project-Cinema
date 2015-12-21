@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import RealmSwift
 
 class PCRatingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let realm = try! Realm()
+        let sessionId = realm.objects(Session).first?.sessionId
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,24 +32,27 @@ class PCRatingTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 1
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("ratingPicker", forIndexPath: indexPath)
 
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 217
+        }
+        return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -92,4 +99,47 @@ class PCRatingTableViewController: UITableViewController {
     }
     */
 
+}
+
+extension PCRatingTableViewController : UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        
+        var stars = ""
+        
+        switch row {
+        case 0:
+            stars = "\u{f005} \u{f005} \u{f005} \u{f005} \u{f005} 10"
+        case 1:
+            stars = "\u{f005} \u{f005} \u{f005} \u{f005} \u{f005} 9"
+        case 2:
+            stars = "\u{f005} \u{f005} \u{f005} \u{f005} 8"
+        case 3:
+            stars = "\u{f005} \u{f005} \u{f005} \u{f005} 7"
+        case 4:
+            stars = "\u{f005} \u{f005} \u{f005} 6"
+        case 5:
+            stars = "\u{f005} \u{f005} \u{f005} 5"
+        case 6:
+            stars = "\u{f005} \u{f005} 4"
+        case 7:
+            stars = "\u{f005} \u{f005} 3"
+        case 8:
+            stars = "\u{f005} 2"
+        case 9:
+            stars = "\u{f005} 1"
+        default: break
+        }
+        
+        return NSMutableAttributedString(string: stars, attributes: [NSFontAttributeName: UIFont(name: "FontAwesome", size: 16)!, NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+    }
+    
 }
