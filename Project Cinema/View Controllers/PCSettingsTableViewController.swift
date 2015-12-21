@@ -7,6 +7,16 @@
 //
 
 import UIKit
+import Alamofire
+import RealmSwift
+
+class Session: Object {
+    dynamic var sessionId = ""
+    
+    override static func primaryKey() -> String? {
+        return "sessionId"
+    }
+}
 
 class PCSettingsTableViewController: UITableViewController {
     
@@ -18,6 +28,65 @@ class PCSettingsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var url = "https://api.themoviedb.org/3/authentication/token/new"
+        var urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
+        
+        var sessionId: String = ""
+        
+        Alamofire
+            .request(.GET, url, parameters: urlParamteres)
+            .responseObject { (response: Response<PCRequestToken, NSError>) in
+                if response.result.value!.success! == true {
+                    
+                    print(response.result.value!.request_token!)
+                    
+                    url = "https://api.themoviedb.org/3/authentication/token/validate_with_login"
+                    urlParamteres["request_token"] = response.result.value!.request_token!
+                    urlParamteres["username"] = "desmond1303"
+                    urlParamteres["password"] = "130395org"
+                    
+                    Alamofire
+                        .request(.GET, url, parameters: urlParamteres)
+                        .responseObject { (response2: Response<PCRequestToken, NSError>) in
+                            if response2.result.value!.success! == true {
+                                
+                                print(response2.result.value!.request_token!)
+                                
+                                url = "https://api.themoviedb.org/3/authentication/session/new"
+                                urlParamteres["request_token"] = response2.result.value!.request_token!
+                                
+                                Alamofire
+                                    .request(.GET, url, parameters: urlParamteres)
+                                    .responseObject { (response3: Response<PCRequestToken, NSError>) in
+                                        if response3.result.value!.success! == true {
+                                            
+                                            print(response3.result.value!.request_token!)
+                                            
+                                            sessionId = response3.result.value!.request_token!
+                                            let session = Session()
+                                            session.sessionId = sessionId
+                                            let realm = try! Realm()
+                                            try! realm.write {
+                                                realm.add(session)
+                                            }
+                                        }
+                                    }
+                                
+                                
+                            }
+                        }
+                }
+        }
+        
+        let request = NSMutableURLRequest(URL: NSURL(string: "")!)
+        request.HTTPMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let values = ["value":"10"]
+        
+        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(values, options: [])
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
