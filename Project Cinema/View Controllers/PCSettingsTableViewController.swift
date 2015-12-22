@@ -44,7 +44,7 @@ class PCSettingsTableViewController: UITableViewController {
                     url = "https://api.themoviedb.org/3/authentication/token/validate_with_login"
                     urlParamteres["request_token"] = response.result.value!.request_token!
                     urlParamteres["username"] = "desmond1303"
-                    urlParamteres["password"] = "130395org"
+                    urlParamteres["password"] = "apiTestPassword"
                     
                     Alamofire
                         .request(.GET, url, parameters: urlParamteres)
