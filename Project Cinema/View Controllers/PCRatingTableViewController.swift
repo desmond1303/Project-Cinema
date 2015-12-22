@@ -7,15 +7,66 @@
 //
 
 import UIKit
+import Alamofire
 import RealmSwift
 
 class PCRatingTableViewController: UITableViewController {
+    
+    var selectedRate = 10
+    
+    @IBAction func submitButtonAction(sender: AnyObject) {
+        
+        let realm = try! Realm()
+        let session = realm.objects(Session)
+        
+        if let sessionId = session.first?.sessionId {
+            
+            self.sessionId = sessionId
+            
+            let url = NSURL(string: "http://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)/rating?api_key=d94cca56f8edbdf236c0ccbacad95aa1&session_id=\(sessionId)")!
+            
+            let request = NSMutableURLRequest(URL: url)
+            request.HTTPMethod = "POST"
+            request.addValue("application/json", forHTTPHeaderField: "Accept")
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            
+            request.HTTPBody = "{\"value\": \(self.selectedRate)}".dataUsingEncoding(NSUTF8StringEncoding);
+            
+            Alamofire
+                .request(request)
+                .responseJSON { response in
+                    print(response)
+            }
+
+        }
+        else {
+            let alertController = UIAlertController(title: "Not Logged In", message: "You have to be logged in to be able to submit ratings.", preferredStyle: UIAlertControllerStyle.Alert)
+            
+            let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
+            alertController.addAction(textAction)
+            
+            self.presentViewController(alertController, animated: true) { () -> Void in
+                //code
+            }
+
+        }
+        
+    }
+    
+    var movie: PCMediaItem? {
+        didSet {
+            self.navigationItem.title = "Rate \(self.movie!.title)"
+        }
+    }
+    
+    var sessionId: String? {
+        didSet {
+            print(self.sessionId)
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let realm = try! Realm()
-        let sessionId = realm.objects(Session).first?.sessionId
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -160,6 +211,32 @@ extension PCRatingTableViewController : UIPickerViewDelegate, UIPickerViewDataSo
         
         return attributedStars
         
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch row {
+        case 0:
+            self.selectedRate = 10
+        case 1:
+            self.selectedRate = 9
+        case 2:
+            self.selectedRate = 8
+        case 3:
+            self.selectedRate = 7
+        case 4:
+            self.selectedRate = 6
+        case 5:
+            self.selectedRate = 5
+        case 6:
+            self.selectedRate = 4
+        case 7:
+            self.selectedRate = 3
+        case 8:
+            self.selectedRate = 2
+        case 9:
+            self.selectedRate = 1
+        default: break
+        }
     }
     
 }

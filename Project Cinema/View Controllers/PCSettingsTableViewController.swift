@@ -78,15 +78,6 @@ class PCSettingsTableViewController: UITableViewController {
                         }
                 }
         }
-        
-        let request = NSMutableURLRequest(URL: NSURL(string: "")!)
-        request.HTTPMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        let values = ["value":"10"]
-        
-        request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(values, options: [])
-
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false

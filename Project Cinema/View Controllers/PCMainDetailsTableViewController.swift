@@ -376,6 +376,10 @@ class PCMainDetailsTableViewController: UITableViewController {
             let senderCell = sender as! UITableViewCell
             senderCell.selected = false
         }
+        else if segue.identifier == "showRatingScreen" {
+            let destinationViewController = segue.destinationViewController as! PCRatingTableViewController
+            destinationViewController.movie = self.movie
+        }
     }
     
     

@@ -304,7 +304,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="{Movie Title}" id="yT5-pA-rZy">
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="hFI-8w-MAE"/>
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="hFI-8w-MAE">
+                            <connections>
+                                <action selector="submitButtonAction:" destination="JWt-1O-Tjc" id="TY5-qv-Kcq"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaV-nz-Ddu" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -545,7 +549,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="299" height="43"/>
                                                             <state key="normal" title="Rate This"/>
                                                             <connections>
-                                                                <segue destination="JWt-1O-Tjc" kind="show" id="6sc-kn-afn"/>
+                                                                <segue destination="JWt-1O-Tjc" kind="show" identifier="showRatingScreen" id="6sc-kn-afn"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
