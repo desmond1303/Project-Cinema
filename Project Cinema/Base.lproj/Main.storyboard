@@ -265,7 +265,7 @@
             </objects>
             <point key="canvasLocation" x="0.0" y="1445"/>
         </scene>
-        <!--Rating Table View Controller-->
+        <!--{Movie Title}-->
         <scene sceneID="Y6f-jN-6xD">
             <objects>
                 <tableViewController id="JWt-1O-Tjc" customClass="PCRatingTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
@@ -303,6 +303,9 @@
                             <outlet property="delegate" destination="JWt-1O-Tjc" id="qpJ-0r-Ws1"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="{Movie Title}" id="yT5-pA-rZy">
+                        <barButtonItem key="rightBarButtonItem" title="Submit" id="hFI-8w-MAE"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaV-nz-Ddu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -58,6 +58,9 @@
 		7DE076D51C0089F500448979 /* PCMainDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D41C0089F500448979 /* PCMainDetailsTableViewController.swift */; };
 		7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D61C008BE500448979 /* PCMediaItem.swift */; };
 		7DE5706D1C11A5790039299C /* PCAccessStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */; };
+		7DEEA3611C293E1300DA357B /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
+		7DEEA3621C293E1400DA357B /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
+		7DEEA3631C293E1500DA357B /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -589,6 +592,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D02A6D11C1D88000052406D /* MainInterface.storyboard in Resources */,
+				7DEEA3631C293E1500DA357B /* fontawesome-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -596,6 +600,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7DEEA3611C293E1300DA357B /* fontawesome-webfont.ttf in Resources */,
 				7D716CA11C1C9A40008AFB2A /* Assets.xcassets in Resources */,
 				7D716C9F1C1C9A40008AFB2A /* Interface.storyboard in Resources */,
 			);
@@ -606,6 +611,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7D716CB51C1C9A40008AFB2A /* Assets.xcassets in Resources */,
+				7DEEA3621C293E1400DA357B /* fontawesome-webfont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

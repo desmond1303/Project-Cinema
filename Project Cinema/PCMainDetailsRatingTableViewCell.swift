@@ -10,7 +10,6 @@ import UIKit
 
 class PCMainDetailsRatingTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak private var ratingStarsLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     

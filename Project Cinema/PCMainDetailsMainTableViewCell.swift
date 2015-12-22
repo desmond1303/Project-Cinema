@@ -101,4 +101,8 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
         }
     }
     
+    func tableView(tableView: UITableView, accessoryButtonTappedForRowWithIndexPath indexPath: NSIndexPath) {
+        self.tableView(tableView, didSelectRowAtIndexPath: indexPath)
+    }
+    
 }
