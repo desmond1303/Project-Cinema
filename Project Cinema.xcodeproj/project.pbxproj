@@ -61,6 +61,9 @@
 		7DEEA3611C293E1300DA357B /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
 		7DEEA3621C293E1400DA357B /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
 		7DEEA3631C293E1500DA357B /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
+		7DEEA3651C29547A00DA357B /* PCAccountTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEEA3641C29547A00DA357B /* PCAccountTableViewController.swift */; };
+		7DEEA3671C2954A500DA357B /* PCAccountNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEEA3661C2954A500DA357B /* PCAccountNameTableViewCell.swift */; };
+		7DEEA36A1C2958D800DA357B /* PCAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DEEA3691C2958D800DA357B /* PCAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -185,6 +188,9 @@
 		7DE076D41C0089F500448979 /* PCMainDetailsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMainDetailsTableViewController.swift; path = "View Controllers/PCMainDetailsTableViewController.swift"; sourceTree = "<group>"; };
 		7DE076D61C008BE500448979 /* PCMediaItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaItem.swift; path = Models/PCMediaItem.swift; sourceTree = "<group>"; };
 		7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCAccessStatistics.swift; path = "View Controllers/PCAccessStatistics.swift"; sourceTree = "<group>"; };
+		7DEEA3641C29547A00DA357B /* PCAccountTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCAccountTableViewController.swift; path = "View Controllers/PCAccountTableViewController.swift"; sourceTree = "<group>"; };
+		7DEEA3661C2954A500DA357B /* PCAccountNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCAccountNameTableViewCell.swift; sourceTree = "<group>"; };
+		7DEEA3691C2958D800DA357B /* PCAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCAccount.swift; path = Models/PCAccount.swift; sourceTree = "<group>"; };
 		E9985CB536935E7781E6914C /* Pods-Project Cinema.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Project Cinema.release.xcconfig"; path = "Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -351,6 +357,7 @@
 		7DD98ECD1C030B2600113FB3 /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7DEEA3681C2954A900DA357B /* Account Cells */,
 				7D1947951C1186E0000796FB /* Feed Cells */,
 				7D1947961C1186F0000796FB /* Details Cells */,
 				7D1947971C1186FC000796FB /* Favorites Cells */,
@@ -420,6 +427,7 @@
 				7D65DA091C1599E4004F1326 /* PCSettingsTableViewController.swift */,
 				7D58745E1C1AC1D600437C73 /* PCTabBarViewController.swift */,
 				7DAC40E01C2802F1005FA088 /* PCRatingTableViewController.swift */,
+				7DEEA3641C29547A00DA357B /* PCAccountTableViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -428,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				7DE076D61C008BE500448979 /* PCMediaItem.swift */,
+				7DEEA3691C2958D800DA357B /* PCAccount.swift */,
 				7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */,
 				7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */,
 				7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */,
@@ -436,6 +445,14 @@
 				7DAC40DE1C27F5A6005FA088 /* PCRequestToken.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		7DEEA3681C2954A900DA357B /* Account Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7DEEA3661C2954A500DA357B /* PCAccountNameTableViewCell.swift */,
+			);
+			name = "Account Cells";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -710,6 +727,7 @@
 				7D65DA0A1C1599E4004F1326 /* PCSettingsTableViewController.swift in Sources */,
 				7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */,
 				7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */,
+				7DEEA3671C2954A500DA357B /* PCAccountNameTableViewCell.swift in Sources */,
 				7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */,
 				7DD98EDA1C03183B00113FB3 /* PCMediaItemCast.swift in Sources */,
 				7DD98ED71C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift in Sources */,
@@ -728,8 +746,10 @@
 				7DE076D51C0089F500448979 /* PCMainDetailsTableViewController.swift in Sources */,
 				7DD98ED51C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift in Sources */,
 				7DD98ECB1C030AFA00113FB3 /* PCFeedTableViewCell.swift in Sources */,
+				7DEEA3651C29547A00DA357B /* PCAccountTableViewController.swift in Sources */,
 				7DE076D31C00897900448979 /* PCFavoritesTableViewController.swift in Sources */,
 				7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */,
+				7DEEA36A1C2958D800DA357B /* PCAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
