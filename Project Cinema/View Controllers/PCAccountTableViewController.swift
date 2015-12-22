@@ -124,7 +124,7 @@ class PCAccountTableViewController: UITableViewController {
             
             cell.accountNameLabel.attributedText = nameWithUsername
             
-            cell.avatarImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(account.avatarHash)"))
+            cell.avatarImageView.sd_setImageWithURL(NSURL(string: "https://secure.gravatar.com/avatar/\(account.avatarHash).jpg?s=128"))
             
             return cell
         }
