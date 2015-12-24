@@ -129,7 +129,7 @@ class PCAccountTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -137,26 +137,44 @@ class PCAccountTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
-        if let account = self.account {
-            let cell = tableView.dequeueReusableCellWithIdentifier("accountNameCell", forIndexPath: indexPath) as! PCAccountNameTableViewCell
+    
+        if indexPath.section == 0 {
             
-            let nameWithUsername = NSMutableAttributedString(string: account.name, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(18)])
-            nameWithUsername.appendAttributedString(NSAttributedString(string: "\n\(account.username)", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12)]))
+            if let account = self.account {
+                let cell = tableView.dequeueReusableCellWithIdentifier("accountNameCell", forIndexPath: indexPath) as! PCAccountNameTableViewCell
+                
+                let nameWithUsername = NSMutableAttributedString(string: account.name, attributes: [NSFontAttributeName : UIFont.systemFontOfSize(18)])
+                nameWithUsername.appendAttributedString(NSAttributedString(string: "\n\(account.username)", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(12)]))
+                
+                cell.accountNameLabel.attributedText = nameWithUsername
+                
+                cell.avatarImageView.sd_setImageWithURL(NSURL(string: "https://secure.gravatar.com/avatar/\(account.avatarHash).jpg?s=71"))
+                
+                cell.parentTableView = self
+                
+                return cell
+            }
+            else {
+                let cell = tableView.dequeueReusableCellWithIdentifier("loginButtonCell", forIndexPath: indexPath) as! PCAccountLoginTableViewCell
+                
+                cell.parentTableView = self
+                
+                return cell
+            }
             
-            cell.accountNameLabel.attributedText = nameWithUsername
-            
-            cell.avatarImageView.sd_setImageWithURL(NSURL(string: "https://secure.gravatar.com/avatar/\(account.avatarHash).jpg?s=71"))
-            
-            cell.parentTableView = self
-            
-            return cell
         }
-        let cell = tableView.dequeueReusableCellWithIdentifier("loginButtonCell", forIndexPath: indexPath) as! PCAccountLoginTableViewCell
+        if indexPath.section == 1 {
+            
+            let cell = tableView.dequeueReusableCellWithIdentifier("ActivityChartCell", forIndexPath: indexPath) as! PCActivityChartTableViewCell
+            cell.setupChart()
+            return cell
+            
+        }
         
-        cell.parentTableView = self
+        let cell = tableView.dequeueReusableCellWithIdentifier("loginButtonCell", forIndexPath: indexPath)
         
         return cell
+
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -168,8 +186,20 @@ class PCAccountTableViewController: UITableViewController {
                 return 44
             }
         }
+        else if indexPath.section == 1 {
+            return 250
+        }
         else {
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "User Account"
+        }
+        else {
+            return "Activity Chart"
         }
     }
 

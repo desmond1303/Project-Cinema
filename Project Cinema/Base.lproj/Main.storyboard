@@ -185,6 +185,29 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityChartCell" rowHeight="250" id="UwF-9B-5V9" customClass="PCActivityChartTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="246" width="600" height="250"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UwF-9B-5V9" id="2mV-yO-ewP">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-42-Z56" customClass="BarChartView" customModule="Charts">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Un4-42-Z56" firstAttribute="top" secondItem="2mV-yO-ewP" secondAttribute="top" id="6Zh-4p-SaB"/>
+                                        <constraint firstAttribute="bottom" secondItem="Un4-42-Z56" secondAttribute="bottom" id="O7a-M0-Ean"/>
+                                        <constraint firstAttribute="trailing" secondItem="Un4-42-Z56" secondAttribute="trailing" id="rDj-d0-dh7"/>
+                                        <constraint firstItem="Un4-42-Z56" firstAttribute="leading" secondItem="2mV-yO-ewP" secondAttribute="leading" id="yuQ-P8-uuP"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="barChartView" destination="Un4-42-Z56" id="jUR-JW-XSU"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="NkI-bK-43I" id="0eM-Ud-HWN"/>
@@ -196,51 +219,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03V-Z1-uRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1268" y="1445"/>
-        </scene>
-        <!--Settings Table View Controller-->
-        <scene sceneID="nM4-uh-IIf">
-            <objects>
-                <tableViewController id="eLK-El-ety" customClass="PCSettingsTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="250" sectionHeaderHeight="18" sectionFooterHeight="18" id="UcM-at-11T">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityChartCell" id="Fdx-2U-tX5" customClass="PCActivityChartTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="600" height="250"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fdx-2U-tX5" id="0Mu-Iq-9tj">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Un4-42-Z56" customClass="BarChartView" customModule="Charts">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="Un4-42-Z56" firstAttribute="leading" secondItem="0Mu-Iq-9tj" secondAttribute="leading" id="JQ9-VN-kIf"/>
-                                        <constraint firstItem="Un4-42-Z56" firstAttribute="top" secondItem="0Mu-Iq-9tj" secondAttribute="top" id="m6f-SG-eqi"/>
-                                        <constraint firstAttribute="bottom" secondItem="Un4-42-Z56" secondAttribute="bottom" id="nVh-zT-VVi"/>
-                                        <constraint firstAttribute="trailing" secondItem="Un4-42-Z56" secondAttribute="trailing" id="o0J-sD-rGr"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="barChartView" destination="Un4-42-Z56" id="T6Z-zb-wA8"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="eLK-El-ety" id="X21-yv-LnB"/>
-                            <outlet property="delegate" destination="eLK-El-ety" id="etw-Oz-gvv"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="more" id="FHN-JW-K7b"/>
-                    <navigationItem key="navigationItem" id="AHo-8N-TRf"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G9F-tb-HMD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1974" y="1388"/>
         </scene>
         <!--Feed-->
         <scene sceneID="a31-vY-IQz">
