@@ -228,6 +228,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="UGx-0Y-xhv">
+                            <rect key="frame" x="0.0" y="348" width="600" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="collectionContainerCell" id="UGE-o1-LsG" customClass="PCFeedTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="256"/>
@@ -926,6 +931,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="DCf-Rd-NtQ">
+                            <rect key="frame" x="0.0" y="183" width="600" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteMovie" id="GiZ-yE-O5i" customClass="PCFavoritesTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="91"/>
@@ -1038,6 +1048,6 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ARj-tT-Kvi"/>
+        <segue reference="raM-0z-gmg"/>
     </inferredMetricsTieBreakers>
 </document>
