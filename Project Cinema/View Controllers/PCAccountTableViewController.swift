@@ -26,9 +26,39 @@ class PCAccountTableViewController: UITableViewController {
         let session = realm.objects(Session)
         
         if let sessionId = session.first?.sessionId {
+            self.loginWithSession(sessionId)
+        }
+
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    func loginWithSession(sessionId: String) {
+        
+        let realm = try! Realm()
+        let session = realm.objects(Session)
+        
+        if let sessionId = session.first?.sessionId {
             
             self.sessionId = sessionId
             
+            let url = "https://api.themoviedb.org/3/account"
+            let urlParamteres = ["api_key": "d94cca56f8edbdf236c0ccbacad95aa1", "session_id": self.sessionId!]
+            Alamofire
+                .request(.GET, url, parameters: urlParamteres)
+                .responseObject { (response4: Response<PCAccount, NSError>) in
+                    self.account = response4.result.value!
+            }
+            
+        }
+        
+    }
+    
+    func loginWithUsername(username: String, password: String) {
+        
             // Get request Token
             var url = "https://api.themoviedb.org/3/authentication/token/new"
             var urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
@@ -44,8 +74,8 @@ class PCAccountTableViewController: UITableViewController {
                         
                         url = "https://api.themoviedb.org/3/authentication/token/validate_with_login"
                         urlParamteres["request_token"] = response.result.value!.request_token!
-                        urlParamteres["username"] = "desmond1303"
-                        urlParamteres["password"] = "apiTestPassword"
+                        urlParamteres["username"] = username
+                        urlParamteres["password"] = password
                         
                         Alamofire
                             .request(.GET, url, parameters: urlParamteres)
@@ -73,7 +103,7 @@ class PCAccountTableViewController: UITableViewController {
                                                 // Get Account Data
                                                 
                                                 url = "https://api.themoviedb.org/3/account"
-                                                urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "session_id":self.sessionId!]
+                                                urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "session_id":sessionId]
                                                 Alamofire
                                                     .request(.GET, url, parameters: urlParamteres)
                                                     .responseObject { (response4: Response<PCAccount, NSError>) in
@@ -88,15 +118,7 @@ class PCAccountTableViewController: UITableViewController {
                         }
                     }
             }
-            
-            
-        }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -126,11 +148,13 @@ class PCAccountTableViewController: UITableViewController {
             
             cell.avatarImageView.sd_setImageWithURL(NSURL(string: "https://secure.gravatar.com/avatar/\(account.avatarHash).jpg?s=71"))
             
+            cell.parentTableView = self
+            
             return cell
         }
-        let cell = tableView.dequeueReusableCellWithIdentifier("loginButtonCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("loginButtonCell", forIndexPath: indexPath) as! PCAccountLoginTableViewCell
         
-        // Configure the cell...
+        cell.parentTableView = self
         
         return cell
     }

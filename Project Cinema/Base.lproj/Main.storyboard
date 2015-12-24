@@ -98,50 +98,71 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="rZC-01-rjO">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="accountNameCell" rowHeight="88" id="4sj-Lh-SpQ" customClass="PCAccountNameTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountNameCell" rowHeight="88" id="4sj-Lh-SpQ" customClass="PCAccountNameTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4sj-Lh-SpQ" id="acU-3u-fdS">
-                                    <rect key="frame" x="0.0" y="0.0" width="567" height="87"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9gA-9G-0dC">
                                             <rect key="frame" x="8" y="8" width="71" height="71"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="71" id="0tP-xj-bd2"/>
-                                                <constraint firstAttribute="width" constant="71" id="3wG-cj-3Ul"/>
+                                                <constraint firstAttribute="height" constant="71" id="cUW-Lb-hMl"/>
+                                                <constraint firstAttribute="width" constant="71" id="hqF-JP-i0b"/>
                                             </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="36"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAx-Oc-4VT">
-                                            <rect key="frame" x="87" y="8" width="472" height="71"/>
+                                            <rect key="frame" x="87" y="8" width="422" height="71"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Label">
                                                     <attributes>
-                                                        <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <font key="NSFont" size="17" name="HelveticaNeue"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hPA-3C-4eS">
+                                            <rect key="frame" x="517" y="29" width="75" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="75" id="1xQ-Sn-Hcx"/>
+                                                <constraint firstAttribute="height" constant="30" id="ZDY-H1-9GL"/>
+                                            </constraints>
+                                            <color key="tintColor" red="0.90196078430000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <state key="normal" title="Log Out"/>
+                                            <connections>
+                                                <action selector="LogOutButtonAction:" destination="4sj-Lh-SpQ" eventType="touchUpInside" id="SGS-rg-B5S"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="kAx-Oc-4VT" firstAttribute="leading" secondItem="9gA-9G-0dC" secondAttribute="trailing" constant="8" id="6Mz-2W-N6X"/>
-                                        <constraint firstItem="kAx-Oc-4VT" firstAttribute="top" secondItem="acU-3u-fdS" secondAttribute="top" constant="8" id="Aiu-jg-Est"/>
-                                        <constraint firstAttribute="bottom" secondItem="kAx-Oc-4VT" secondAttribute="bottom" constant="8" id="KUR-pT-lbM"/>
-                                        <constraint firstAttribute="trailing" secondItem="kAx-Oc-4VT" secondAttribute="trailing" constant="8" id="Q5y-co-yVt"/>
-                                        <constraint firstItem="9gA-9G-0dC" firstAttribute="leading" secondItem="acU-3u-fdS" secondAttribute="leading" constant="8" id="iEC-ci-VXm"/>
-                                        <constraint firstItem="9gA-9G-0dC" firstAttribute="top" secondItem="acU-3u-fdS" secondAttribute="top" constant="8" id="xpk-Xi-9gI"/>
+                                        <constraint firstItem="hPA-3C-4eS" firstAttribute="top" secondItem="acU-3u-fdS" secondAttribute="topMargin" constant="21" id="5he-vU-o5J"/>
+                                        <constraint firstItem="9gA-9G-0dC" firstAttribute="leading" secondItem="acU-3u-fdS" secondAttribute="leading" constant="8" id="Eva-Ib-guc"/>
+                                        <constraint firstItem="9gA-9G-0dC" firstAttribute="top" secondItem="acU-3u-fdS" secondAttribute="top" constant="8" id="Ikk-Lm-bBk"/>
+                                        <constraint firstItem="hPA-3C-4eS" firstAttribute="leading" secondItem="kAx-Oc-4VT" secondAttribute="trailing" constant="8" id="Jn4-l4-Nij"/>
+                                        <constraint firstAttribute="bottom" secondItem="kAx-Oc-4VT" secondAttribute="bottom" constant="8" id="M4i-cU-Dox"/>
+                                        <constraint firstItem="kAx-Oc-4VT" firstAttribute="top" secondItem="acU-3u-fdS" secondAttribute="top" constant="8" id="THN-Ps-yDJ"/>
+                                        <constraint firstItem="hPA-3C-4eS" firstAttribute="trailing" secondItem="acU-3u-fdS" secondAttribute="trailingMargin" id="dgo-ip-M06"/>
+                                        <constraint firstItem="kAx-Oc-4VT" firstAttribute="leading" secondItem="9gA-9G-0dC" secondAttribute="trailing" constant="8" id="zc7-bH-oi6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="accountNameLabel" destination="kAx-Oc-4VT" id="UTY-Ku-kpX"/>
                                     <outlet property="avatarImageView" destination="9gA-9G-0dC" id="dg5-1C-xMZ"/>
+                                    <outlet property="logOutButton" destination="hPA-3C-4eS" id="sKC-2v-jnh"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loginButtonCell" id="K6F-4V-6I3">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loginButtonCell" id="K6F-4V-6I3" customClass="PCAccountLoginTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="202" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6F-4V-6I3" id="HsJ-aX-Uga">
@@ -151,6 +172,9 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaM-RT-PpT">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <state key="normal" title="Log In"/>
+                                            <connections>
+                                                <action selector="LogInButtonAction:" destination="K6F-4V-6I3" eventType="touchUpInside" id="agF-Cu-F1g"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
