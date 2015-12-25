@@ -36,6 +36,7 @@ class PCRatingTableViewController: UITableViewController {
                 .request(request)
                 .responseJSON { response in
                     print(response)
+                    self.navigationController?.popViewControllerAnimated(true)
             }
 
         }
