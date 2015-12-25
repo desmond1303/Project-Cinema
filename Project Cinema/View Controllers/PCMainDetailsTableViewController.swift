@@ -309,6 +309,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 let cell = tableView.dequeueReusableCellWithIdentifier("movieRatingCell", forIndexPath: indexPath) as! PCMainDetailsRatingTableViewCell
                 
                 cell.ratingProgress(Float(movie!.voteAverage))
+                cell.parentViewController = self
                 
                 let ratingAttributedString = NSMutableAttributedString(string: "\(movie!.voteAverage)")
                 ratingAttributedString.appendAttributedString(NSAttributedString(string: "\n\(movie!.voteCount)", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(10.0)]))

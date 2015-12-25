@@ -421,7 +421,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HaV-nz-Ddu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="3863"/>
+            <point key="canvasLocation" x="0.0" y="3893"/>
         </scene>
         <!--Title-->
         <scene sceneID="fft-5l-s1s">
@@ -653,20 +653,68 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gma-x7-f81">
                                                     <rect key="frame" x="301" y="0.0" width="299" height="43"/>
                                                     <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sdj-j1-zKz">
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mNk-Yu-M59">
                                                             <rect key="frame" x="0.0" y="0.0" width="299" height="43"/>
-                                                            <state key="normal" title="Rate This"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <prototypes>
+                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rateThisCell" id="qCr-qx-JRQ" customClass="PCMainDetailsRateThisTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                                                                    <rect key="frame" x="0.0" y="28" width="299" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qCr-qx-JRQ" id="ak8-FN-LPi">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="266" height="43"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Rating" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oU-bi-kpT">
+                                                                                <rect key="frame" x="8" y="0.0" width="85" height="43"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="85" id="gbc-lW-1nt"/>
+                                                                                </constraints>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX5-al-Xc9">
+                                                                                <rect key="frame" x="101" y="0.0" width="157" height="43"/>
+                                                                                <attributedString key="attributedText">
+                                                                                    <fragment content="8.7 5438">
+                                                                                        <attributes>
+                                                                                            <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                            <font key="NSFont" size="14" name="HelveticaNeue-Medium"/>
+                                                                                            <paragraphStyle key="NSParagraphStyle" alignment="right" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                                        </attributes>
+                                                                                    </fragment>
+                                                                                </attributedString>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
+                                                                        <constraints>
+                                                                            <constraint firstItem="ZX5-al-Xc9" firstAttribute="leading" secondItem="5oU-bi-kpT" secondAttribute="trailing" constant="8" id="AoD-5y-q5Q"/>
+                                                                            <constraint firstItem="5oU-bi-kpT" firstAttribute="top" secondItem="ak8-FN-LPi" secondAttribute="top" id="UFH-mn-78k"/>
+                                                                            <constraint firstItem="ZX5-al-Xc9" firstAttribute="top" secondItem="ak8-FN-LPi" secondAttribute="top" id="ZA9-HU-t8h"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="5oU-bi-kpT" secondAttribute="bottom" id="eNu-TK-Xd4"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="ZX5-al-Xc9" secondAttribute="bottom" id="hUN-3B-VnW"/>
+                                                                            <constraint firstItem="5oU-bi-kpT" firstAttribute="leading" secondItem="ak8-FN-LPi" secondAttribute="leading" constant="8" id="nFc-SQ-Su0"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="ZX5-al-Xc9" secondAttribute="trailing" constant="8" id="q2U-TZ-rOn"/>
+                                                                        </constraints>
+                                                                    </tableViewCellContentView>
+                                                                    <connections>
+                                                                        <outlet property="cellTitle" destination="5oU-bi-kpT" id="MrK-Pt-Pfj"/>
+                                                                        <outlet property="givenRating" destination="ZX5-al-Xc9" id="TnL-gm-2rn"/>
+                                                                    </connections>
+                                                                </tableViewCell>
+                                                            </prototypes>
                                                             <connections>
-                                                                <segue destination="JWt-1O-Tjc" kind="show" identifier="showRatingScreen" id="6sc-kn-afn"/>
+                                                                <outlet property="dataSource" destination="b2b-vp-hfI" id="deE-cV-daK"/>
+                                                                <outlet property="delegate" destination="b2b-vp-hfI" id="Ayi-cC-DoW"/>
                                                             </connections>
-                                                        </button>
+                                                        </tableView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="Sdj-j1-zKz" secondAttribute="trailing" id="LMD-3C-e8r"/>
-                                                        <constraint firstItem="Sdj-j1-zKz" firstAttribute="top" secondItem="gma-x7-f81" secondAttribute="top" id="cIs-EI-Td1"/>
-                                                        <constraint firstItem="Sdj-j1-zKz" firstAttribute="leading" secondItem="gma-x7-f81" secondAttribute="leading" id="khD-FV-hDw"/>
-                                                        <constraint firstAttribute="bottom" secondItem="Sdj-j1-zKz" secondAttribute="bottom" id="p8u-Xv-9vy"/>
+                                                        <constraint firstItem="mNk-Yu-M59" firstAttribute="leading" secondItem="gma-x7-f81" secondAttribute="leading" id="J3R-uI-p3G"/>
+                                                        <constraint firstAttribute="trailing" secondItem="mNk-Yu-M59" secondAttribute="trailing" id="OoW-zv-QTy"/>
+                                                        <constraint firstItem="mNk-Yu-M59" firstAttribute="top" secondItem="gma-x7-f81" secondAttribute="top" id="ele-fq-MRs"/>
+                                                        <constraint firstAttribute="bottom" secondItem="mNk-Yu-M59" secondAttribute="bottom" id="hzg-bF-hcX"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -681,6 +729,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="rateThisTableView" destination="mNk-Yu-M59" id="V7e-P3-Aek"/>
                                     <outlet property="ratingLabel" destination="ORs-Mb-ODD" id="ArB-lP-ULd"/>
                                     <outlet property="ratingStarsLabel" destination="qNZ-cS-FeN" id="Mc9-0N-vPv"/>
                                 </connections>
@@ -875,6 +924,9 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="1200"/>
+                    <connections>
+                        <segue destination="JWt-1O-Tjc" kind="show" identifier="showRatingScreen" id="vkf-yc-yAi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r7g-UL-b4E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

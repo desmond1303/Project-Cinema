@@ -13,6 +13,10 @@ class PCMainDetailsRatingTableViewCell: UITableViewCell {
     @IBOutlet weak private var ratingStarsLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     
+    @IBOutlet weak var rateThisTableView: UITableView!
+    
+    var parentViewController: PCMainDetailsTableViewController?
+    
     func ratingProgress(progress: Float) {
         
         let stars = NSMutableAttributedString(string: "\u{f005} \u{f005} \u{f005} \u{f005} \u{f005}", attributes: [NSFontAttributeName: UIFont(name: "FontAwesome", size: 16)!, NSForegroundColorAttributeName: UIColor.lightGrayColor()])
@@ -47,4 +51,26 @@ class PCMainDetailsRatingTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+}
+
+extension PCMainDetailsRatingTableViewCell: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("rateThisCell", forIndexPath: indexPath) as! PCMainDetailsRateThisTableViewCell
+        return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.parentViewController?.performSegueWithIdentifier("showRatingScreen", sender: self)
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
 }

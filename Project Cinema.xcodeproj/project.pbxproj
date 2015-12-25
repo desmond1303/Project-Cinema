@@ -41,6 +41,7 @@
 		7D9046DD1C045EAB00184C00 /* PCFavoritesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */; };
 		7D9046DF1C046FEB00184C00 /* CoreSpotlight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */; };
 		7D9046E11C046FFE00184C00 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */; };
+		7D93BD3F1C2D3AF0006C0270 /* PCMainDetailsRateThisTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D93BD3E1C2D3AF0006C0270 /* PCMainDetailsRateThisTableViewCell.swift */; };
 		7DAC40DF1C27F5A6005FA088 /* PCRequestToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC40DE1C27F5A6005FA088 /* PCRequestToken.swift */; };
 		7DAC40E11C2802F1005FA088 /* PCRatingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DAC40E01C2802F1005FA088 /* PCRatingTableViewController.swift */; };
 		7DD98ECB1C030AFA00113FB3 /* PCFeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98ECA1C030AFA00113FB3 /* PCFeedTableViewCell.swift */; };
@@ -170,6 +171,7 @@
 		7D9046DC1C045EAB00184C00 /* PCFavoritesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCFavoritesTableViewCell.swift; sourceTree = "<group>"; };
 		7D9046DE1C046FEB00184C00 /* CoreSpotlight.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreSpotlight.framework; path = System/Library/Frameworks/CoreSpotlight.framework; sourceTree = SDKROOT; };
 		7D9046E01C046FFE00184C00 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		7D93BD3E1C2D3AF0006C0270 /* PCMainDetailsRateThisTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsRateThisTableViewCell.swift; sourceTree = "<group>"; };
 		7DAC40DE1C27F5A6005FA088 /* PCRequestToken.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCRequestToken.swift; path = Models/PCRequestToken.swift; sourceTree = "<group>"; };
 		7DAC40E01C2802F1005FA088 /* PCRatingTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCRatingTableViewController.swift; path = "View Controllers/PCRatingTableViewController.swift"; sourceTree = "<group>"; };
 		7DD98ECA1C030AFA00113FB3 /* PCFeedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCFeedTableViewCell.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				7DD98ECE1C030B6500113FB3 /* PCMainDetailsMainTableViewCell.swift */,
 				7DD98ED01C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift */,
 				7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */,
+				7D93BD3E1C2D3AF0006C0270 /* PCMainDetailsRateThisTableViewCell.swift */,
 				7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */,
 				7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */,
 			);
@@ -746,6 +749,7 @@
 				7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */,
 				7D57B1461C2BE726008F3E81 /* PCAccountLoginTableViewCell.swift in Sources */,
 				7DD98ED11C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift in Sources */,
+				7D93BD3F1C2D3AF0006C0270 /* PCMainDetailsRateThisTableViewCell.swift in Sources */,
 				7DE076BE1C0085D600448979 /* AppDelegate.swift in Sources */,
 				7DE076D51C0089F500448979 /* PCMainDetailsTableViewController.swift in Sources */,
 				7DD98ED51C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift in Sources */,
