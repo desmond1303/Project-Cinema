@@ -169,7 +169,7 @@ extension PCRatingTableViewController : UIPickerViewDelegate, UIPickerViewDataSo
         
         var stars = String()
         let attributes = [
-            NSFontAttributeName: UIFont(name: "FontAwesome", size: 16)!,
+            NSFontAttributeName: UIFont(name: "FontAwesome", size: 19)!,
             NSForegroundColorAttributeName: UIColor.redColor()
         ]
         
