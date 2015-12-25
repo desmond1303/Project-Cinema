@@ -16,6 +16,11 @@ class PCMainDetailsRatingTableViewCell: UITableViewCell {
     @IBOutlet weak var rateThisTableView: UITableView!
     
     var parentViewController: PCMainDetailsTableViewController?
+    var userRating: Int? {
+        didSet {
+            self.rateThisTableView.reloadData()
+        }
+    }
     
     func ratingProgress(progress: Float) {
         
@@ -65,6 +70,14 @@ extension PCMainDetailsRatingTableViewCell: UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("rateThisCell", forIndexPath: indexPath) as! PCMainDetailsRateThisTableViewCell
+        let star = NSMutableAttributedString(string: "\u{f005} ", attributes: [NSFontAttributeName: UIFont(name: "FontAwesome", size: 16)!, NSForegroundColorAttributeName: UIColor.redColor()])
+        if let rate = self.userRating {
+            star.appendAttributedString(NSAttributedString(string: "\(rate)"))
+            cell.givenRating.attributedText = star
+        }
+        else {
+            cell.givenRating.attributedText = NSAttributedString(string: "No Rating Yet", attributes: [NSFontAttributeName: UIFont.systemFontOfSize(1), NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+        }
         return cell
     }
     

@@ -137,13 +137,20 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
 
+    var sessionId: String?
+    var userRating: Int? {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     var currentMediaItemIsInFav: Bool = false
     let realm = try! Realm()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let thisMovieInRealm = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'")
+        let thisMovieInRealm = self.realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'")
         
         if thisMovieInRealm.count > 0 {
             self.currentMediaItemIsInFav = true
@@ -153,6 +160,42 @@ class PCMainDetailsTableViewController: UITableViewController {
             self.currentMediaItemIsInFav = false
             self.tableView.reloadData()
         }
+        
+        // Check Login
+        
+        let session = self.realm.objects(Session)
+        
+        if let sessionId = session.first?.sessionId {
+            self.sessionId = sessionId
+            
+            // Get User Rating
+            
+            var allRated = [PCMediaItem]()
+            
+            var itemType: String = ""
+            
+            if self.movie!.itemType == "movie" {
+                itemType = "movies"
+            }
+            else {
+                itemType = "tv"
+            }
+            
+            let url = "https://api.themoviedb.org/3/account/\(self.movie!.itemId)/rated/\(itemType)"
+            let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "session_id":sessionId]
+            Alamofire
+                .request(.GET, url, parameters: urlParamteres)
+                .responseArray ("results") { (response4: Response<[PCMediaItem], NSError>) in
+                    allRated = response4.result.value!
+                    
+                    for ratedItem in allRated {
+                        if ratedItem.itemType == self.movie?.itemType && ratedItem.itemId == self.movie?.itemId {
+                            self.userRating = ratedItem.rating
+                        }
+                    }
+            }
+        }
+        
     }
     
     @IBAction func shareButtonAction(sender: AnyObject) {
@@ -310,6 +353,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 
                 cell.ratingProgress(Float(movie!.voteAverage))
                 cell.parentViewController = self
+                cell.userRating = self.userRating
                 
                 let ratingAttributedString = NSMutableAttributedString(string: "\(movie!.voteAverage)")
                 ratingAttributedString.appendAttributedString(NSAttributedString(string: "\n\(movie!.voteCount)", attributes: [NSFontAttributeName : UIFont.systemFontOfSize(10.0)]))

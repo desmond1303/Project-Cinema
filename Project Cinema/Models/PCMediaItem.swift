@@ -47,6 +47,7 @@ class PCMediaItem: Object, Mappable {
     dynamic var title: String = "" // "name" for tv
     dynamic var voteAverage: Double = 0
     dynamic var voteCount: Int = 0
+    dynamic var rating: Int = 0
     
     //var cast
     
@@ -136,6 +137,7 @@ class PCMediaItem: Object, Mappable {
         self.status = object.status
         self.voteAverage = object.voteAverage
         self.voteCount = object.voteCount
+        self.rating = object.rating
         
         self.adult = object.adult
         self.belongs_to_collection = object.belongs_to_collection
@@ -181,6 +183,7 @@ class PCMediaItem: Object, Mappable {
         self.status <- map["status"]
         self.voteAverage <- map["vote_average"]
         self.voteCount <- map["vote_count"]
+        self.rating <- map["rating"]
         
         self.adult <- map["adult"]
         self.belongs_to_collection <- map["belongs_to_collection"]
