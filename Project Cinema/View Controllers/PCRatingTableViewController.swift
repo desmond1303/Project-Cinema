@@ -217,59 +217,6 @@ extension PCRatingTableViewController : UIPickerViewDelegate, UIPickerViewDataSo
         return pickerItemLabel
     }
     
-    /*
-    func pickerView(pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
-        
-        var stars = String()
-        let attributes = [
-            NSFontAttributeName: UIFont(name: "FontAwesome", size: 16)!,
-            NSForegroundColorAttributeName: UIColor.redColor()
-        ]
-        
-        var starCount = String()
-        
-        switch row {
-        case 0:
-            stars = "\u{f005} \u{f005} \u{f005} \u{f005} \u{f005} "
-            starCount = "10"
-        case 1:
-            stars = "\u{f005} \u{f005} \u{f005} \u{f005} \u{f005} "
-            starCount = "9"
-        case 2:
-            stars = "\u{f005} \u{f005} \u{f005} \u{f005} "
-            starCount = "8"
-        case 3:
-            stars = "\u{f005} \u{f005} \u{f005} \u{f005} "
-            starCount = "7"
-        case 4:
-            stars = "\u{f005} \u{f005} \u{f005} "
-            starCount = "6"
-        case 5:
-            stars = "\u{f005} \u{f005} \u{f005} "
-            starCount = "5"
-        case 6:
-            stars = "\u{f005} \u{f005} "
-            starCount = "4"
-        case 7:
-            stars = "\u{f005} \u{f005} "
-            starCount = "3"
-        case 8:
-            stars = "\u{f005} "
-            starCount = "2"
-        case 9:
-            stars = "\u{f005} "
-            starCount = "1"
-        default: break
-        }
-        
-        let attributedStars = NSMutableAttributedString(string: stars, attributes: attributes)
-        attributedStars.appendAttributedString(NSAttributedString(string: starCount))
-        
-        return attributedStars
-        
-    }
-    */
-    
     func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch row {
         case 0:
