@@ -35,7 +35,8 @@ class PCRatingTableViewController: UITableViewController {
             Alamofire
                 .request(request)
                 .responseJSON { response in
-                    print(response)
+                    let prevView = self.navigationController?.viewControllers[1] as! PCMainDetailsTableViewController
+                    prevView.refreshTableView(nil)
                     self.navigationController?.popViewControllerAnimated(true)
             }
 
@@ -60,11 +61,7 @@ class PCRatingTableViewController: UITableViewController {
         }
     }
     
-    var sessionId: String? {
-        didSet {
-            print(self.sessionId)
-        }
-    }
+    var sessionId: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()

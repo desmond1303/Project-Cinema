@@ -211,6 +211,8 @@ class PCMainDetailsTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
         
+        self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
+        
         let dateMaker = NSDateFormatter()
         dateMaker.dateFormat = "yyyy-MM-dd"
         let todayString = dateMaker.stringFromDate(NSDate())
@@ -280,6 +282,13 @@ class PCMainDetailsTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func refreshTableView(sender:AnyObject?) {
+        self.viewWillAppear(false)
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
+
     
     // MARK: - Table view data source
     
