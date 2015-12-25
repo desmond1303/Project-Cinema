@@ -76,7 +76,7 @@ extension PCMainDetailsRatingTableViewCell: UITableViewDelegate, UITableViewData
             cell.givenRating.attributedText = star
         }
         else {
-            cell.givenRating.attributedText = NSAttributedString(string: "No Rating Yet", attributes: [NSFontAttributeName: UIFont.systemFontOfSize(1), NSForegroundColorAttributeName: UIColor.lightGrayColor()])
+            cell.givenRating.attributedText = NSAttributedString(string: "Not Yet Rated", attributes: [NSFontAttributeName: UIFont.systemFontOfSize(11)])
         }
         return cell
     }
