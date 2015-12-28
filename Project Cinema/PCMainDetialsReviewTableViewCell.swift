@@ -54,7 +54,7 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let alertController = UIAlertController(title: "\(self.reviews![indexPath.row].author)", message: "\(self.reviews![indexPath.row].content)", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "\(self.reviews![indexPath.row].author!)", message: "\(self.reviews![indexPath.row].content!)", preferredStyle: UIAlertControllerStyle.Alert)
         
         let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
             self.parentViewController?.tableView.deselectRowAtIndexPath(indexPath, animated: true)
