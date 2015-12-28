@@ -527,6 +527,7 @@
 				4DBB7B4EE32A05202EF2B755 /* Copy Pods Resources */,
 				7D716CC11C1C9A40008AFB2A /* Embed Watch Content */,
 				7D02A6D91C1D88000052406D /* Embed App Extensions */,
+				7D93BD401C314CE0006C0270 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -681,6 +682,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Project Cinema/Pods-Project Cinema-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		7D93BD401C314CE0006C0270 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" f53fcb03d255ede3305b3ea4b866d54ab1d4c237 8b31116e927005a8943e66bcefa6e2a8a67080a812ccab1032475a48a5c6c772";
 		};
 		DFE303E6B60A52499DF3F1D2 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

@@ -12,6 +12,8 @@ pod 'SDWebImage'
 pod 'RealmSwift'
 pod 'youtube-ios-player-helper'
 pod 'Charts'
+pod 'Fabric'
+pod 'Crashlytics'
 
 end
 

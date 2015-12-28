@@ -4,6 +4,9 @@ PODS:
     - Alamofire (~> 3.1.0)
     - ObjectMapper (~> 1.0)
   - Charts (2.1.6)
+  - Crashlytics (3.4.1):
+    - Fabric (~> 1.6.0)
+  - Fabric (1.6.1)
   - ObjectMapper (1.0.1)
   - Realm (0.97.0):
     - Realm/Headers (= 0.97.0)
@@ -19,6 +22,8 @@ DEPENDENCIES:
   - Alamofire
   - AlamofireObjectMapper
   - Charts
+  - Crashlytics
+  - Fabric
   - ObjectMapper
   - RealmSwift
   - SDWebImage
@@ -28,6 +33,8 @@ SPEC CHECKSUMS:
   Alamofire: fbc829692f351fa1d8a31dd75fd7f7f56fea31fb
   AlamofireObjectMapper: 24097576202064f8b0a583452dd934064f78dc0e
   Charts: 5e1e5ac23898e5b09d226a2fc3e9d86bc281937e
+  Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
+  Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
   ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
   Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
