@@ -19,12 +19,17 @@ class PCAccountLoginTableViewCell: UITableViewCell {
         
         let alertController = UIAlertController(title: "Login", message: "Use TheMovieDB Login credentails", preferredStyle: UIAlertControllerStyle.Alert)
         
-        let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (textAction) -> Void in
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (textAction) -> Void in
             username = alertController.textFields![0].text
             password = alertController.textFields![1].text
             self.parentTableView?.loginWithUsername(username!, password: password!)
         }
-        alertController.addAction(textAction)
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil)
+
+        alertController.addAction(okAction)
+        alertController.addAction(cancelAction)
+        
         alertController.addTextFieldWithConfigurationHandler { (usernameField) -> Void in
             usernameField.placeholder = "Username"
         }
@@ -33,9 +38,7 @@ class PCAccountLoginTableViewCell: UITableViewCell {
             passwordField.secureTextEntry = true
         }
         
-        self.parentTableView?.presentViewController(alertController, animated: true) { () -> Void in
-            //
-        }
+        self.parentTableView?.presentViewController(alertController, animated: true, completion: nil)
     }
     
     override func awakeFromNib() {

@@ -35,7 +35,7 @@ class PCAccountNameTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        logOutButton.layer.cornerRadius = 2
+        logOutButton.layer.cornerRadius = 4
         logOutButton.layer.borderWidth = 1
         logOutButton.layer.borderColor = logOutButton.tintColor.CGColor
     }

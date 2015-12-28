@@ -68,7 +68,7 @@ class PCAccountTableViewController: UITableViewController {
             Alamofire
                 .request(.GET, url, parameters: urlParamteres)
                 .responseObject { (response: Response<PCRequestToken, NSError>) in
-                    if response.result.value!.success! == true {
+                    if response.result.value!.success {
                         
                         // Get Token Authenticated
                         
@@ -80,7 +80,7 @@ class PCAccountTableViewController: UITableViewController {
                         Alamofire
                             .request(.GET, url, parameters: urlParamteres)
                             .responseObject { (response2: Response<PCRequestToken, NSError>) in
-                                if response2.result.value!.success! == true {
+                                if response2.result.value!.success {
                                     
                                     // Create New Session
                                     
@@ -90,7 +90,7 @@ class PCAccountTableViewController: UITableViewController {
                                     Alamofire
                                         .request(.GET, url, parameters: urlParamteres)
                                         .responseObject { (response3: Response<PCRequestToken, NSError>) in
-                                            if response3.result.value!.success! == true {
+                                            if response3.result.value!.success {
                                                 
                                                 sessionId = response3.result.value!.request_token!
                                                 let session = Session()

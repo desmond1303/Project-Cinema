@@ -14,7 +14,7 @@ class PCRequestToken: Mappable {
     
     var expires_at: String?
     var request_token: String?
-    var success: Bool?
+    var success: Bool = false
     
     required init?(_ map: Map){
         
