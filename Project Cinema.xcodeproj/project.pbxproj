@@ -1038,6 +1038,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Project Cinema/Project Cinema.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;

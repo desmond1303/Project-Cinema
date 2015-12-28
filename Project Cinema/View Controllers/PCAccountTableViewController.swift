@@ -9,8 +9,15 @@
 import UIKit
 import Alamofire
 import RealmSwift
+import Crashlytics
 
 class PCAccountTableViewController: UITableViewController {
+    
+    @IBAction func crashAppButton(sender: AnyObject) {
+    
+        Crashlytics.sharedInstance().crash()
+
+    }
     
     var sessionId: String?
     var account: PCAccount? {

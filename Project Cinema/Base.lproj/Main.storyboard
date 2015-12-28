@@ -81,6 +81,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gV4-i5-Z2Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="barTintColor" red="0.16078431369999999" green="0.43529411759999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
@@ -214,7 +215,13 @@
                             <outlet property="delegate" destination="NkI-bK-43I" id="qT7-jb-nh3"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Account" id="gUg-63-8Ta"/>
+                    <navigationItem key="navigationItem" title="Account" id="gUg-63-8Ta">
+                        <barButtonItem key="rightBarButtonItem" title="Crash App" id="K5C-xg-WsF">
+                            <connections>
+                                <action selector="crashAppButton:" destination="NkI-bK-43I" id="aBa-2H-ojT"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="03V-Z1-uRs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
