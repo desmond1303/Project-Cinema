@@ -35,8 +35,6 @@ class PCRatingTableViewController: UITableViewController {
             Alamofire
                 .request(request)
                 .responseJSON { response in
-                    let prevView = self.navigationController?.viewControllers[1] as! PCMainDetailsTableViewController
-                    prevView.refreshTableView(nil)
                     self.navigationController?.popViewControllerAnimated(true)
             }
 
