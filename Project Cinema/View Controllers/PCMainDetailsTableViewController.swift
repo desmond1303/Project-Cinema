@@ -413,7 +413,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 1:
             return 213
         case 2:
-            return 213
+            return CGFloat(37 + (44 * self.reviews!.count))
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
