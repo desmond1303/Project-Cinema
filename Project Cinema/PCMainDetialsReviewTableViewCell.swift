@@ -24,6 +24,8 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
         }
     }
     
+    var parentViewController: PCMainDetailsTableViewController?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -48,6 +50,23 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
         cell.textLabel?.text = self.reviews![indexPath.row].author
         cell.detailTextLabel?.text = self.reviews![indexPath.row].content
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let alertController = UIAlertController(title: "\(self.reviews![indexPath.row].author)", message: "\(self.reviews![indexPath.row].content)", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
+            self.parentViewController?.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        }
+        
+        alertController.addAction(textAction)
+        
+        self.parentViewController?.presentViewController(alertController, animated: true) { () -> Void in
+            //code
+        }
+
+        
     }
 
 }

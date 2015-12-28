@@ -394,6 +394,8 @@ class PCMainDetailsTableViewController: UITableViewController {
                 cell.seasons = self.seasons
             }
             
+            cell.parentViewController = self
+            
             return cell
         default:
             break
