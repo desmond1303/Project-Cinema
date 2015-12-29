@@ -101,7 +101,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="accountNameCell" rowHeight="88" id="4sj-Lh-SpQ" customClass="PCAccountNameTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="accountNameCell" rowHeight="88" id="4sj-Lh-SpQ" customClass="PCAccountNameTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="114" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4sj-Lh-SpQ" id="acU-3u-fdS">
@@ -186,7 +186,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ActivityChartCell" rowHeight="250" id="UwF-9B-5V9" customClass="PCActivityChartTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActivityChartCell" rowHeight="250" id="UwF-9B-5V9" customClass="PCActivityChartTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="246" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UwF-9B-5V9" id="2mV-yO-ewP">
@@ -677,7 +677,7 @@
                                                                                     <constraint firstAttribute="width" constant="50" id="gbc-lW-1nt"/>
                                                                                 </constraints>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZX5-al-Xc9">

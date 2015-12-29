@@ -26,6 +26,10 @@ class PCAccountTableViewController: UITableViewController {
         }
     }
 
+    override func viewDidAppear(animated: Bool) {
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -207,6 +211,15 @@ class PCAccountTableViewController: UITableViewController {
         }
         else {
             return "Activity Chart"
+        }
+    }
+    
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return nil
+        }
+        else {
+            return "Amount of viewed Movies and TV Shows on this device in the last 7 days"
         }
     }
 
