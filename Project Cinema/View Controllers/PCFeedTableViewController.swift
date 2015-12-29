@@ -12,7 +12,11 @@ import RealmSwift
 
 class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate {
     
-    var mediaItems = [String:[PCMediaItem]]()
+    var mediaItems = [String:[PCMediaItem]]() {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
     var searchResult: PCMediaItem?
     
     var searchController: UISearchController?
@@ -74,6 +78,33 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
     }
     
+    var hasConnection: Bool? {
+        didSet {
+            if self.hasConnection! {
+                self.getFeedData()
+            }
+            else {
+                let connectionBanner = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 35))
+                connectionBanner.backgroundColor = UIColor.redColor()
+                
+                let connectionBannerLabel = UILabel(frame: connectionBanner.frame)
+                connectionBannerLabel.textColor = UIColor.whiteColor()
+                connectionBannerLabel.textAlignment = .Center
+                
+                connectionBannerLabel.attributedText = NSAttributedString(string: "No Internet Connection", attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)])
+                connectionBanner.addSubview(connectionBannerLabel)
+                
+                self.view.addSubview(connectionBanner)
+            }
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.hasConnection = PCReachability.isConnectedToNetwork()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,14 +130,20 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.navigationItem.titleView = self.searchController!.searchBar
         
         self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
-        
+    }
+    
+    func refreshTableView(sender:AnyObject) {
+        self.tableView.reloadData()
+        self.refreshControl?.endRefreshing()
+    }
+    
+    func getFeedData() {
         var url = "https://api.themoviedb.org/3/movie/popular"
         let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
         Alamofire
             .request(.GET, url, parameters: urlParamteres)
             .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
                 self.mediaItems["popular_movies"] = response.result.value
-                self.tableView.reloadData()
         }
         
         url = "https://api.themoviedb.org/3/movie/top_rated"
@@ -114,7 +151,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             .request(.GET, url, parameters: urlParamteres)
             .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
                 self.mediaItems["top_rated_movies"] = response.result.value
-                self.tableView.reloadData()
         }
         
         url = "https://api.themoviedb.org/3/movie/upcoming"
@@ -122,7 +158,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             .request(.GET, url, parameters: urlParamteres)
             .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
                 self.mediaItems["upcoming_movies"] = response.result.value
-                self.tableView.reloadData()
         }
         
         url = "https://api.themoviedb.org/3/tv/popular"
@@ -130,22 +165,13 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             .request(.GET, url, parameters: urlParamteres)
             .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
                 self.mediaItems["popular_tv"] = response.result.value
-                self.tableView.reloadData()
         }
         
         url = "https://api.themoviedb.org/3/tv/top_rated"
         Alamofire
             .request(.GET, url, parameters: urlParamteres)
             .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                self.mediaItems["top_rated_tv"] = response.result.value
-                self.tableView.reloadData()
-        }
-        
-    }
-    
-    func refreshTableView(sender:AnyObject) {
-        self.tableView.reloadData()
-        self.refreshControl?.endRefreshing()
+                self.mediaItems["top_rated_tv"] = response.result.value        }
     }
     
     override func didReceiveMemoryWarning() {

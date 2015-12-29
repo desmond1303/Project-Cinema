@@ -14,6 +14,7 @@
 		7D02A6D51C1D88000052406D /* Project Cinema: Upcoming.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */; };
 		7D02A6DC1C1D899F0052406D /* PCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D61C008BE500448979 /* PCMediaItem.swift */; };
+		7D148DA21C327DEA006F8E3A /* PCReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D148DA11C327DEA006F8E3A /* PCReachability.swift */; };
 		7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */; };
 		7D1947991C118716000796FB /* PCTrailerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */; };
 		7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D19479B1C11897A000796FB /* PCTrailer.swift */; };
@@ -137,6 +138,7 @@
 		7D02A6D01C1D88000052406D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		7D02A6D21C1D88000052406D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Project_Cinema.framework; path = "Pods/../build/Debug-iphoneos/Pods_Project_Cinema.framework"; sourceTree = "<group>"; };
+		7D148DA11C327DEA006F8E3A /* PCReachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCReachability.swift; sourceTree = "<group>"; };
 		7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailersTableViewController.swift; path = "View Controllers/PCTrailersTableViewController.swift"; sourceTree = "<group>"; };
 		7D1947981C118716000796FB /* PCTrailerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCTrailerTableViewCell.swift; sourceTree = "<group>"; };
 		7D19479B1C11897A000796FB /* PCTrailer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCTrailer.swift; path = Models/PCTrailer.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 				7DE076C61C0085D600448979 /* LaunchScreen.storyboard */,
 				7DE076C91C0085D600448979 /* Info.plist */,
 				7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */,
+				7D148DA11C327DEA006F8E3A /* PCReachability.swift */,
 				7DE076D11C00891800448979 /* View Controllers */,
 				7DD98ECC1C030B1F00113FB3 /* Cells */,
 				7DE076D81C008BF200448979 /* Models */,
@@ -760,6 +763,7 @@
 				7D58745F1C1AC1D600437C73 /* PCTabBarViewController.swift in Sources */,
 				7DE076D01C00890F00448979 /* PCFeedTableViewController.swift in Sources */,
 				7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */,
+				7D148DA21C327DEA006F8E3A /* PCReachability.swift in Sources */,
 				7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */,
 				7D57B1461C2BE726008F3E81 /* PCAccountLoginTableViewCell.swift in Sources */,
 				7DD98ED11C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift in Sources */,
