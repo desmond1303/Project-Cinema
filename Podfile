@@ -14,6 +14,7 @@ pod 'youtube-ios-player-helper'
 pod 'Charts'
 pod 'Fabric'
 pod 'Crashlytics'
+pod 'ReachabilitySwift'
 
 end
 

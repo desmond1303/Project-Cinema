@@ -11,6 +11,7 @@ import RealmSwift
 import WatchConnectivity
 import Fabric
 import Crashlytics
+import ReachabilitySwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    
+    var reachability: Reachability?
 
     func application(application: UIApplication, continueUserActivity userActivity: NSUserActivity, restorationHandler: ([AnyObject]?) -> Void) -> Bool {
         let rootViewController = self.window?.rootViewController as! UITabBarController
@@ -49,7 +52,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.session = WCSession.defaultSession()
         }
         
+        
+        self.reachability = try! Reachability.reachabilityForInternetConnection()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self,
+            selector: "reachabilityChanged:",
+            name: ReachabilityChangedNotification,
+            object: self.reachability)
+        
+        try! self.reachability!.startNotifier()
+        
         return true
+    }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        let rootViewController = self.window?.rootViewController as! UITabBarController
+        let navigationControllers = rootViewController.viewControllers as! [UINavigationController]
+        
+        
+        if reachability.isReachable() {
+            for navController in navigationControllers {
+                if navController.viewControllers.first is PCNetworkDependant {
+                    var mainController = navController.viewControllers.first as! PCNetworkDependant
+                    mainController.hasConnection = true
+                }
+            }
+        } else {
+            for navController in navigationControllers {
+                if navController.viewControllers.first is PCNetworkDependant {
+                    var mainController = navController.viewControllers.first as! PCNetworkDependant
+                    mainController.hasConnection = false
+                }
+            }
+        }
     }
     
     func application(application: UIApplication, handleOpenURL url: NSURL) -> Bool {

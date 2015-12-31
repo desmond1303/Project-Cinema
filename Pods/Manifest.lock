@@ -8,6 +8,7 @@ PODS:
     - Fabric (~> 1.6.0)
   - Fabric (1.6.1)
   - ObjectMapper (1.0.1)
+  - ReachabilitySwift (2.3.3)
   - Realm (0.97.0):
     - Realm/Headers (= 0.97.0)
   - Realm/Headers (0.97.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Crashlytics
   - Fabric
   - ObjectMapper
+  - ReachabilitySwift
   - RealmSwift
   - SDWebImage
   - youtube-ios-player-helper
@@ -36,6 +38,7 @@ SPEC CHECKSUMS:
   Crashlytics: 41574a245bc6ae10c55d57f385ebd2004e5bee05
   Fabric: bf0ceb04e7c924090efc5f8c55e4fbcca189e0a0
   ObjectMapper: 98524bac0dca46c6b3d5ee02cd410fc700ec6ce2
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

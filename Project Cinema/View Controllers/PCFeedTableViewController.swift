@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate {
+class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate, PCNetworkDependant {
     
     var mediaItems = [String:[PCMediaItem]]() {
         didSet {
@@ -78,23 +78,15 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
     }
     
+    var noNetworkBanner: UIView?
     var hasConnection: Bool? {
         didSet {
             if self.hasConnection! {
                 self.getFeedData()
+                self.noNetworkBanner?.removeFromSuperview()
             }
             else {
-                let connectionBanner = UIView(frame: CGRect(x: 0, y: 0, width: self.tableView.frame.width, height: 35))
-                connectionBanner.backgroundColor = UIColor.redColor()
-                
-                let connectionBannerLabel = UILabel(frame: connectionBanner.frame)
-                connectionBannerLabel.textColor = UIColor.whiteColor()
-                connectionBannerLabel.textAlignment = .Center
-                
-                connectionBannerLabel.attributedText = NSAttributedString(string: "No Internet Connection", attributes: [NSFontAttributeName: UIFont.systemFontOfSize(14)])
-                connectionBanner.addSubview(connectionBannerLabel)
-                
-                self.view.addSubview(connectionBanner)
+                self.view.addSubview(self.noNetworkBanner!)
             }
         }
     }
@@ -102,11 +94,13 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.hasConnection = PCReachability.isConnectedToNetwork()
+        self.hasConnection = true
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.noNetworkBanner = PCNoNetworkView.getView(self.tableView.frame.width)
         
         if traitCollection.forceTouchCapability == .Available {
             registerForPreviewingWithDelegate(self, sourceView: self.view)
@@ -118,14 +112,14 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
         self.searchController = UISearchController(searchResultsController: searchRresultsController)
         
-        self.searchController!.searchResultsUpdater = self;
+        self.searchController?.searchResultsUpdater = self;
         
-        self.searchController!.hidesNavigationBarDuringPresentation = false
-        self.searchController!.dimsBackgroundDuringPresentation = false
+        self.searchController?.hidesNavigationBarDuringPresentation = false
+        self.searchController?.dimsBackgroundDuringPresentation = false
         
-        self.searchController!.searchBar.searchBarStyle = .Default
+        self.searchController?.searchBar.searchBarStyle = .Default
         self.searchController?.searchBar.placeholder = "Search for Movies or TV Shows"
-        self.searchController!.searchBar.tintColor = UIColor.lightTextColor()
+        self.searchController?.searchBar.tintColor = UIColor.lightTextColor()
         
         self.navigationItem.titleView = self.searchController!.searchBar
         
