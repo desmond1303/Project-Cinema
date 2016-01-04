@@ -148,17 +148,28 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             Alamofire
                 .request(.GET, url, parameters: urlParamteres)
                 .responseObject { (response: Response<PCQueryResponse, NSError>) in
-                    let dictionaryKey = "\(category)_\(type)"
-                    if self.mediaItems[dictionaryKey] == nil || page == 1 {
-                        self.mediaItems[dictionaryKey] = response.result.value
+                    let dictionaryIdentifier = "\(category).\(type)"
+                    if self.mediaItems[dictionaryIdentifier] == nil || page == 1 {
+                        self.mediaItems[dictionaryIdentifier] = response.result.value
                     }
                     else {
-                        self.mediaItems[dictionaryKey]?.results?.appendContentsOf(response.result.value!.results!)
+                        self.mediaItems[dictionaryIdentifier]?.page = response.result.value!.page!
+                        self.mediaItems[dictionaryIdentifier]?.results?.appendContentsOf(response.result.value!.results!)
+                        self.tableView.reloadData()
                     }
             }
             
         }
         
+    }
+    
+    func loadAnotherPage(forDictionaryIdentifier dictionaryIdentifier: String) {
+        if self.mediaItems[dictionaryIdentifier]?.page < self.mediaItems[dictionaryIdentifier]?.total_pages {
+            let newPage = self.mediaItems[dictionaryIdentifier]!.page! + 1
+            let splitIdentifier = dictionaryIdentifier.componentsSeparatedByString(".")
+            
+            self.getFeedData([(splitIdentifier[0], splitIdentifier[1], newPage)])
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -183,21 +194,28 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         switch indexPath.row {
         case 0:
             cell.cellTitleLabel.text = "Most Popular Movies"
-            cell.movies = self.mediaItems["popular_movie"]?.results
+            cell.movies = self.mediaItems["popular.movie"]?.results
+            cell.dictionaryIdentifier = "popular.movie"
         case 1:
             cell.cellTitleLabel.text = "Top Rated Movies"
-            cell.movies = self.mediaItems["top_rated_movie"]?.results
+            cell.movies = self.mediaItems["top_rated.movie"]?.results
+            cell.dictionaryIdentifier = "top_rated.movie"
         case 2:
             cell.cellTitleLabel.text = "Upcoming Movies"
-            cell.movies = self.mediaItems["upcoming_movie"]?.results
+            cell.movies = self.mediaItems["upcoming.movie"]?.results
+            cell.dictionaryIdentifier = "upcoming.movie"
         case 3:
             cell.cellTitleLabel.text = "Most Popular TV Shows"
-            cell.movies = self.mediaItems["popular_tv"]?.results
+            cell.movies = self.mediaItems["popular.tv"]?.results
+            cell.dictionaryIdentifier = "popular.tv"
         case 4:
             cell.cellTitleLabel.text = "Top Rated TV Shows"
-            cell.movies = self.mediaItems["top_rated_tv"]?.results
+            cell.movies = self.mediaItems["top_rated.tv"]?.results
+            cell.dictionaryIdentifier = "top_rated.tv"
         default: break
         }
+        
+        cell.parentViewController = self
         
         cell.collectionView.scrollsToTop = false
         return cell

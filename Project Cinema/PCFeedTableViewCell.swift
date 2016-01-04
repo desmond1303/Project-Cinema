@@ -16,6 +16,9 @@ class PCFeedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
     @IBOutlet weak var edgeLeftMoreIndicator: UIImageView!
     @IBOutlet weak var edgeRightMoreIndicator: UIImageView!
     
+    var parentViewController: PCFeedTableViewController?
+    var dictionaryIdentifier: String?
+    
     var movies: [PCMediaItem]? {
         didSet {
             self.collectionView.reloadData()
@@ -57,6 +60,7 @@ class PCFeedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         
         if scrollView.contentOffset.x + scrollView.frame.size.width >= scrollView.contentSize.width {
             self.edgeRightMoreIndicator.alpha = 0
+            self.parentViewController!.loadAnotherPage(forDictionaryIdentifier: self.dictionaryIdentifier!)
         }
         else if scrollView.contentOffset.x + scrollView.frame.size.width >= scrollView.contentSize.width - 30 && scrollView.contentOffset.x + scrollView.frame.size.width < scrollView.contentSize.width {
             self.edgeRightMoreIndicator.alpha = (scrollView.contentSize.width - (scrollView.contentOffset.x + scrollView.frame.size.width)) / 30
