@@ -12,7 +12,7 @@ import RealmSwift
 
 class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate, PCNetworkDependant {
     
-    var mediaItems = [String:[PCMediaItem]]() {
+    var mediaItems = [String:PCQueryResponse]() {
         didSet {
             self.tableView.reloadData()
         }
@@ -82,7 +82,14 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     var hasConnection: Bool? {
         didSet {
             if self.hasConnection! {
-                self.getFeedData()
+                let requests = [
+                    ("popular", "movie", 1),
+                    ("top_rated", "movie", 1),
+                    ("upcoming", "movie", 1),
+                    ("popular", "tv", 1),
+                    ("top_rated", "tv", 1)
+                ]
+                self.getFeedData(requests)
                 self.noNetworkBanner?.removeFromSuperview()
             }
             else {
@@ -131,41 +138,26 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.refreshControl?.endRefreshing()
     }
     
-    func getFeedData() {
-        var url = "https://api.themoviedb.org/3/movie/popular"
-        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
-        Alamofire
-            .request(.GET, url, parameters: urlParamteres)
-            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                self.mediaItems["popular_movies"] = response.result.value
+    func getFeedData(categotyPagePairs: [(String, String, Int)]) {
+        
+        for (category, type, page) in categotyPagePairs {
+            
+            let url = "https://api.themoviedb.org/3/\(type)/\(category)"
+            let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1", "page":"\(page)"]
+            
+            Alamofire
+                .request(.GET, url, parameters: urlParamteres)
+                .responseObject { (response: Response<PCQueryResponse, NSError>) in
+                    if self.mediaItems["\(category)_\(type)"] == nil || page == 1 {
+                        self.mediaItems["\(category)_\(type)"] = response.result.value
+                    }
+                    else {
+                        self.mediaItems["\(category)_\(type)"]?.results?.appendContentsOf(response.result.value!.results!)
+                    }
+            }
+            
         }
         
-        url = "https://api.themoviedb.org/3/movie/top_rated"
-        Alamofire
-            .request(.GET, url, parameters: urlParamteres)
-            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                self.mediaItems["top_rated_movies"] = response.result.value
-        }
-        
-        url = "https://api.themoviedb.org/3/movie/upcoming"
-        Alamofire
-            .request(.GET, url, parameters: urlParamteres)
-            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                self.mediaItems["upcoming_movies"] = response.result.value
-        }
-        
-        url = "https://api.themoviedb.org/3/tv/popular"
-        Alamofire
-            .request(.GET, url, parameters: urlParamteres)
-            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                self.mediaItems["popular_tv"] = response.result.value
-        }
-        
-        url = "https://api.themoviedb.org/3/tv/top_rated"
-        Alamofire
-            .request(.GET, url, parameters: urlParamteres)
-            .responseArray("results") { (response: Response<[PCMediaItem], NSError>) in
-                self.mediaItems["top_rated_tv"] = response.result.value        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -190,19 +182,19 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         switch indexPath.row {
         case 0:
             cell.cellTitleLabel.text = "Most Popular Movies"
-            cell.movies = self.mediaItems["popular_movies"]
+            cell.movies = self.mediaItems["popular_movie"]?.results
         case 1:
             cell.cellTitleLabel.text = "Top Rated Movies"
-            cell.movies = self.mediaItems["top_rated_movies"]
+            cell.movies = self.mediaItems["top_rated_movie"]?.results
         case 2:
             cell.cellTitleLabel.text = "Upcoming Movies"
-            cell.movies = self.mediaItems["upcoming_movies"]
+            cell.movies = self.mediaItems["upcoming_movie"]?.results
         case 3:
             cell.cellTitleLabel.text = "Most Popular TV Shows"
-            cell.movies = self.mediaItems["popular_tv"]
+            cell.movies = self.mediaItems["popular_tv"]?.results
         case 4:
             cell.cellTitleLabel.text = "Top Rated TV Shows"
-            cell.movies = self.mediaItems["top_rated_tv"]
+            cell.movies = self.mediaItems["top_rated_tv"]?.results
         default: break
         }
         
