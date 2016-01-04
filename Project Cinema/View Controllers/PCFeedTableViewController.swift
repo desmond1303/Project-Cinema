@@ -148,11 +148,12 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             Alamofire
                 .request(.GET, url, parameters: urlParamteres)
                 .responseObject { (response: Response<PCQueryResponse, NSError>) in
-                    if self.mediaItems["\(category)_\(type)"] == nil || page == 1 {
-                        self.mediaItems["\(category)_\(type)"] = response.result.value
+                    let dictionaryKey = "\(category)_\(type)"
+                    if self.mediaItems[dictionaryKey] == nil || page == 1 {
+                        self.mediaItems[dictionaryKey] = response.result.value
                     }
                     else {
-                        self.mediaItems["\(category)_\(type)"]?.results?.appendContentsOf(response.result.value!.results!)
+                        self.mediaItems[dictionaryKey]?.results?.appendContentsOf(response.result.value!.results!)
                     }
             }
             
