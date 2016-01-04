@@ -17,6 +17,15 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             self.tableView.reloadData()
         }
     }
+    
+    let requests = [
+        ("popular", "movie", 1),
+        ("top_rated", "movie", 1),
+        ("upcoming", "movie", 1),
+        ("popular", "tv", 1),
+        ("top_rated", "tv", 1)
+    ]
+    
     var searchResult: PCMediaItem?
     
     var searchController: UISearchController?
@@ -82,14 +91,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     var hasConnection: Bool? {
         didSet {
             if self.hasConnection! {
-                let requests = [
-                    ("popular", "movie", 1),
-                    ("top_rated", "movie", 1),
-                    ("upcoming", "movie", 1),
-                    ("popular", "tv", 1),
-                    ("top_rated", "tv", 1)
-                ]
-                self.getFeedData(requests, completionHandler: nil)
+                self.getFeedData(self.requests, completionHandler: nil)
                 self.noNetworkBanner?.removeFromSuperview()
             }
             else {
@@ -136,14 +138,8 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     func refreshTableView(sender:AnyObject) {
         self.mediaItems = [:]
         self.tableView.reloadData()
-        let requests = [
-            ("popular", "movie", 1),
-            ("top_rated", "movie", 1),
-            ("upcoming", "movie", 1),
-            ("popular", "tv", 1),
-            ("top_rated", "tv", 1)
-        ]
-        self.getFeedData(requests) {
+        
+        self.getFeedData(self.requests) {
             self.refreshControl?.endRefreshing()
         }
         self.refreshControl?.endRefreshing()

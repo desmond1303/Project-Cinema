@@ -46,26 +46,36 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("mediaReviewCell", forIndexPath: indexPath)
-        cell.textLabel?.text = self.reviews![indexPath.row].author
-        cell.detailTextLabel?.text = self.reviews![indexPath.row].content
+        let cell = tableView.dequeueReusableCellWithIdentifier("mediaReviewCell", forIndexPath: indexPath) as! PCReviewsRowTableViewCell
+        cell.authorLabel.text = self.reviews![indexPath.row].author
+        cell.contentLabel.text = self.reviews![indexPath.row].content
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        
+        if indexPath.row == self.selectedIndex {
+            return 250
+        }
+        
+        return 50
+    }
+    
+    var selectedIndex: Int = -1 {
+        didSet {
+            self.parentViewController?.selectedReviewRow = self.selectedIndex
+            self.reviewTable.reloadData()
+        }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let alertController = UIAlertController(title: "\(self.reviews![indexPath.row].author!)", message: "\(self.reviews![indexPath.row].content!)", preferredStyle: UIAlertControllerStyle.Alert)
-        
-        let textAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel) { (UIAlertAction) -> Void in
-            self.parentViewController?.tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if self.selectedIndex == indexPath.row  {
+            self.selectedIndex = -1
         }
-        
-        alertController.addAction(textAction)
-        
-        self.parentViewController?.presentViewController(alertController, animated: true) { () -> Void in
-            //code
+        else {
+            self.selectedIndex = indexPath.row
         }
-
         
     }
 

@@ -144,6 +144,12 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     
+    var selectedReviewRow: Int = -1 {
+        didSet {
+            self.tableView.reloadData()
+        }
+    }
+    
     var currentMediaItemIsInFav: Bool = false
     let realm = try! Realm()
     
@@ -415,7 +421,10 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 1:
             return 213
         case 2:
-            return CGFloat(37 + (44 * self.reviews!.count))
+            if self.selectedReviewRow != -1 {
+                return CGFloat(37 + (52 * (self.reviews!.count - 1)) + 250)
+            }
+            return CGFloat(37 + (52 * self.reviews!.count))
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
