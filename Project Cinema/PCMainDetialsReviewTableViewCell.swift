@@ -58,7 +58,7 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
             return 250
         }
         
-        return 50
+        return 52
     }
     
     var selectedIndex: Int = -1 {
