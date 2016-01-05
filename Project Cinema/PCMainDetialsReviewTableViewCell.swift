@@ -55,13 +55,30 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
         if indexPath.row == self.selectedIndex {
-            return 250
+            return self.parentViewController!.preferedRowHeight
         }
         
         return 52
     }
     
     var selectedIndex: Int = -1 {
+        willSet {
+            if newValue >= 0 {
+                let font = UIFont.systemFontOfSize(14)
+                let size = CGSizeMake(self.parentViewController!.tableView.frame.width-125, CGFloat.max)
+                let paragraphStyle = NSMutableParagraphStyle()
+                paragraphStyle.lineBreakMode = .ByWordWrapping;
+                let attributes = [NSFontAttributeName:font,
+                    NSParagraphStyleAttributeName:paragraphStyle.copy()]
+                
+                let text = self.reviews![newValue].content! as NSString
+                let rect = text.boundingRectWithSize(size, options:.UsesLineFragmentOrigin, attributes: attributes, context:nil)
+                self.parentViewController?.preferedRowHeight = rect.size.height
+            }
+            else {
+                self.parentViewController?.preferedRowHeight = 52
+            }
+        }
         didSet {
             self.parentViewController?.selectedReviewRow = self.selectedIndex
             self.reviewTable.reloadData()

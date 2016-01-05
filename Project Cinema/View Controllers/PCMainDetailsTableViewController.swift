@@ -144,8 +144,14 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     
+    var preferedRowHeight: CGFloat = 52 {
+        willSet {
+            print(newValue)
+        }
+    }
     var selectedReviewRow: Int = -1 {
         didSet {
+            //self.tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: .Automatic)
             self.tableView.reloadData()
         }
     }
@@ -422,9 +428,9 @@ class PCMainDetailsTableViewController: UITableViewController {
             return 213
         case 2:
             if self.selectedReviewRow != -1 {
-                return CGFloat(37 + (52 * (self.reviews!.count - 1)) + 250)
+                return CGFloat(37 + (52 * CGFloat(self.reviews!.count - 1)) + self.preferedRowHeight)
             }
-            return CGFloat(37 + (52 * self.reviews!.count))
+            return CGFloat(37 + (52 * CGFloat(self.reviews!.count)))
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }
