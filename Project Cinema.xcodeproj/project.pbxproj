@@ -11,7 +11,6 @@
 		7D02A6CB1C1D88000052406D /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D02A6CA1C1D88000052406D /* NotificationCenter.framework */; };
 		7D02A6CE1C1D88000052406D /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D02A6CD1C1D88000052406D /* TodayViewController.swift */; };
 		7D02A6D11C1D88000052406D /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D02A6CF1C1D88000052406D /* MainInterface.storyboard */; };
-		7D02A6D51C1D88000052406D /* Project Cinema: Upcoming.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D02A6C91C1D88000052406D /* Project Cinema: Upcoming.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D02A6DB1C1D89510052406D /* Pods_Project_Cinema.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D02A6DA1C1D89510052406D /* Pods_Project_Cinema.framework */; };
 		7D02A6DC1C1D899F0052406D /* PCMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076D61C008BE500448979 /* PCMediaItem.swift */; };
 		7D1947941C11842C000796FB /* PCTrailersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D1947931C11842C000796FB /* PCTrailersTableViewController.swift */; };
@@ -37,7 +36,6 @@
 		7D716CB11C1C9A40008AFB2A /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CB01C1C9A40008AFB2A /* ExtensionDelegate.swift */; };
 		7D716CB31C1C9A40008AFB2A /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CB21C1C9A40008AFB2A /* NotificationController.swift */; };
 		7D716CB51C1C9A40008AFB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D716CB41C1C9A40008AFB2A /* Assets.xcassets */; };
-		7D716CB91C1C9A40008AFB2A /* Project Cinema WK.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */; };
 		7D716CC31C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CC21C1CA0B7008AFB2A /* PCWKFavortiesRowController.swift */; };
 		7D716CCA1C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CC91C1CA8E8008AFB2A /* PCWKDetailsInterfaceController.swift */; };
 		7D716CCC1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D716CCB1C1CAB60008AFB2A /* PCWKDetailsGeneralRowController.swift */; };
@@ -73,26 +71,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7D02A6D31C1D88000052406D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D02A6C81C1D88000052406D;
-			remoteInfo = "Project Cinema: Upcoming";
-		};
 		7D716CA91C1C9A40008AFB2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 7D716CA61C1C9A40008AFB2A;
 			remoteInfo = "Project Cinema WK Extension";
-		};
-		7D716CB71C1C9A40008AFB2A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7DE076B21C0085D600448979 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 7D716C9A1C1C9A40008AFB2A;
-			remoteInfo = "Project Cinema WK";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -103,7 +87,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				7D02A6D51C1D88000052406D /* Project Cinema: Upcoming.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,17 +100,6 @@
 				7D716CA81C1C9A40008AFB2A /* Project Cinema WK Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		7D716CC11C1C9A40008AFB2A /* Embed Watch Content */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
-			dstSubfolderSpec = 16;
-			files = (
-				7D716CB91C1C9A40008AFB2A /* Project Cinema WK.app in Embed Watch Content */,
-			);
-			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -545,15 +517,12 @@
 				7DE076B81C0085D600448979 /* Resources */,
 				5E29BEB5D661BD0F4770C984 /* Embed Pods Frameworks */,
 				4DBB7B4EE32A05202EF2B755 /* Copy Pods Resources */,
-				7D716CC11C1C9A40008AFB2A /* Embed Watch Content */,
 				7D02A6D91C1D88000052406D /* Embed App Extensions */,
 				7D93BD401C314CE0006C0270 /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7D716CB81C1C9A40008AFB2A /* PBXTargetDependency */,
-				7D02A6D41C1D88000052406D /* PBXTargetDependency */,
 			);
 			name = "Project Cinema";
 			productName = "Project Cinema";
@@ -573,7 +542,7 @@
 				TargetAttributes = {
 					7D02A6C81C1D88000052406D = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TW26GG23GV;
+						DevelopmentTeam = LDT8ZXU2PM;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -582,7 +551,7 @@
 					};
 					7D716C9A1C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TW26GG23GV;
+						DevelopmentTeam = LDT8ZXU2PM;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -591,7 +560,7 @@
 					};
 					7D716CA61C1C9A40008AFB2A = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = TW26GG23GV;
+						DevelopmentTeam = LDT8ZXU2PM;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 1;
@@ -600,10 +569,9 @@
 					};
 					7DE076B91C0085D600448979 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = TW26GG23GV;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -802,20 +770,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7D02A6D41C1D88000052406D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7D02A6C81C1D88000052406D /* Project Cinema: Upcoming */;
-			targetProxy = 7D02A6D31C1D88000052406D /* PBXContainerItemProxy */;
-		};
 		7D716CAA1C1C9A40008AFB2A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7D716CA61C1C9A40008AFB2A /* Project Cinema WK Extension */;
 			targetProxy = 7D716CA91C1C9A40008AFB2A /* PBXContainerItemProxy */;
-		};
-		7D716CB81C1C9A40008AFB2A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 7D716C9A1C1C9A40008AFB2A /* Project Cinema WK */;
-			targetProxy = 7D716CB71C1C9A40008AFB2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1059,7 +1017,6 @@
 			baseConfigurationReference = 20E56955C058B18983F366FC /* Pods-Project Cinema.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Project Cinema/Project Cinema.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -1067,7 +1024,7 @@
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1078,14 +1035,13 @@
 			baseConfigurationReference = E9985CB536935E7781E6914C /* Pods-Project Cinema.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Project Cinema/Project Cinema.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "Project Cinema/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema-Private";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.atlantbh.Project-Cinema";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

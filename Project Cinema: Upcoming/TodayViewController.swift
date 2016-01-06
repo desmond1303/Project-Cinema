@@ -23,7 +23,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view from its nib.
-        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema-Private")!
+        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema")!
         let realmPath = directory.path!.stringByAppendingString("/db.realm")
         Realm.Configuration.defaultConfiguration.path = realmPath
         

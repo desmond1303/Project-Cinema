@@ -44,9 +44,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         application.registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Sound, .Alert, .Badge], categories: nil))
         
-        let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema-Private")!
-        let realmPath = directory.path!.stringByAppendingString("/db.realm")
-        Realm.Configuration.defaultConfiguration.path = realmPath
+        
+        var config = Realm.Configuration()
+        
+        // Use the default directory, but replace the filename with the username
+        config.path = NSURL.fileURLWithPath(config.path!)
+            .URLByDeletingLastPathComponent?
+            .URLByAppendingPathComponent("jjj.realm")
+            .path
+        
+        // Set this as the configuration used for the default Realm
+        Realm.Configuration.defaultConfiguration = config
+        
+        
+        //let directory: NSURL = NSFileManager.defaultManager().containerURLForSecurityApplicationGroupIdentifier("group.com.atlantbh.Project-Cinema")!
+        //let realmPath = directory.path!.stringByAppendingString("/db.realm")
+        //Realm.Configuration.defaultConfiguration.path = realmPath
         
         if WCSession.isSupported() {
             self.session = WCSession.defaultSession()
