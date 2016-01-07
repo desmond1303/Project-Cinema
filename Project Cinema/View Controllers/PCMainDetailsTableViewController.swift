@@ -114,7 +114,11 @@ class PCMainDetailsTableViewController: UITableViewController {
         
     }
     
-    var movie: PCMediaItem?
+    var movie: PCMediaItem? {
+        didSet {
+            print(self.movie!)
+        }
+    }
     
     var cast: [PCMediaItemCast]? {
         didSet {
@@ -127,11 +131,6 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     var reviews: [PCMediaReview]? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    var seasons: [PCMediaSeason]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -277,15 +276,6 @@ class PCMainDetailsTableViewController: UITableViewController {
                         self.reviews = response.result.value
                 }
             }
-            else {
-                url = "https://api.themoviedb.org/3/tv/\(self.movie!.itemId)/season/"
-                Alamofire
-                    .request(.GET, url, parameters: urlParamteres)
-                    .responseArray { (response: Response<[PCMediaSeason], NSError>) in
-                        self.seasons = response.result.value
-                }
-                
-            }
 
         }
     }
@@ -315,7 +305,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 1:
             return 1
         case 2:
-            return self.reviews?.count > 0 || self.seasons?.count > 0 ? 1 : 0
+            return self.reviews?.count > 0 || self.movie!.seasons.count > 0 ? 1 : 0
         default:
             return 0
         }
@@ -421,7 +411,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             }
             else {
                 cell.cellTitleLabel.text = "Seasons"
-                cell.seasons = self.seasons
+                cell.seasons = Array(self.movie!.seasons)
             }
             
             cell.parentViewController = self
@@ -448,7 +438,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             if self.selectedReviewRow != -1 {
                 return CGFloat(37 + (52 * CGFloat(self.reviews!.count - 1)) + self.preferedRowHeight)
             }
-            return CGFloat(37 + (52 * CGFloat(self.reviews!.count)))
+            return CGFloat(37 + (52 * CGFloat((self.reviews?.count ?? self.movie?.seasons.count)!)))
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }

@@ -23,7 +23,7 @@ class PCMediaItem: Object, Mappable {
     
     dynamic var itemType:String = "" // Movie or TV
     dynamic var backdropPath: String = ""
-    let genres = List<PCMediaItemGenre>()
+    var genres = List<PCMediaItemGenre>()
     dynamic var homepage: String = ""
     dynamic var itemId: Int = 0
     dynamic var originalLanguage: String = ""
@@ -78,17 +78,9 @@ class PCMediaItem: Object, Mappable {
         var id: Int
         var name: String
     }
-    
-    struct Season {
-        var air_date: String
-        var episode_count: Int
-        var id: Int
-        var poster_path: String
-        var season_number: Int
-    }
     */
     //var created_by = [Creator]()
-    //dynamic var episode_run_time = [Int]()
+    dynamic var episodeRunTime: PCMediaItemEpisodeRuntime? = PCMediaItemEpisodeRuntime()
     dynamic var firstAirDate: String = ""
     dynamic var inProduction: Bool = false
     //dynamic var languages = [String]()
@@ -97,7 +89,7 @@ class PCMediaItem: Object, Mappable {
     dynamic var numberOfEpisodes: Int = 0
     dynamic var numberOfSeasons: Int = 0
     //dynamic var origin_country = [String]()
-    //var seasons = [Season]()
+    var seasons = List<PCMediaItemSeason>()
     dynamic var type: String = ""
     
     
@@ -140,6 +132,7 @@ class PCMediaItem: Object, Mappable {
         self.tagline = object.tagline
         self.video = object.video
         
+        self.episodeRunTime = object.episodeRunTime
         self.firstAirDate = object.firstAirDate
         self.inProduction = object.inProduction
         //self.languages = [String]()
@@ -187,6 +180,7 @@ class PCMediaItem: Object, Mappable {
         self.tagline <- map["tagline"]
         self.video <- map["video"]
         
+        self.episodeRunTime <- map["episode_run_time"]
         self.firstAirDate <- map["first_air_date"]
         self.inProduction <- map["in_production"]
         //self.languages <- map["languages"]
@@ -195,7 +189,11 @@ class PCMediaItem: Object, Mappable {
         self.numberOfEpisodes <- map["number_of_episodes"]
         self.numberOfSeasons <- map["number_of_seasons"]
         //self.origin_country = [String]()
-        //self.seasons = [Season]()
+        
+        var seasonsRaw = [PCMediaItemSeason]()
+        seasonsRaw <- map["seasons"]
+        self.seasons.appendContentsOf(seasonsRaw)
+        
         self.type <- map["type"]
     }
     
@@ -228,5 +226,62 @@ class PCMediaItemGenre: Object, Mappable {
     
     override class func primaryKey() -> String {
         return "id"
+    }
+}
+
+class PCMediaItemSeason: Object, Mappable {
+    
+    dynamic var id: Int = 0
+    dynamic var seasonNumber: String = ""
+    dynamic var airDate: String = ""
+    dynamic var episodeCount: Int = 0
+    dynamic var posterPath: String = ""
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    convenience init(object: PCMediaItemSeason) {
+        self.init()
+        
+        self.id = object.id
+        self.seasonNumber = object.seasonNumber
+        self.airDate = object.airDate
+        self.episodeCount = object.episodeCount
+        self.posterPath = object.posterPath
+    }
+    
+    func mapping(map: Map) {
+        self.id <- map["id"]
+        self.seasonNumber <- map["season_number"]
+        self.airDate <- map["air_date"]
+        self.episodeCount <- map["episode_count"]
+        self.posterPath <- map["poster_path"]
+    }
+    
+    override class func primaryKey() -> String {
+        return "id"
+    }
+}
+
+class PCMediaItemEpisodeRuntime: Object, Mappable {
+    
+    dynamic var timeMin: Int = 0
+    dynamic var timeMax: Int = 0
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    convenience init(object: PCMediaItemEpisodeRuntime) {
+        self.init()
+        
+        self.timeMin = object.timeMin
+        self.timeMax = object.timeMax
+    }
+    
+    func mapping(map: Map) {
+        self.timeMin <- map["episode_run_time.0"]
+        self.timeMax <- map["episode_run_time.1"]
     }
 }

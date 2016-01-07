@@ -18,7 +18,7 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
             self.reviewTable.reloadData()
         }
     }
-    var seasons: [PCMediaSeason]? {
+    var seasons: [PCMediaItemSeason]? {
         didSet {
             self.reviewTable.reloadData()
         }
@@ -42,13 +42,30 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.reviews?.count ?? 0
+        return self.reviews?.count ?? self.seasons?.count ?? 0
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("mediaReviewCell", forIndexPath: indexPath) as! PCReviewsRowTableViewCell
-        cell.authorLabel.text = self.reviews![indexPath.row].author
-        cell.contentLabel.text = self.reviews![indexPath.row].content
+        
+        if let reviews = self.reviews {
+            cell.authorLabel.text = reviews[indexPath.row].author
+            cell.contentLabel.text = reviews[indexPath.row].content
+        }
+        if let seasons = self.seasons {
+            
+            if seasons[indexPath.row].seasonNumber != "" {
+                cell.authorLabel.text = "Season \(seasons[indexPath.row].seasonNumber)"
+            }
+            else {
+                cell.authorLabel.text = "Season \(indexPath.row+1)"
+            }
+            
+            cell.authorLabel.text?.appendContentsOf(" (\(seasons[indexPath.row].airDate.componentsSeparatedByString("-")[0]))")
+            
+            cell.contentLabel.text = "\(seasons[indexPath.row].episodeCount) Episodes"
+        }
+        
         return cell
     }
     
@@ -87,11 +104,18 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if self.selectedIndex == indexPath.row  {
-            self.selectedIndex = -1
+        if let _ = self.reviews {
+            
+            if self.selectedIndex == indexPath.row  {
+                self.selectedIndex = -1
+            }
+            else {
+                self.selectedIndex = indexPath.row
+            }
+            
         }
         else {
-            self.selectedIndex = indexPath.row
+            self.reviewTable.deselectRowAtIndexPath(indexPath, animated: true)
         }
         
     }
