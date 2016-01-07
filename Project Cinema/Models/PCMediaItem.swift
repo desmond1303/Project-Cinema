@@ -38,9 +38,6 @@ class PCMediaItem: Object, Mappable {
     dynamic var voteCount: Int = 0
     dynamic var rating: Int = 0
     
-    //var cast
-    
-    
     // Movie Only
     /*
     struct ProductionCountry {
@@ -102,11 +99,8 @@ class PCMediaItem: Object, Mappable {
         
         self.title = object.title
         self.itemType = object.itemType
-        //self.test = object.production_companies
-        
         self.backdropPath = object.backdropPath
-        //self.genresArray = object.genres
-        //self.genres: String =  ""
+        self.genres = object.genres
         self.homepage = object.homepage
         self.itemId  = object.itemId
         self.originalLanguage = object.originalLanguage
@@ -114,7 +108,7 @@ class PCMediaItem: Object, Mappable {
         self.overview = object.overview
         self.popularity = object.popularity
         self.posterPath = object.posterPath
-        //self.productionCompanies = object.production_companies
+        //self.productionCompanies = object.productionCompanies
         self.status = object.status
         self.voteAverage = object.voteAverage
         self.voteCount = object.voteCount
@@ -124,24 +118,24 @@ class PCMediaItem: Object, Mappable {
         self.belongsToCollection = object.belongsToCollection
         self.budget = object.budget
         self.imdbId = object.imdbId
-        //self.production_countries =  [ProductionCountry]()
+        //self.productionCountries = object.productionCountries
         self.releaseDate = object.releaseDate
         self.revenue = object.revenue
         self.runtime = object.runtime
-        //self.spoken_languages = [SpokenLanguage]()
+        //self.spokenLanguages = object.spokenLanguages
         self.tagline = object.tagline
         self.video = object.video
         
         self.episodeRunTime = object.episodeRunTime
         self.firstAirDate = object.firstAirDate
         self.inProduction = object.inProduction
-        //self.languages = [String]()
+        //self.languages = object.languages
         self.lastAirDate = object.lastAirDate
-        //self.networks = [Network]()
+        //self.networks = object.networks
         self.numberOfEpisodes = object.numberOfEpisodes
         self.numberOfSeasons = object.numberOfSeasons
-        //self.origin_country = [String]()
-        //self.seasons = [Season]()
+        //self.originCountry = object.originCountry
+        self.seasons = object.seasons
         self.type = object.type
     }
     
@@ -172,23 +166,30 @@ class PCMediaItem: Object, Mappable {
         self.belongsToCollection <- map["belongs_to_collection"]
         self.budget <- map["budget"]
         self.imdbId <- map["imdb_id"]
-        //self.production_countries = [ProductionCountry]()
+        //self.productionCountries <- map["production_countries"]
         self.releaseDate <- map["release_date"]
         self.revenue <- map["revenue"]
         self.runtime <- map["runtime"]
-        //self.spoken_languages = [SpokenLanguage]()
+        //self.spokenLanguages <- map["spoken_languages"]
         self.tagline <- map["tagline"]
         self.video <- map["video"]
         
-        self.episodeRunTime <- map["episode_run_time"]
+        var episodeRuntimeRaw = [Int]()
+        episodeRuntimeRaw <- map["episode_run_time"]
+        if episodeRuntimeRaw.count > 0 {
+            self.episodeRunTime = PCMediaItemEpisodeRuntime()
+            self.episodeRunTime?.timeMin = episodeRuntimeRaw[0]
+            self.episodeRunTime?.timeMax = episodeRuntimeRaw[1]
+        }
+        
         self.firstAirDate <- map["first_air_date"]
         self.inProduction <- map["in_production"]
         //self.languages <- map["languages"]
         self.lastAirDate <- map["last_air_date"]
-        //self.networks = [Network]()
+        //self.networks <- map["networks"]
         self.numberOfEpisodes <- map["number_of_episodes"]
         self.numberOfSeasons <- map["number_of_seasons"]
-        //self.origin_country = [String]()
+        //self.originCountry <- map["origin_country"]
         
         var seasonsRaw = [PCMediaItemSeason]()
         seasonsRaw <- map["seasons"]
@@ -199,6 +200,52 @@ class PCMediaItem: Object, Mappable {
     
     override class func primaryKey() -> String {
         return "itemId"
+    }
+    
+}
+
+class PCMediaItemCrew: Object, Mappable {
+    dynamic var department: String = ""
+    dynamic var job: String = ""
+    dynamic var name: String = ""
+    dynamic var crewId:Int = 0
+    dynamic var profilePath: String = ""
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        self.department <- map["department"]
+        self.job <- map["job"]
+        self.name <- map["name"]
+        self.crewId <- map["id"]
+        self.profilePath <- map["profile_path"]
+        
+    }
+}
+
+class PCMediaItemCast: Object, Mappable {
+    
+    dynamic var actorId: Int = 0
+    dynamic var creditId: Int = 0
+    dynamic var name: String = ""
+    dynamic var character: String = ""
+    dynamic var profilePath: String = ""
+    
+    //dynamic var crew = [PCMediaItemCrew]()
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        self.actorId <- map["id"]
+        self.creditId <- map["credit_id"]
+        self.name <- map["name"]
+        self.character <- map["character"]
+        self.profilePath <- map["profile_path"]
+        
     }
     
 }
@@ -264,24 +311,9 @@ class PCMediaItemSeason: Object, Mappable {
     }
 }
 
-class PCMediaItemEpisodeRuntime: Object, Mappable {
+class PCMediaItemEpisodeRuntime: Object {
     
     dynamic var timeMin: Int = 0
     dynamic var timeMax: Int = 0
     
-    required convenience init?(_ map: Map) {
-        self.init()
-    }
-    
-    convenience init(object: PCMediaItemEpisodeRuntime) {
-        self.init()
-        
-        self.timeMin = object.timeMin
-        self.timeMax = object.timeMax
-    }
-    
-    func mapping(map: Map) {
-        self.timeMin <- map["episode_run_time.0"]
-        self.timeMax <- map["episode_run_time.1"]
-    }
 }

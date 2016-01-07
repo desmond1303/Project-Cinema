@@ -82,7 +82,7 @@ class PCMainDetialsReviewTableViewCell: UITableViewCell, UITableViewDelegate, UI
         willSet {
             if newValue >= 0 {
                 let font = UIFont.systemFontOfSize(14)
-                let size = CGSizeMake(self.parentViewController!.tableView.frame.width-125, CGFloat.max)
+                let size = CGSizeMake(self.parentViewController!.tableView.frame.width, CGFloat.max)
                 let paragraphStyle = NSMutableParagraphStyle()
                 paragraphStyle.lineBreakMode = .ByWordWrapping;
                 let attributes = [NSFontAttributeName:font,
