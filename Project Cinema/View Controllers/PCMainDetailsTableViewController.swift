@@ -67,7 +67,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = .ShortStyle
             
-            attributeSet.contentDescription = "\(self.movie!.release_date.componentsSeparatedByString("-")[0])\n\(self.movie!.voteAverage)/10"
+            attributeSet.contentDescription = "\(self.movie!.releaseDate.componentsSeparatedByString("-")[0])\n\(self.movie!.voteAverage)/10"
             attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
             var keywords = self.movie!.title.componentsSeparatedByString(" ")
             keywords.append(self.movie!.title)
@@ -107,7 +107,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             notification.timeZone = NSTimeZone.defaultTimeZone()
             let dateMaker = NSDateFormatter()
             dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
-            notification.fireDate = dateMaker.dateFromString("\(self.movie!.release_date) 12-00")
+            notification.fireDate = dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
         }
@@ -351,14 +351,14 @@ class PCMainDetailsTableViewController: UITableViewController {
                 var runtimeAndGenres = ""
                 
                 if self.movie!.itemType == "movie" {
-                    let gString = NSMutableAttributedString(string: "(\(self.movie!.release_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.releaseDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
                     runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
                 }
                 else {
                     
-                    let gString = NSMutableAttributedString(string: "(\(self.movie!.first_air_date.componentsSeparatedByString("-")[0]) - \(self.movie!.in_production ? "Present" : self.movie!.last_air_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.firstAirDate.componentsSeparatedByString("-")[0]) - \(self.movie!.inProduction ? "Present" : self.movie!.lastAirDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
                     //runtimeAndGenres = "\(self.episodeRuntimes![0]/60)h \(self.episodeRuntimes![0]%60)m - \(self.episodeRuntimes![1]/60)h \(self.episodeRuntimes![1]%60)m"

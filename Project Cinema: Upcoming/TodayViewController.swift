@@ -40,7 +40,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         self.dateMaker.dateFormat = "yyyy-MM-dd"
         
         for RLMmediaItem in realmObjects {
-            if self.dateMaker.dateFromString(RLMmediaItem.release_date)?.timeIntervalSinceDate(NSDate()) > 0 && RLMmediaItem.itemType == "movie" {
+            if self.dateMaker.dateFromString(RLMmediaItem.releaseDate)?.timeIntervalSinceDate(NSDate()) > 0 && RLMmediaItem.itemType == "movie" {
                 self.upcommingMovies.append(RLMmediaItem)
             }
         }
@@ -82,7 +82,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
         
         self.dateMaker.dateFormat = "yyyy-MM-dd"
         
-        let interval = self.dateMaker.dateFromString(self.upcommingMovies[indexPath.row].release_date)?.timeIntervalSinceDate(NSDate())
+        let interval = self.dateMaker.dateFromString(self.upcommingMovies[indexPath.row].releaseDate)?.timeIntervalSinceDate(NSDate())
         
         let days = Int(ceil(interval!/60/60/24))
         

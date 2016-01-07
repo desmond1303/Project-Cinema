@@ -154,7 +154,7 @@ extension AppDelegate: WCSessionDelegate {
             if request == "favorites" {
                 let favs = realm.objects(PCMediaItem).sorted("title")
                 for fav in favs {
-                    let date = fav.itemType == "movie" ? fav.release_date.componentsSeparatedByString("-").first! : "From \(fav.first_air_date.componentsSeparatedByString("-").first!)"
+                    let date = fav.itemType == "movie" ? fav.releaseDate.componentsSeparatedByString("-").first! : "From \(fav.firstAirDate.componentsSeparatedByString("-").first!)"
                     favorites.append(["title": fav.title, "year": date, "voteAverage": String(fav.voteAverage), "itemType": fav.itemType, "overview": fav.overview])
                 }
             }
