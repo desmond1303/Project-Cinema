@@ -53,7 +53,6 @@
 		7DD98ED31C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */; };
 		7DD98ED51C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */; };
 		7DD98ED71C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98ED61C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift */; };
-		7DD98EDA1C03183B00113FB3 /* PCMediaItemCast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */; };
 		7DE076BE1C0085D600448979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DE076BD1C0085D600448979 /* AppDelegate.swift */; };
 		7DE076C31C0085D600448979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7DE076C11C0085D600448979 /* Main.storyboard */; };
 		7DE076C51C0085D600448979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7DE076C41C0085D600448979 /* Assets.xcassets */; };
@@ -186,7 +185,6 @@
 		7DD98ED21C030BFD00113FB3 /* PCMainDetailsRatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsRatingTableViewCell.swift; sourceTree = "<group>"; };
 		7DD98ED41C030C1F00113FB3 /* PCMainDetailsCastTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetailsCastTableViewCell.swift; sourceTree = "<group>"; wrapsLines = 1; };
 		7DD98ED61C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMediaItemCollectionViewCell.swift; sourceTree = "<group>"; };
-		7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaItemCast.swift; path = Models/PCMediaItemCast.swift; sourceTree = "<group>"; };
 		7DE076BA1C0085D600448979 /* Project Cinema.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Cinema.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7DE076BD1C0085D600448979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7DE076C21C0085D600448979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -461,7 +459,6 @@
 				7D2084C21C3A62DB00C5862A /* PCQueryResponse.swift */,
 				7DEEA3691C2958D800DA357B /* PCAccount.swift */,
 				7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */,
-				7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */,
 				7D19479B1C11897A000796FB /* PCTrailer.swift */,
 				7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */,
 				7DAC40DE1C27F5A6005FA088 /* PCRequestToken.swift */,
@@ -766,7 +763,6 @@
 				7D19479C1C11897A000796FB /* PCTrailer.swift in Sources */,
 				7DEEA3671C2954A500DA357B /* PCAccountNameTableViewCell.swift in Sources */,
 				7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */,
-				7DD98EDA1C03183B00113FB3 /* PCMediaItemCast.swift in Sources */,
 				7D5F733A1C3525FE00335349 /* PCNetworkDependant.swift in Sources */,
 				7DD98ED71C030C6500113FB3 /* PCMediaItemCollectionViewCell.swift in Sources */,
 				7DAC40E11C2802F1005FA088 /* PCRatingTableViewController.swift in Sources */,

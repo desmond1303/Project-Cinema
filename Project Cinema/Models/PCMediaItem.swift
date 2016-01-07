@@ -38,9 +38,6 @@ class PCMediaItem: Object, Mappable {
     dynamic var voteCount: Int = 0
     dynamic var rating: Int = 0
     
-    //var cast
-    
-    
     // Movie Only
     /*
     struct ProductionCountry {
@@ -169,11 +166,11 @@ class PCMediaItem: Object, Mappable {
         self.belongsToCollection <- map["belongs_to_collection"]
         self.budget <- map["budget"]
         self.imdbId <- map["imdb_id"]
-        //self.production_countries = [ProductionCountry]()
+        //self.productionCountries <- map["production_countries"]
         self.releaseDate <- map["release_date"]
         self.revenue <- map["revenue"]
         self.runtime <- map["runtime"]
-        //self.spoken_languages = [SpokenLanguage]()
+        //self.spokenLanguages <- map["spoken_languages"]
         self.tagline <- map["tagline"]
         self.video <- map["video"]
         
@@ -189,10 +186,10 @@ class PCMediaItem: Object, Mappable {
         self.inProduction <- map["in_production"]
         //self.languages <- map["languages"]
         self.lastAirDate <- map["last_air_date"]
-        //self.networks = [Network]()
+        //self.networks <- map["networks"]
         self.numberOfEpisodes <- map["number_of_episodes"]
         self.numberOfSeasons <- map["number_of_seasons"]
-        //self.origin_country = [String]()
+        //self.originCountry <- map["origin_country"]
         
         var seasonsRaw = [PCMediaItemSeason]()
         seasonsRaw <- map["seasons"]
@@ -203,6 +200,52 @@ class PCMediaItem: Object, Mappable {
     
     override class func primaryKey() -> String {
         return "itemId"
+    }
+    
+}
+
+class PCMediaItemCrew: Object, Mappable {
+    dynamic var department: String = ""
+    dynamic var job: String = ""
+    dynamic var name: String = ""
+    dynamic var crewId:Int = 0
+    dynamic var profilePath: String = ""
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        self.department <- map["department"]
+        self.job <- map["job"]
+        self.name <- map["name"]
+        self.crewId <- map["id"]
+        self.profilePath <- map["profile_path"]
+        
+    }
+}
+
+class PCMediaItemCast: Object, Mappable {
+    
+    dynamic var actorId: Int = 0
+    dynamic var creditId: Int = 0
+    dynamic var name: String = ""
+    dynamic var character: String = ""
+    dynamic var profilePath: String = ""
+    
+    //dynamic var crew = [PCMediaItemCrew]()
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        self.actorId <- map["id"]
+        self.creditId <- map["credit_id"]
+        self.name <- map["name"]
+        self.character <- map["character"]
+        self.profilePath <- map["profile_path"]
+        
     }
     
 }
