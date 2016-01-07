@@ -351,12 +351,12 @@ class PCMainDetailsTableViewController: UITableViewController {
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.firstAirDate.componentsSeparatedByString("-")[0]) - \(self.movie!.inProduction ? "Present" : self.movie!.lastAirDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
-                    //runtimeAndGenres = "\(self.episodeRuntimes![0]/60)h \(self.episodeRuntimes![0]%60)m - \(self.episodeRuntimes![1]/60)h \(self.episodeRuntimes![1]%60)m"
+                    runtimeAndGenres = "\(self.movie!.episodeRunTime!.timeMin)m - \(self.movie!.episodeRunTime!.timeMax)m"
                 }
                 
                 var genresString = ""
                 
-                if self.movie!.genres.count > 0 && self.movie!.itemType == "movie" {
+                if self.movie!.genres.count > 0 {
                     genresString = " | "
                 }
                 

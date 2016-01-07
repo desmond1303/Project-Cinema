@@ -102,11 +102,8 @@ class PCMediaItem: Object, Mappable {
         
         self.title = object.title
         self.itemType = object.itemType
-        //self.test = object.production_companies
-        
         self.backdropPath = object.backdropPath
-        //self.genresArray = object.genres
-        //self.genres: String =  ""
+        self.genres = object.genres
         self.homepage = object.homepage
         self.itemId  = object.itemId
         self.originalLanguage = object.originalLanguage
@@ -114,7 +111,7 @@ class PCMediaItem: Object, Mappable {
         self.overview = object.overview
         self.popularity = object.popularity
         self.posterPath = object.posterPath
-        //self.productionCompanies = object.production_companies
+        //self.productionCompanies = object.productionCompanies
         self.status = object.status
         self.voteAverage = object.voteAverage
         self.voteCount = object.voteCount
@@ -124,24 +121,24 @@ class PCMediaItem: Object, Mappable {
         self.belongsToCollection = object.belongsToCollection
         self.budget = object.budget
         self.imdbId = object.imdbId
-        //self.production_countries =  [ProductionCountry]()
+        //self.productionCountries = object.productionCountries
         self.releaseDate = object.releaseDate
         self.revenue = object.revenue
         self.runtime = object.runtime
-        //self.spoken_languages = [SpokenLanguage]()
+        //self.spokenLanguages = object.spokenLanguages
         self.tagline = object.tagline
         self.video = object.video
         
         self.episodeRunTime = object.episodeRunTime
         self.firstAirDate = object.firstAirDate
         self.inProduction = object.inProduction
-        //self.languages = [String]()
+        //self.languages = object.languages
         self.lastAirDate = object.lastAirDate
-        //self.networks = [Network]()
+        //self.networks = object.networks
         self.numberOfEpisodes = object.numberOfEpisodes
         self.numberOfSeasons = object.numberOfSeasons
-        //self.origin_country = [String]()
-        //self.seasons = [Season]()
+        //self.originCountry = object.originCountry
+        self.seasons = object.seasons
         self.type = object.type
     }
     
@@ -180,7 +177,14 @@ class PCMediaItem: Object, Mappable {
         self.tagline <- map["tagline"]
         self.video <- map["video"]
         
-        self.episodeRunTime <- map["episode_run_time"]
+        var episodeRuntimeRaw = [Int]()
+        episodeRuntimeRaw <- map["episode_run_time"]
+        if episodeRuntimeRaw.count > 0 {
+            self.episodeRunTime = PCMediaItemEpisodeRuntime()
+            self.episodeRunTime?.timeMin = episodeRuntimeRaw[0]
+            self.episodeRunTime?.timeMax = episodeRuntimeRaw[1]
+        }
+        
         self.firstAirDate <- map["first_air_date"]
         self.inProduction <- map["in_production"]
         //self.languages <- map["languages"]
@@ -264,24 +268,9 @@ class PCMediaItemSeason: Object, Mappable {
     }
 }
 
-class PCMediaItemEpisodeRuntime: Object, Mappable {
+class PCMediaItemEpisodeRuntime: Object {
     
     dynamic var timeMin: Int = 0
     dynamic var timeMax: Int = 0
     
-    required convenience init?(_ map: Map) {
-        self.init()
-    }
-    
-    convenience init(object: PCMediaItemEpisodeRuntime) {
-        self.init()
-        
-        self.timeMin = object.timeMin
-        self.timeMax = object.timeMax
-    }
-    
-    func mapping(map: Map) {
-        self.timeMin <- map["episode_run_time.0"]
-        self.timeMax <- map["episode_run_time.1"]
-    }
 }
