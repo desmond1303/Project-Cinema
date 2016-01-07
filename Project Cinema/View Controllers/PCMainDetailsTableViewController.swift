@@ -364,6 +364,24 @@ class PCMainDetailsTableViewController: UITableViewController {
                     //runtimeAndGenres = "\(self.episodeRuntimes![0]/60)h \(self.episodeRuntimes![0]%60)m - \(self.episodeRuntimes![1]/60)h \(self.episodeRuntimes![1]%60)m"
                 }
                 
+                var genresString = ""
+                
+                if self.movie!.genres.count > 0 && self.movie!.itemType == "movie" {
+                    genresString = " | "
+                }
+                
+                for genre in self.movie!.genres {
+                    
+                    genresString.appendContentsOf(genre.name)
+                    
+                    if genre != self.movie!.genres.last {
+                        genresString.appendContentsOf(", ")
+                    }
+                    
+                }
+                
+                runtimeAndGenres.appendContentsOf(genresString)
+                
                 cell.movieTitleLabel.attributedText = attributedMediaTitleString
                 cell.movieRuntimeAndGenres.text = runtimeAndGenres
                 cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(movie!.posterPath)"), placeholderImage: UIImage(named: "placeholder"))

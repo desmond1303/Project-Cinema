@@ -16,25 +16,14 @@ class PCMediaItem: Object, Mappable {
     // Universal
     
     /*
-    struct Genre {
-        var id: Int
-        var name: String
-    }
-    
     struct ProductionCompany {
         var name: String
         var id: Int
     }*/
     
     dynamic var itemType:String = "" // Movie or TV
-    
     dynamic var backdropPath: String = ""
-    /*var genresArray = [Genre]() {
-        didSet {
-            self.genres = String(genresArray)
-        }
-    }*/
-    dynamic var genres: String = ""
+    let genres = List<PCMediaItemGenre>()
     dynamic var homepage: String = ""
     dynamic var itemId: Int = 0
     dynamic var originalLanguage: String = ""
@@ -167,11 +156,12 @@ class PCMediaItem: Object, Mappable {
         self.title <- map["title"]
         self.itemType = self.title != "" ? "movie" : "tv"
         self.title <- map["name"]
-        //self.test <- map["production_companies"]
-        
         self.backdropPath <- map["backdrop_path"]
-        //self.genresArray <- map["genres"]
-        //self.genres: String = ""
+        
+        var genresRaw = [PCMediaItemGenre]()
+        genresRaw <- map["genres"]
+        self.genres.appendContentsOf(genresRaw)
+        
         self.homepage <- map["homepage"]
         self.itemId  <- map["id"]
         self.originalLanguage <- map["original_language"]
@@ -213,4 +203,30 @@ class PCMediaItem: Object, Mappable {
         return "itemId"
     }
     
+}
+
+class PCMediaItemGenre: Object, Mappable {
+    
+    dynamic var id: Int = 0
+    dynamic var name: String = ""
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    convenience init(object: PCMediaItemGenre) {
+        self.init()
+        
+        self.id = object.id
+        self.name = object.name
+    }
+    
+    func mapping(map: Map) {
+        self.id <- map["id"]
+        self.name <- map["name"]
+    }
+    
+    override class func primaryKey() -> String {
+        return "id"
+    }
 }
