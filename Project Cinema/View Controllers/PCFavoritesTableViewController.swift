@@ -88,10 +88,10 @@ class PCFavoritesTableViewController: UITableViewController {
         
         var date: String?
         if self.favorites[indexPath.row].itemType == "movie" {
-            date = self.favorites[indexPath.row].release_date.componentsSeparatedByString("-")[0]
+            date = self.favorites[indexPath.row].releaseDate.componentsSeparatedByString("-")[0]
         }
         else {
-            date = "From \(self.favorites[indexPath.row].first_air_date.componentsSeparatedByString("-")[0])"
+            date = "From \(self.favorites[indexPath.row].firstAirDate.componentsSeparatedByString("-")[0])"
         }
         
         favTitleText.appendAttributedString(NSAttributedString(string: "\n\(date!)", attributes: attrsMedium))

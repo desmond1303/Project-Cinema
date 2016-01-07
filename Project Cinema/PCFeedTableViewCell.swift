@@ -81,10 +81,10 @@ class PCFeedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         cell.movieImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(movies![indexPath.item].posterPath)"))
         
         if movies![indexPath.row].itemType == "movie" {
-            cell.movieYearLabel.text = movies![indexPath.item].release_date.componentsSeparatedByString("-")[0]
+            cell.movieYearLabel.text = movies![indexPath.item].releaseDate.componentsSeparatedByString("-")[0]
         }
         else {
-            cell.movieYearLabel.text = "From \(movies![indexPath.item].first_air_date.componentsSeparatedByString("-")[0])"
+            cell.movieYearLabel.text = "From \(movies![indexPath.item].firstAirDate.componentsSeparatedByString("-")[0])"
         }
         
         return cell

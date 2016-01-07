@@ -43,10 +43,10 @@ class PCSearchTableViewController: UITableViewController{
             cell.textLabel?.text = currentResult.title
             
             if currentResult.itemType == "movie" {
-                cell.detailTextLabel?.text = currentResult.release_date.componentsSeparatedByString("-")[0]
+                cell.detailTextLabel?.text = currentResult.releaseDate.componentsSeparatedByString("-")[0]
             }
             else {
-                cell.detailTextLabel?.text = "From \(currentResult.first_air_date.componentsSeparatedByString("-")[0])"
+                cell.detailTextLabel?.text = "From \(currentResult.firstAirDate.componentsSeparatedByString("-")[0])"
             }
         }
         

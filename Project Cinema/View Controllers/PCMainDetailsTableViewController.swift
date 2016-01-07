@@ -67,7 +67,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             let dateFormatter = NSDateFormatter()
             dateFormatter.timeStyle = .ShortStyle
             
-            attributeSet.contentDescription = "\(self.movie!.release_date.componentsSeparatedByString("-")[0])\n\(self.movie!.voteAverage)/10"
+            attributeSet.contentDescription = "\(self.movie!.releaseDate.componentsSeparatedByString("-")[0])\n\(self.movie!.voteAverage)/10"
             attributeSet.relatedUniqueIdentifier = "\(self.movie!.itemType)_\(self.movie!.itemId)"
             var keywords = self.movie!.title.componentsSeparatedByString(" ")
             keywords.append(self.movie!.title)
@@ -107,14 +107,18 @@ class PCMainDetailsTableViewController: UITableViewController {
             notification.timeZone = NSTimeZone.defaultTimeZone()
             let dateMaker = NSDateFormatter()
             dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
-            notification.fireDate = dateMaker.dateFromString("\(self.movie!.release_date) 12-00")
+            notification.fireDate = dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")
             UIApplication.sharedApplication().scheduleLocalNotification(notification)
             
         }
         
     }
     
-    var movie: PCMediaItem?
+    var movie: PCMediaItem? {
+        didSet {
+            print(self.movie!)
+        }
+    }
     
     var cast: [PCMediaItemCast]? {
         didSet {
@@ -127,11 +131,6 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     var reviews: [PCMediaReview]? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    var seasons: [PCMediaSeason]? {
         didSet {
             self.tableView.reloadData()
         }
@@ -277,15 +276,6 @@ class PCMainDetailsTableViewController: UITableViewController {
                         self.reviews = response.result.value
                 }
             }
-            else {
-                url = "https://api.themoviedb.org/3/tv/\(self.movie!.itemId)/season/"
-                Alamofire
-                    .request(.GET, url, parameters: urlParamteres)
-                    .responseArray { (response: Response<[PCMediaSeason], NSError>) in
-                        self.seasons = response.result.value
-                }
-                
-            }
 
         }
     }
@@ -315,7 +305,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 1:
             return 1
         case 2:
-            return self.reviews?.count > 0 || self.seasons?.count > 0 ? 1 : 0
+            return self.reviews?.count > 0 || self.movie!.seasons.count > 0 ? 1 : 0
         default:
             return 0
         }
@@ -351,18 +341,36 @@ class PCMainDetailsTableViewController: UITableViewController {
                 var runtimeAndGenres = ""
                 
                 if self.movie!.itemType == "movie" {
-                    let gString = NSMutableAttributedString(string: "(\(self.movie!.release_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.releaseDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
                     runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
                 }
                 else {
                     
-                    let gString = NSMutableAttributedString(string: "(\(self.movie!.first_air_date.componentsSeparatedByString("-")[0]) - \(self.movie!.in_production ? "Present" : self.movie!.last_air_date.componentsSeparatedByString("-")[0]))", attributes:attrs)
+                    let gString = NSMutableAttributedString(string: "(\(self.movie!.firstAirDate.componentsSeparatedByString("-")[0]) - \(self.movie!.inProduction ? "Present" : self.movie!.lastAirDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
                     //runtimeAndGenres = "\(self.episodeRuntimes![0]/60)h \(self.episodeRuntimes![0]%60)m - \(self.episodeRuntimes![1]/60)h \(self.episodeRuntimes![1]%60)m"
                 }
+                
+                var genresString = ""
+                
+                if self.movie!.genres.count > 0 && self.movie!.itemType == "movie" {
+                    genresString = " | "
+                }
+                
+                for genre in self.movie!.genres {
+                    
+                    genresString.appendContentsOf(genre.name)
+                    
+                    if genre != self.movie!.genres.last {
+                        genresString.appendContentsOf(", ")
+                    }
+                    
+                }
+                
+                runtimeAndGenres.appendContentsOf(genresString)
                 
                 cell.movieTitleLabel.attributedText = attributedMediaTitleString
                 cell.movieRuntimeAndGenres.text = runtimeAndGenres
@@ -403,7 +411,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             }
             else {
                 cell.cellTitleLabel.text = "Seasons"
-                cell.seasons = self.seasons
+                cell.seasons = Array(self.movie!.seasons)
             }
             
             cell.parentViewController = self
@@ -430,7 +438,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             if self.selectedReviewRow != -1 {
                 return CGFloat(37 + (52 * CGFloat(self.reviews!.count - 1)) + self.preferedRowHeight)
             }
-            return CGFloat(37 + (52 * CGFloat(self.reviews!.count)))
+            return CGFloat(37 + (52 * CGFloat((self.reviews?.count ?? self.movie?.seasons.count)!)))
         default:
             return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
         }

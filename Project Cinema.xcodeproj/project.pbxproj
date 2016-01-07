@@ -28,7 +28,6 @@
 		7D672E601C20122B00A7BB20 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */; };
 		7D67CDFC1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */; };
 		7D67CE001C10399D00BC1101 /* PCMediaReview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */; };
-		7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */; };
 		7D716C9F1C1C9A40008AFB2A /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7D716C9D1C1C9A40008AFB2A /* Interface.storyboard */; };
 		7D716CA11C1C9A40008AFB2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D716CA01C1C9A40008AFB2A /* Assets.xcassets */; };
 		7D716CA81C1C9A40008AFB2A /* Project Cinema WK Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 7D716CA71C1C9A40008AFB2A /* Project Cinema WK Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -132,7 +131,6 @@
 		7D672E5F1C2011BB00A7BB20 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		7D67CDFB1C10373200BC1101 /* PCMainDetialsReviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PCMainDetialsReviewTableViewCell.swift; sourceTree = "<group>"; };
 		7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaReview.swift; path = Models/PCMediaReview.swift; sourceTree = "<group>"; };
-		7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PCMediaSeason.swift; path = Models/PCMediaSeason.swift; sourceTree = "<group>"; };
 		7D716C9B1C1C9A40008AFB2A /* Project Cinema WK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project Cinema WK.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D716C9E1C1C9A40008AFB2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		7D716CA01C1C9A40008AFB2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -436,7 +434,6 @@
 				7DEEA3691C2958D800DA357B /* PCAccount.swift */,
 				7D67CDFF1C10399D00BC1101 /* PCMediaReview.swift */,
 				7DD98ED91C03183B00113FB3 /* PCMediaItemCast.swift */,
-				7D67CE011C103B1800BC1101 /* PCMediaSeason.swift */,
 				7D19479B1C11897A000796FB /* PCTrailer.swift */,
 				7DE5706C1C11A5790039299C /* PCAccessStatistics.swift */,
 				7DAC40DE1C27F5A6005FA088 /* PCRequestToken.swift */,
@@ -750,7 +747,6 @@
 				7DE5706D1C11A5790039299C /* PCAccessStatistics.swift in Sources */,
 				7D58745F1C1AC1D600437C73 /* PCTabBarViewController.swift in Sources */,
 				7DE076D01C00890F00448979 /* PCFeedTableViewController.swift in Sources */,
-				7D67CE021C103B1800BC1101 /* PCMediaSeason.swift in Sources */,
 				7DE076D71C008BE500448979 /* PCMediaItem.swift in Sources */,
 				7D57B1461C2BE726008F3E81 /* PCAccountLoginTableViewCell.swift in Sources */,
 				7DD98ED11C030BDA00113FB3 /* PCMainDetailsDescriptionTableViewCell.swift in Sources */,
