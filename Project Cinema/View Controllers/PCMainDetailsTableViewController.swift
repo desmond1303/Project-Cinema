@@ -114,11 +114,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         
     }
     
-    var movie: PCMediaItem? {
-        didSet {
-            print(self.movie!)
-        }
-    }
+    var movie: PCMediaItem?
     
     var cast: [PCMediaItemCast]? {
         didSet {
@@ -143,11 +139,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         }
     }
     
-    var preferedRowHeight: CGFloat = 52 {
-        willSet {
-            print(newValue)
-        }
-    }
+    var preferedRowHeight: CGFloat = 52
     var selectedReviewRow: Int = -1 {
         didSet {
             //self.tableView.reloadSections(NSIndexSet(index: 2), withRowAnimation: .Automatic)
