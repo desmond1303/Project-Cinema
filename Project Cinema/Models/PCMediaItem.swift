@@ -65,18 +65,13 @@ class PCMediaItem: Object, Mappable {
     
     // TV Only
     /*
-    struct Creator {
-        var id: Int
-        var name: String
-        var profile_path: String
-    }
-    
     struct Network {
         var id: Int
         var name: String
     }
     */
-    //var created_by = [Creator]()
+    
+    var createdBy = List<PCMediaItemTVCreator>()
     dynamic var episodeRunTime: PCMediaItemEpisodeRuntime? = PCMediaItemEpisodeRuntime()
     dynamic var firstAirDate: String = ""
     dynamic var inProduction: Bool = false
@@ -126,6 +121,7 @@ class PCMediaItem: Object, Mappable {
         self.tagline = object.tagline
         self.video = object.video
         
+        self.createdBy = object.createdBy
         self.episodeRunTime = object.episodeRunTime
         self.firstAirDate = object.firstAirDate
         self.inProduction = object.inProduction
@@ -174,12 +170,16 @@ class PCMediaItem: Object, Mappable {
         self.tagline <- map["tagline"]
         self.video <- map["video"]
         
+        var creatorsRaw = [PCMediaItemTVCreator]()
+        creatorsRaw <- map["created_by"]
+        self.createdBy.appendContentsOf(creatorsRaw)
+        
         var episodeRuntimeRaw = [Int]()
         episodeRuntimeRaw <- map["episode_run_time"]
         if episodeRuntimeRaw.count > 0 {
             self.episodeRunTime = PCMediaItemEpisodeRuntime()
-            self.episodeRunTime?.timeMin = episodeRuntimeRaw[0]
-            self.episodeRunTime?.timeMax = episodeRuntimeRaw[1]
+            self.episodeRunTime?.timeMin = episodeRuntimeRaw.first!
+            self.episodeRunTime?.timeMax = episodeRuntimeRaw.last!
         }
         
         self.firstAirDate <- map["first_air_date"]
@@ -203,6 +203,21 @@ class PCMediaItem: Object, Mappable {
     }
     
 }
+
+class PCMediaItemCredits: Mappable {
+    
+    var cast: [PCMediaItemCast]?
+    var crew: [PCMediaItemCrew]?
+    
+    required init?(_ map: Map) {
+    }
+    
+    func mapping(map: Map) {
+        self.cast <- map["cast"]
+        self.crew <- map["crew"]
+    }
+}
+
 
 class PCMediaItemCrew: Object, Mappable {
     dynamic var department: String = ""
@@ -270,10 +285,6 @@ class PCMediaItemGenre: Object, Mappable {
         self.id <- map["id"]
         self.name <- map["name"]
     }
-    
-    override class func primaryKey() -> String {
-        return "id"
-    }
 }
 
 class PCMediaItemSeason: Object, Mappable {
@@ -305,10 +316,6 @@ class PCMediaItemSeason: Object, Mappable {
         self.episodeCount <- map["episode_count"]
         self.posterPath <- map["poster_path"]
     }
-    
-    override class func primaryKey() -> String {
-        return "id"
-    }
 }
 
 class PCMediaItemEpisodeRuntime: Object {
@@ -316,4 +323,29 @@ class PCMediaItemEpisodeRuntime: Object {
     dynamic var timeMin: Int = 0
     dynamic var timeMax: Int = 0
     
+}
+
+class PCMediaItemTVCreator: Object, Mappable {
+    
+    dynamic var id: Int = 0
+    dynamic var name: String = ""
+    dynamic var profilePath: String = ""
+    
+    required convenience init?(_ map: Map) {
+        self.init()
+    }
+    
+    convenience init(object: PCMediaItemTVCreator) {
+        self.init()
+        
+        self.id = object.id
+        self.name = object.name
+        self.profilePath = object.profilePath
+    }
+    
+    func mapping(map: Map) {
+        self.id <- map["id"]
+        self.name <- map["name"]
+        self.profilePath <- map["profile_path"]
+    }
 }
