@@ -116,12 +116,7 @@ class PCMainDetailsTableViewController: UITableViewController {
     
     var movie: PCMediaItem?
     
-    var cast: [PCMediaItemCast]? {
-        didSet {
-            self.tableView.reloadData()
-        }
-    }
-    var crew: [PCMediaItemCrew]? {
+    var credits: PCMediaItemCredits? {
         didSet {
             self.tableView.reloadData()
         }
@@ -253,12 +248,9 @@ class PCMainDetailsTableViewController: UITableViewController {
             var url = "https://api.themoviedb.org/3/\(movie.itemType)/\(movie.itemId)/credits"
             Alamofire
                 .request(.GET, url, parameters: urlParamteres)
-                .responseArray("cast") { (response: Response<[PCMediaItemCast], NSError>) in
-                    self.cast = response.result.value
+                .responseObject { (response: Response<PCMediaItemCredits, NSError>) in
+                    self.credits = response.result.value
                 }
-                .responseArray("crew") { (response: Response<[PCMediaItemCrew], NSError>) in
-                    self.crew = response.result.value
-            }
             
             if self.movie?.itemType == "movie" {
                 url = "https://api.themoviedb.org/3/movie/\(self.movie!.itemId)/reviews"
@@ -295,7 +287,7 @@ class PCMainDetailsTableViewController: UITableViewController {
         case 0:
             return 2
         case 1:
-            return 1
+            return 3
         case 2:
             return self.reviews?.count > 0 || self.movie!.seasons.count > 0 ? 1 : 0
         default:
@@ -387,11 +379,42 @@ class PCMainDetailsTableViewController: UITableViewController {
                 return cell
             }
         case 1:
-            let cell = tableView.dequeueReusableCellWithIdentifier("castCollectionCell", forIndexPath: indexPath) as! PCMainDetailsCastTableViewCell
-            cell.cast = self.cast
-            
-            cell.collectionView.scrollsToTop = false
-            return cell
+            switch indexPath.row {
+            case 0:
+                let cell = tableView.dequeueReusableCellWithIdentifier("castCollectionCell", forIndexPath: indexPath) as! PCMainDetailsCastTableViewCell
+                cell.cast = self.credits?.cast
+                
+                cell.collectionView.scrollsToTop = false
+                return cell
+            case 1:
+                let cell = tableView.dequeueReusableCellWithIdentifier("castDirectorCell", forIndexPath: indexPath)
+                
+                if let crew = self.credits?.crew {
+                    for crewMember in crew {
+                        if crewMember.job == "Director" && self.movie?.itemType == "movie" {
+                            cell.textLabel?.text = crewMember.name
+                            cell.detailTextLabel?.text = crewMember.job
+                        }
+                    }
+                }
+                
+                if self.movie?.itemType == "tv" {
+                    if self.movie?.createdBy.count > 0 {
+                        cell.textLabel?.text = self.movie?.createdBy.first!.name
+                    }
+                    else {
+                        cell.textLabel?.text = "Unknown"
+                    }
+                    cell.detailTextLabel?.text = "Creator"
+                }
+                
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCellWithIdentifier("castAllOthersCell", forIndexPath: indexPath)
+                cell.textLabel?.text = "All Crew Members"
+                
+                return cell
+            }
         case 2:
             let cell = tableView.dequeueReusableCellWithIdentifier("reviewTableCell", forIndexPath: indexPath) as! PCMainDetialsReviewTableViewCell
             
@@ -425,7 +448,12 @@ class PCMainDetailsTableViewController: UITableViewController {
                 return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
             }
         case 1:
-            return 213
+            switch indexPath.row {
+            case 0:
+                return 213
+            default:
+                return 44
+            }
         case 2:
             if self.selectedReviewRow != -1 {
                 return CGFloat(37 + (52 * CGFloat(self.reviews!.count - 1)) + self.preferedRowHeight)
