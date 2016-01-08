@@ -78,7 +78,14 @@ class PCFeedTableViewCell: UITableViewCell, UICollectionViewDelegate, UICollecti
         
         cell.movie = movies![indexPath.item]
         cell.movieTitleLabel.text = movies![indexPath.item].title
-        cell.movieImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(movies![indexPath.item].posterPath)"))
+        cell.movieImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w92/\(movies![indexPath.item].posterPath)"))
+        
+        let sdImageManager = SDWebImageManager.sharedManager()
+        sdImageManager.downloadImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w342/\(movies![indexPath.item].posterPath)"), options: .LowPriority, progress: nil) { (image: UIImage!, error:NSError!, cacheType:SDImageCacheType, completed: Bool, url:NSURL!) -> Void in
+            if image != nil {
+                cell.movieImageView.image = image
+            }
+        }
         
         if movies![indexPath.row].itemType == "movie" {
             cell.movieYearLabel.text = movies![indexPath.item].releaseDate.componentsSeparatedByString("-")[0]
