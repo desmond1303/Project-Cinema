@@ -70,10 +70,8 @@ class PCMediaItem: Object, Mappable {
         var name: String
     }
     */
-    //var created_by = [Creator]()
     
     var createdBy = List<PCMediaItemTVCreator>()
-    
     dynamic var episodeRunTime: PCMediaItemEpisodeRuntime? = PCMediaItemEpisodeRuntime()
     dynamic var firstAirDate: String = ""
     dynamic var inProduction: Bool = false
@@ -287,10 +285,6 @@ class PCMediaItemGenre: Object, Mappable {
         self.id <- map["id"]
         self.name <- map["name"]
     }
-    
-    override class func primaryKey() -> String {
-        return "id"
-    }
 }
 
 class PCMediaItemSeason: Object, Mappable {
@@ -322,10 +316,6 @@ class PCMediaItemSeason: Object, Mappable {
         self.episodeCount <- map["episode_count"]
         self.posterPath <- map["poster_path"]
     }
-    
-    override class func primaryKey() -> String {
-        return "id"
-    }
 }
 
 class PCMediaItemEpisodeRuntime: Object {
@@ -336,7 +326,6 @@ class PCMediaItemEpisodeRuntime: Object {
 }
 
 class PCMediaItemTVCreator: Object, Mappable {
-    //created_by
     
     dynamic var id: Int = 0
     dynamic var name: String = ""
@@ -359,9 +348,4 @@ class PCMediaItemTVCreator: Object, Mappable {
         self.name <- map["name"]
         self.profilePath <- map["profile_path"]
     }
-    
-    override class func primaryKey() -> String {
-        return "id"
-    }
-
 }
