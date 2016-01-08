@@ -23,7 +23,7 @@ class PCRatingTableViewController: UITableViewController {
             
             self.sessionId = sessionId
             
-            let url = NSURL(string: "http://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)/rating?api_key=d94cca56f8edbdf236c0ccbacad95aa1&session_id=\(sessionId)")!
+            let url = NSURL(string: "https://api.themoviedb.org/3/\(self.movie!.itemType)/\(self.movie!.itemId)/rating?api_key=d94cca56f8edbdf236c0ccbacad95aa1&session_id=\(sessionId)")!
             
             let request = NSMutableURLRequest(URL: url)
             request.HTTPMethod = "POST"
