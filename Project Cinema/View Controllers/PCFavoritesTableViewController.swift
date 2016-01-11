@@ -80,7 +80,7 @@ class PCFavoritesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("favoriteMovie", forIndexPath: indexPath) as! PCFavoritesTableViewCell
 
         cell.movie = self.favorites[indexPath.row]
-        cell.posterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w92/\(self.favorites[indexPath.row].posterPath)"))
+        cell.posterImageView.sd_setImageWithURL(NSURL(string: "https://image.tmdb.org/t/p/w92/\(self.favorites[indexPath.row].posterPath)"))
         
         let favTitleText = NSMutableAttributedString(string: self.favorites[indexPath.row].title)
         let attrsMedium = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]

@@ -100,15 +100,19 @@ class PCMainDetailsTableViewController: UITableViewController {
                 }
             }
 
-            let notification:UILocalNotification = UILocalNotification()
-            notification.category = "Entertainment"
-            notification.alertAction = "OK!"
-            notification.alertBody = "\(self.movie!.title) is about to hit theatres!"
-            notification.timeZone = NSTimeZone.defaultTimeZone()
             let dateMaker = NSDateFormatter()
             dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
-            notification.fireDate = dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            
+            if NSDate().compare(dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")!) == NSComparisonResult.OrderedAscending {
+                let notification:UILocalNotification = UILocalNotification()
+                notification.category = "Entertainment"
+                notification.alertAction = "OK!"
+                notification.alertBody = "\(self.movie!.title) is about to hit theatres!"
+                notification.timeZone = NSTimeZone.defaultTimeZone()
+                
+                notification.fireDate = dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            }
             
         }
         
@@ -309,7 +313,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             case 0:
                 let cell = tableView.dequeueReusableCellWithIdentifier("movieMainCell", forIndexPath: indexPath) as! PCMainDetailsMainTableViewCell
                 cell.parentViewController = self
-                cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w780/\(movie!.backdropPath)"), placeholderImage: UIImage(named: "placeholder"))
+                cell.movieBackdropImageView.sd_setImageWithURL(NSURL(string: "https://image.tmdb.org/t/p/w780/\(movie!.backdropPath)"), placeholderImage: UIImage(named: "placeholder"))
                 cell.movie = movie
                 cell.isFav = self.currentMediaItemIsInFav
                 if self.currentMediaItemIsInFav {
@@ -358,7 +362,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 
                 cell.movieTitleLabel.attributedText = attributedMediaTitleString
                 cell.movieRuntimeAndGenres.text = runtimeAndGenres
-                cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "http://image.tmdb.org/t/p/w185/\(movie!.posterPath)"), placeholderImage: UIImage(named: "placeholder"))
+                cell.moviePosterImageView.sd_setImageWithURL(NSURL(string: "https://image.tmdb.org/t/p/w185/\(movie!.posterPath)"), placeholderImage: UIImage(named: "placeholder"))
                 
                 return cell
             case 1:
@@ -467,18 +471,35 @@ class PCMainDetailsTableViewController: UITableViewController {
     // MARK: - Navigation
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showTrailers" {
+        switch segue.identifier! {
+        case "showTrailers":
             let destinationViewController = segue.destinationViewController as! PCTrailersTableViewController
             destinationViewController.mediaItemType = self.movie!.itemType
             destinationViewController.mediaItemId = self.movie!.itemId
             destinationViewController.title = "Videos"
             let senderCell = sender as! UITableViewCell
             senderCell.selected = false
-        }
-        else if segue.identifier == "showRatingScreen" {
+        case "showRatingScreen":
             let destinationViewController = segue.destinationViewController as! PCRatingTableViewController
             destinationViewController.movie = self.movie
+        case "showAllCrewMembers":
+            let destinationViewController = segue.destinationViewController as! PCAllCrewMembersTableViewController
+            destinationViewController.crew = self.credits!.crew!
+        case "showActorPage":
+            if let senderCastCell = sender as? PCMediaItemCollectionViewCell {
+                if let collectionViewContainerTableViewCell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 1)) as? PCMainDetailsCastTableViewCell {
+                    if let collectionIndexPath = collectionViewContainerTableViewCell.collectionView.indexPathForCell(senderCastCell) {
+                        if let destinationVewController = segue.destinationViewController as? PCActorTableViewController {
+                            destinationVewController.actorId = self.credits!.cast![collectionIndexPath.item].actorId
+                        }
+                    }
+                }
+            }
+        default:
+            break
         }
+        
+        
     }
     
     

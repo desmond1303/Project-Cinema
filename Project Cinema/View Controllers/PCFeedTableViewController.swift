@@ -91,7 +91,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     var hasConnection: Bool? {
         didSet {
             if self.hasConnection! {
-                self.getFeedData(self.requests, completionHandler: nil)
+                self.getFeedData(self.requests)
                 self.noNetworkBanner?.removeFromSuperview()
             }
             else {
