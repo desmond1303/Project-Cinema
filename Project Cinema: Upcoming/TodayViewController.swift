@@ -52,7 +52,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
-        return UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 0) //UIEdgeInsetsZero
+        return UIEdgeInsets(top: 0, left: 39, bottom: 0, right: 0) //UIEdgeInsetsZero
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {
