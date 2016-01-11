@@ -100,15 +100,19 @@ class PCMainDetailsTableViewController: UITableViewController {
                 }
             }
 
-            let notification:UILocalNotification = UILocalNotification()
-            notification.category = "Entertainment"
-            notification.alertAction = "OK!"
-            notification.alertBody = "\(self.movie!.title) is about to hit theatres!"
-            notification.timeZone = NSTimeZone.defaultTimeZone()
             let dateMaker = NSDateFormatter()
             dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
-            notification.fireDate = dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")
-            UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            
+            if NSDate().compare(dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")!) == NSComparisonResult.OrderedAscending {
+                let notification:UILocalNotification = UILocalNotification()
+                notification.category = "Entertainment"
+                notification.alertAction = "OK!"
+                notification.alertBody = "\(self.movie!.title) is about to hit theatres!"
+                notification.timeZone = NSTimeZone.defaultTimeZone()
+                
+                notification.fireDate = dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")
+                UIApplication.sharedApplication().scheduleLocalNotification(notification)
+            }
             
         }
         

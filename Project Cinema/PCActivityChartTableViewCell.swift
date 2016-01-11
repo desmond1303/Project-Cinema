@@ -64,7 +64,7 @@ class PCActivityChartTableViewCell: UITableViewCell, ChartViewDelegate {
         
         self.barChartView.maxVisibleValueCount = 100
         self.barChartView.pinchZoomEnabled = false
-        self.barChartView.drawGridBackgroundEnabled = true
+        self.barChartView.drawGridBackgroundEnabled = false
         self.barChartView.drawBordersEnabled = false
         
         var xVals = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -129,6 +129,8 @@ class PCActivityChartTableViewCell: UITableViewCell, ChartViewDelegate {
         leftAxis.valueFormatter = NSNumberFormatter()
         leftAxis.valueFormatter?.minimumFractionDigits = 0
         rightAxis.enabled = false
+        
+        leftAxis.enabled = false
         
         self.barChartView.descriptionText = ""
         // self.view.reloadInputViews()
