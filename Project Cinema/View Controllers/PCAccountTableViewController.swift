@@ -127,6 +127,14 @@ class PCAccountTableViewController: UITableViewController {
                                     
                                     
                                 }
+                                else {
+                                    
+                                    let alertController = UIAlertController(title: "Login Failed", message: "The Username of Password provided seems to be wrong. Please try again.", preferredStyle: UIAlertControllerStyle.Alert)
+                                    let okayAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil)
+                                    alertController.addAction(okayAction)
+                                    self.presentViewController(alertController, animated: true, completion: nil)
+                                    
+                                }
                         }
                     }
             }

@@ -33,7 +33,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func getRealmData() {
 
         let realm = try! Realm()
-        let realmObjects = realm.objects(PCMediaItem).sorted("release_date")
+        let realmObjects = realm.objects(PCMediaItem).sorted("releaseDate")
         
         self.upcommingMovies.removeAll()
         
@@ -52,7 +52,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     }
     
     func widgetMarginInsetsForProposedMarginInsets(defaultMarginInsets: UIEdgeInsets) -> (UIEdgeInsets) {
-        return UIEdgeInsetsZero
+        return UIEdgeInsets(top: 0, left: 38, bottom: 0, right: 0) //UIEdgeInsetsZero
     }
     
     func widgetPerformUpdateWithCompletionHandler(completionHandler: ((NCUpdateResult) -> Void)) {

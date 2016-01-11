@@ -17,7 +17,7 @@ class PCAccountLoginTableViewCell: UITableViewCell {
         var username: String? //desmond1303
         var password: String? //apiTestPassword
         
-        let alertController = UIAlertController(title: "Login", message: "Use TheMovieDB Login credentails", preferredStyle: UIAlertControllerStyle.Alert)
+        let alertController = UIAlertController(title: "Login with TheMovieDB account", message: "If you do not have a TheMovieDB account you can create one at www.themoviedb.org", preferredStyle: UIAlertControllerStyle.Alert)
         
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default) { (textAction) -> Void in
             username = alertController.textFields![0].text
