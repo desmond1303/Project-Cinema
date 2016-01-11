@@ -33,7 +33,7 @@ class TodayViewController: UIViewController, NCWidgetProviding, UITableViewDeleg
     func getRealmData() {
 
         let realm = try! Realm()
-        let realmObjects = realm.objects(PCMediaItem).sorted("release_date")
+        let realmObjects = realm.objects(PCMediaItem).sorted("releaseDate")
         
         self.upcommingMovies.removeAll()
         
