@@ -45,8 +45,11 @@ class PCSearchTableViewController: UITableViewController{
             if currentResult.itemType == "movie" {
                 cell.detailTextLabel?.text = currentResult.releaseDate.componentsSeparatedByString("-")[0]
             }
-            else {
+            else if currentResult.itemType == "tv" {
                 cell.detailTextLabel?.text = "From \(currentResult.firstAirDate.componentsSeparatedByString("-")[0])"
+            }
+            else if currentResult.itemType == "person" {
+                cell.detailTextLabel?.text = "Person"
             }
         }
         
@@ -55,8 +58,13 @@ class PCSearchTableViewController: UITableViewController{
     
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        parentController?.searchResult = self.searchResults?[indexPath.row]
-        parentController?.performSegueWithIdentifier("showMediaItemDetailPage", sender: tableView.cellForRowAtIndexPath(indexPath))
+        self.parentController?.searchResult = self.searchResults?[indexPath.row]
+        if self.searchResults?[indexPath.row].itemType == "person" {
+            self.parentController?.performSegueWithIdentifier("showActorDetailPage", sender: tableView.cellForRowAtIndexPath(indexPath))
+        }
+        else {
+            self.parentController?.performSegueWithIdentifier("showMediaItemDetailPage", sender: tableView.cellForRowAtIndexPath(indexPath))
+        }
     }
     
     /*

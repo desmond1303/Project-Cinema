@@ -375,6 +375,9 @@
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="zSg-0Y-zVf">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
+                    <connections>
+                        <segue destination="P6W-8q-x9u" kind="show" identifier="showActorDetailPage" id="1Rd-Lm-ggH"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uh-Gh-NRS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -385,12 +388,12 @@
             <objects>
                 <tableViewController id="JWt-1O-Tjc" customClass="PCRatingTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BgA-mA-6qw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ratingPicker" rowHeight="217" id="6RE-tW-nKB">
-                                <rect key="frame" x="0.0" y="28" width="600" height="217"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="217"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6RE-tW-nKB" id="gmf-Li-DB4">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
@@ -1212,7 +1215,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtW-6L-agY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344" y="2087"/>
+            <point key="canvasLocation" x="2046" y="2081"/>
         </scene>
         <!--Actor Table View Controller-->
         <scene sceneID="UvI-R8-wB6">
@@ -1478,6 +1481,7 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dnU-J9-pBy"/>
+        <segue reference="1Rd-Lm-ggH"/>
+        <segue reference="ARj-tT-Kvi"/>
     </inferredMetricsTieBreakers>
 </document>

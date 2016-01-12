@@ -252,9 +252,8 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
-        
         if self.requestFromActivity {
+            let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
             let realm = try! Realm()
             let mediaItemIdentifiers = self.mediaItemActivityData["kCSSearchableItemActivityIdentifier"]!.componentsSeparatedByString("_")
             let movie = realm.objects(PCMediaItem).filter("itemType = '\(mediaItemIdentifiers[0])' AND itemId = \(mediaItemIdentifiers[1])")
@@ -269,12 +268,20 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             //destinationViewController.title = object.title
         }
         else if let senderCell = sender as? PCMediaItemCollectionViewCell {
+            let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
             destinationViewController.title = senderCell.movie?.title
             destinationViewController.movie = senderCell.movie
         }
         else if let searchResult = self.searchResult {
-            destinationViewController.title = searchResult.title
-            destinationViewController.movie = searchResult
+            if searchResult.itemType == "person" {
+                let destinationViewController = segue.destinationViewController as! PCActorTableViewController
+                destinationViewController.actorId = searchResult.itemId
+            }
+            else {
+                let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
+                destinationViewController.title = searchResult.title
+                destinationViewController.movie = searchResult
+            }
         }
         
         self.searchBarCancelButtonClicked(self.searchController!.searchBar)
