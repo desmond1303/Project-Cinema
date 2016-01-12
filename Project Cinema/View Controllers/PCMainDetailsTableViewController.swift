@@ -332,19 +332,23 @@ class PCMainDetailsTableViewController: UITableViewController {
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.releaseDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
-                    runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
+                    if self.movie!.runtime != 0 {
+                        runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
+                    }
                 }
                 else {
                     
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.firstAirDate.componentsSeparatedByString("-")[0]) - \(self.movie!.inProduction ? "Present" : self.movie!.lastAirDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
-                    runtimeAndGenres = "\(self.movie!.episodeRunTime!.timeMin)m - \(self.movie!.episodeRunTime!.timeMax)m"
+                    if self.movie!.episodeRunTime?.timeMax != 0 {
+                        runtimeAndGenres = "\(self.movie!.episodeRunTime!.timeMin)m - \(self.movie!.episodeRunTime!.timeMax)m"
+                    }
                 }
                 
                 var genresString = ""
                 
-                if self.movie!.genres.count > 0 {
+                if (self.movie!.runtime != 0 || self.movie!.episodeRunTime!.timeMax != 0) && self.movie!.genres.count > 0 {
                     genresString = " | "
                 }
                 
