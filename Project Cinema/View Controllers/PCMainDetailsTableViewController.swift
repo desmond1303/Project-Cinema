@@ -36,23 +36,36 @@ class PCMainDetailsTableViewController: UITableViewController {
         )
         
         if currentMediaItemIsInFav {
+            
             let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'").first!
             
             self.movie = PCMediaItem(object: realmObject)
+            self.movie?.genres = List<PCMediaItemGenre>()
+            for genre in realmObject.genres {
+                self.movie?.genres.append(PCMediaItemGenre(object: genre))
+            }
+            self.movie?.createdBy = List<PCMediaItemTVCreator>()
+            for creator in realmObject.createdBy {
+                self.movie?.createdBy.append(PCMediaItemTVCreator(object: creator))
+            }
+            self.movie?.seasons = List<PCMediaItemSeason>()
+            for season in realmObject.seasons {
+                self.movie?.seasons.append(PCMediaItemSeason(object: season))
+            }
             
             try! self.realm.write {
                     
-            CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(realmObject.itemType)_\(realmObject.itemId)"]) { (error: NSError?) -> Void in
-                    //code
-                }
+                CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(realmObject.itemType)_\(realmObject.itemId)"], completionHandler: nil)
+                
                 self.realm.delete(realmObject)
                 self.currentMediaItemIsInFav = false
                 sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                
             }
-            
         }
         else {
             let realmObject = PCMediaItem(object: self.movie!)
+            
             try! self.realm.write {
                 self.realm.add(realmObject)
                 
@@ -332,19 +345,23 @@ class PCMainDetailsTableViewController: UITableViewController {
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.releaseDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
-                    runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
+                    if self.movie!.runtime != 0 {
+                        runtimeAndGenres = "\(self.movie!.runtime/60)h \(self.movie!.runtime%60)m"
+                    }
                 }
                 else {
                     
                     let gString = NSMutableAttributedString(string: "(\(self.movie!.firstAirDate.componentsSeparatedByString("-")[0]) - \(self.movie!.inProduction ? "Present" : self.movie!.lastAirDate.componentsSeparatedByString("-")[0]))", attributes:attrs)
                     attributedMediaTitleString.appendAttributedString(gString)
                     
-                    runtimeAndGenres = "\(self.movie!.episodeRunTime!.timeMin)m - \(self.movie!.episodeRunTime!.timeMax)m"
+                    if self.movie!.episodeRunTime?.timeMax != 0 {
+                        runtimeAndGenres = "\(self.movie!.episodeRunTime!.timeMin)m - \(self.movie!.episodeRunTime!.timeMax)m"
+                    }
                 }
                 
                 var genresString = ""
                 
-                if self.movie!.genres.count > 0 {
+                if (self.movie!.runtime != 0 || self.movie!.episodeRunTime!.timeMax != 0) && self.movie!.genres.count > 0 {
                     genresString = " | "
                 }
                 
