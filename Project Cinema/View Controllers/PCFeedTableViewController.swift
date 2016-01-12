@@ -142,7 +142,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.getFeedData(self.requests) {
             self.refreshControl?.endRefreshing()
         }
-        self.refreshControl?.endRefreshing()
     }
     
     func getFeedData(categotyPagePairs: [(String, String, Int)], completionHandler: (()->(Void))? = nil) {
@@ -235,11 +234,20 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
     
     var requestFromUrl = false
     var urlRequest = ""
+    var urlRequestedMovie: PCMediaItem?
     
     func showDetailsForMediaItem(itemId: String, type: String) {
         self.requestFromUrl = true
         self.urlRequest = itemId
-        //self.performSegueWithIdentifier("showMediaItemDetailPage", sender: self)
+        
+        let url = "https://api.themoviedb.org/3/\(type)/\(itemId)"
+        let urlParamteres = ["api_key":"d94cca56f8edbdf236c0ccbacad95aa1"]
+        Alamofire
+            .request(.GET, url, parameters: urlParamteres)
+            .responseObject { (response: Response<PCMediaItem, NSError>) in
+                self.urlRequestedMovie = response.result.value
+                self.performSegueWithIdentifier("showMediaItemDetailPage", sender: self)
+        }
     }
     
     var requestFromActivity: Bool = false
@@ -262,10 +270,12 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
             self.requestFromActivity = false
         }
         else if self.requestFromUrl {
-            //let realm = try! Realm()
-            //let object = realm.objects(PCMediaItem).filter("itemType = 'movie' AND itemId = \(self.urlRequest)")[0]
-            //destinationViewController.movie = object
-            //destinationViewController.title = object.title
+            self.requestFromUrl = false
+            let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
+            if let requestedMovie = self.urlRequestedMovie {
+                destinationViewController.movie = requestedMovie
+                destinationViewController.title = requestedMovie.title
+            }
         }
         else if let senderCell = sender as? PCMediaItemCollectionViewCell {
             let destinationViewController = segue.destinationViewController as! PCMainDetailsTableViewController
