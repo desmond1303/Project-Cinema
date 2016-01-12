@@ -274,13 +274,6 @@ class PCMediaItemGenre: Object, Mappable {
         self.init()
     }
     
-    convenience init(object: PCMediaItemGenre) {
-        self.init()
-        
-        self.id = object.id
-        self.name = object.name
-    }
-    
     func mapping(map: Map) {
         self.id <- map["id"]
         self.name <- map["name"]
@@ -297,16 +290,6 @@ class PCMediaItemSeason: Object, Mappable {
     
     required convenience init?(_ map: Map) {
         self.init()
-    }
-    
-    convenience init(object: PCMediaItemSeason) {
-        self.init()
-        
-        self.id = object.id
-        self.seasonNumber = object.seasonNumber
-        self.airDate = object.airDate
-        self.episodeCount = object.episodeCount
-        self.posterPath = object.posterPath
     }
     
     func mapping(map: Map) {
@@ -333,14 +316,6 @@ class PCMediaItemTVCreator: Object, Mappable {
     
     required convenience init?(_ map: Map) {
         self.init()
-    }
-    
-    convenience init(object: PCMediaItemTVCreator) {
-        self.init()
-        
-        self.id = object.id
-        self.name = object.name
-        self.profilePath = object.profilePath
     }
     
     func mapping(map: Map) {

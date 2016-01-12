@@ -36,23 +36,24 @@ class PCMainDetailsTableViewController: UITableViewController {
         )
         
         if currentMediaItemIsInFav {
+            
             let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'").first!
             
             self.movie = PCMediaItem(object: realmObject)
             
             try! self.realm.write {
                     
-            CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(realmObject.itemType)_\(realmObject.itemId)"]) { (error: NSError?) -> Void in
-                    //code
-                }
+                CSSearchableIndex.defaultSearchableIndex().deleteSearchableItemsWithIdentifiers(["\(realmObject.itemType)_\(realmObject.itemId)"], completionHandler: nil)
+                
                 self.realm.delete(realmObject)
                 self.currentMediaItemIsInFav = false
                 sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                
             }
-            
         }
         else {
             let realmObject = PCMediaItem(object: self.movie!)
+            
             try! self.realm.write {
                 self.realm.add(realmObject)
                 
