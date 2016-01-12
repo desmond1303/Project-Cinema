@@ -40,6 +40,18 @@ class PCMainDetailsTableViewController: UITableViewController {
             let realmObject = realm.objects(PCMediaItem).filter("itemId = \(self.movie!.itemId) AND itemType = '\(self.movie!.itemType)'").first!
             
             self.movie = PCMediaItem(object: realmObject)
+            self.movie?.genres = List<PCMediaItemGenre>()
+            for genre in realmObject.genres {
+                self.movie?.genres.append(PCMediaItemGenre(object: genre))
+            }
+            self.movie?.createdBy = List<PCMediaItemTVCreator>()
+            for creator in realmObject.createdBy {
+                self.movie?.createdBy.append(PCMediaItemTVCreator(object: creator))
+            }
+            self.movie?.seasons = List<PCMediaItemSeason>()
+            for season in realmObject.seasons {
+                self.movie?.seasons.append(PCMediaItemSeason(object: season))
+            }
             
             try! self.realm.write {
                     
