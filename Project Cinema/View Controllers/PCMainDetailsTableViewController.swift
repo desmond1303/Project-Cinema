@@ -116,7 +116,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             let dateMaker = NSDateFormatter()
             dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
             
-            if NSDate().compare(dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")!) == NSComparisonResult.OrderedAscending {
+            if self.movie!.itemType == "movie" && NSDate().compare(dateMaker.dateFromString("\(self.movie!.releaseDate) 12-00")!) == NSComparisonResult.OrderedAscending {
                 let notification:UILocalNotification = UILocalNotification()
                 notification.category = "Entertainment"
                 notification.alertAction = "OK!"
