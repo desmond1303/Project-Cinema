@@ -138,6 +138,7 @@ class PCMediaItem: Object, Mappable {
     func mapping(map: Map) {
         self.title <- map["title"]
         self.itemType = self.title != "" ? "movie" : "tv"
+        self.itemType <- map["media_type"]
         self.title <- map["name"]
         self.backdropPath <- map["backdrop_path"]
         

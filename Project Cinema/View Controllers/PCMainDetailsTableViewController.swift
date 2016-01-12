@@ -104,14 +104,7 @@ class PCMainDetailsTableViewController: UITableViewController {
             
             let item = CSSearchableItem(uniqueIdentifier: "\(self.movie!.itemType)_\(self.movie!.itemId)", domainIdentifier: "MediaItems", attributeSet: attributeSet)
             
-            CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item]) { (error) -> Void in
-                if error != nil {
-                    print(error?.localizedDescription)
-                }
-                else {
-                    // Items were indexed successfully
-                }
-            }
+            CSSearchableIndex.defaultSearchableIndex().indexSearchableItems([item], completionHandler: nil)
 
             let dateMaker = NSDateFormatter()
             dateMaker.dateFormat = "yyyy-MM-dd HH-mm"
