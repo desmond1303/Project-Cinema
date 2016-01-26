@@ -517,14 +517,14 @@
                                                 <constraint firstAttribute="height" constant="160" id="aPF-BE-dGB"/>
                                             </constraints>
                                         </imageView>
-                                        <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-Xn-EB5">
-                                            <rect key="frame" x="0.0" y="148" width="600" height="52"/>
+                                        <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-Xn-EB5">
+                                            <rect key="frame" x="0.0" y="158" width="600" height="42"/>
                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="blu-gO-g2F">
-                                                <rect key="frame" x="0.0" y="0.0" width="600" height="52"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="600" height="42"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-BZ-dIy">
-                                                        <rect key="frame" x="8" y="12" width="32" height="28"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-BZ-dIy">
+                                                        <rect key="frame" x="8" y="7" width="32" height="28"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="32" id="nfv-so-BzK"/>
                                                             <constraint firstAttribute="height" constant="28" id="wRj-GI-Gq0"/>
@@ -535,8 +535,8 @@
                                                             <action selector="favoriteButton:" destination="j8L-WV-aGZ" eventType="touchUpInside" id="w9k-78-MLj"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-66-reF">
-                                                        <rect key="frame" x="48" y="4" width="544" height="31"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-66-reF">
+                                                        <rect key="frame" x="48" y="4" width="544" height="21"/>
                                                         <attributedString key="attributedText">
                                                             <fragment content="{Movie || TV Title}">
                                                                 <attributes>
@@ -550,8 +550,8 @@
                                                         <color key="shadowColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="calibratedRGB"/>
                                                         <size key="shadowOffset" width="1" height="1"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="{Runtime} | {[Genres]}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eln-P8-ekk">
-                                                        <rect key="frame" x="48" y="34" width="544" height="14"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Runtime} | {[Genres]}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eln-P8-ekk">
+                                                        <rect key="frame" x="48" y="24" width="544" height="14"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="14" id="Psx-xp-yqA"/>
                                                         </constraints>
@@ -925,18 +925,18 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="600" height="99"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Review Body Text}" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ity-9B-bPp">
-                                                                <rect key="frame" x="8" y="27" width="584" height="64"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Author Name}" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auO-qN-brY">
                                                                 <rect key="frame" x="8" y="3" width="584" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="Zps-oj-1Af"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{Review Body Text}" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ity-9B-bPp">
+                                                                <rect key="frame" x="8" y="27" width="584" height="64"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -1476,7 +1476,7 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ARj-tT-Kvi"/>
+        <segue reference="raM-0z-gmg"/>
         <segue reference="rc5-fB-3oZ"/>
     </inferredMetricsTieBreakers>
 </document>
