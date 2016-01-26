@@ -203,6 +203,7 @@
 		7B408E4BE1C94F704621234F5CB68364 /* CandleStickChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBAB77D2EB90165325C1BA1828308391 /* CandleStickChartView.swift */; };
 		7B62009E56D16C81279B5FB1CC5F44CA /* RLMProperty_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 86C7A2A10B0A4B5ABF97437C922990BA /* RLMProperty_Private.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		7C900A4657C2DB6FB67307992519BB8B /* terminate.hpp in Headers */ = {isa = PBXBuildFile; fileRef = 6516B0EF42AC88E68BF7CECFE7C130FA /* terminate.hpp */; settings = {ATTRIBUTES = (Project, ); }; };
+		7D74B7A51C57AEAD0081A318 /* Assets.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7D74B7A41C57AEAD0081A318 /* Assets.bundle */; };
 		7ED26186F3A392830F568AF713FCEFAF /* CombinedChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05184C840A1075B28A8CF2E0CBD0A46 /* CombinedChartView.swift */; };
 		7F5FB9EF241495B5FF542EBEF19201C7 /* shared_realm.hpp in Headers */ = {isa = PBXBuildFile; fileRef = AEEF1F23D1DB7C02825E032D2D26DB3E /* shared_realm.hpp */; settings = {ATTRIBUTES = (Project, ); }; };
 		7FC6079C6CCF31084E4386C263238E79 /* ChartDataApproximatorFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6A1461EC1B942210A5EFF936534458 /* ChartDataApproximatorFilter.swift */; };
@@ -704,6 +705,7 @@
 		7A596760E781A23AFE8FA70336F9362F /* CombinedHighlighter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CombinedHighlighter.swift; path = Charts/Classes/Highlight/CombinedHighlighter.swift; sourceTree = "<group>"; };
 		7B0F5DA8A1AEA3BED14A9A7A6B72ABBF /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Fabric.framework; path = iOS/Fabric.framework; sourceTree = "<group>"; };
 		7BAE0699221C8C18784906187F90EB28 /* Pods-Project Cinema-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Project Cinema-umbrella.h"; sourceTree = "<group>"; };
+		7D74B7A41C57AEAD0081A318 /* Assets.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Assets.bundle; sourceTree = "<group>"; };
 		7DAFA9143CF4F0ABD50ACA8942E1D53B /* Realm.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Realm.h; path = include/realm/Realm.h; sourceTree = "<group>"; };
 		7E271108FA5113ACDC0276A4F399E4F5 /* Realm.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Realm.xcconfig; sourceTree = "<group>"; };
 		7EF96D35E8DDFC3534A82B02B7B666C1 /* RadarChartRenderer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RadarChartRenderer.swift; path = Charts/Classes/Renderers/RadarChartRenderer.swift; sourceTree = "<group>"; };
@@ -1379,6 +1381,7 @@
 		4EACB841995AE76A6DFF196BE91E0F3D /* Pods-Project Cinema */ = {
 			isa = PBXGroup;
 			children = (
+				7D74B7A41C57AEAD0081A318 /* Assets.bundle */,
 				FCFC1A1880F2913B9862410F6C4B8965 /* Info.plist */,
 				B8B9266603D9D37DF0B0F45227FA76E5 /* Pods-Project Cinema.modulemap */,
 				4DCE5A95A69D40FE4957AE56C54468AF /* Pods-Project Cinema-acknowledgements.markdown */,
@@ -2239,6 +2242,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D74B7A51C57AEAD0081A318 /* Assets.bundle in Resources */,
 				E6EBF2FE62069B17FC85F374F0B902F9 /* Assets.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
