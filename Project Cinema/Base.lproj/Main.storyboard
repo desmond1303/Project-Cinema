@@ -138,12 +138,6 @@
                                                 <constraint firstAttribute="height" constant="71" id="cUW-Lb-hMl"/>
                                                 <constraint firstAttribute="width" constant="71" id="hqF-JP-i0b"/>
                                             </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="36"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
                                         </imageView>
                                     </subviews>
                                     <constraints>
@@ -462,17 +456,6 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-BZ-dIy">
-                                                        <rect key="frame" x="8" y="8" width="32" height="28"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="32" id="PKN-5W-eiH"/>
-                                                        </constraints>
-                                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
-                                                        <state key="normal" image="FavoritesFullBarIcon"/>
-                                                        <connections>
-                                                            <action selector="favoriteButton:" destination="j8L-WV-aGZ" eventType="touchUpInside" id="w9k-78-MLj"/>
-                                                        </connections>
-                                                    </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXR-66-reF">
                                                         <rect key="frame" x="56" y="0.0" width="536" height="34"/>
                                                         <attributedString key="attributedText">
@@ -496,6 +479,17 @@
                                                         <color key="shadowColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                         <size key="shadowOffset" width="1" height="1"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yYv-BZ-dIy">
+                                                        <rect key="frame" x="8" y="8" width="32" height="28"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="PKN-5W-eiH"/>
+                                                        </constraints>
+                                                        <size key="titleShadowOffset" width="2.2250738585072014e-308" height="2.2250738585072014e-308"/>
+                                                        <state key="normal" image="FavoritesFullIcon"/>
+                                                        <connections>
+                                                            <action selector="favoriteButton:" destination="j8L-WV-aGZ" eventType="touchUpInside" id="w9k-78-MLj"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="eln-P8-ekk" firstAttribute="leading" secondItem="blu-gO-g2F" secondAttribute="leading" constant="56" id="7MG-Ra-Zd9"/>
@@ -1472,16 +1466,17 @@
     <resources>
         <image name="AccountFullBarIcon" width="37" height="37"/>
         <image name="AccountOutlineBarIcon" width="37" height="37"/>
-        <image name="FavoritesFullBarIcon" width="25" height="25"/>
-        <image name="FavoritesOutlineBarIcon" width="25" height="25"/>
-        <image name="FeedFullBarIcon" width="25" height="25"/>
-        <image name="FeedOutlineBarIcon" width="25" height="25"/>
+        <image name="FavoritesFullBarIcon" width="37" height="37"/>
+        <image name="FavoritesFullIcon" width="25" height="25"/>
+        <image name="FavoritesOutlineBarIcon" width="37" height="37"/>
+        <image name="FeedFullBarIcon" width="37" height="37"/>
+        <image name="FeedOutlineBarIcon" width="37" height="37"/>
         <image name="leftEdgeIndicator" width="20" height="72"/>
         <image name="rightEdgeIndicator" width="20" height="72"/>
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="1Rd-Lm-ggH"/>
         <segue reference="ARj-tT-Kvi"/>
+        <segue reference="rc5-fB-3oZ"/>
     </inferredMetricsTieBreakers>
 </document>

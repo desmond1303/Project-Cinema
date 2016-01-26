@@ -59,7 +59,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 
                 self.realm.delete(realmObject)
                 self.currentMediaItemIsInFav = false
-                sender.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                sender.setImage(UIImage(named: "FavoritesOutlineIcon"), forState: UIControlState.Normal)
                 
             }
         }
@@ -70,7 +70,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 self.realm.add(realmObject)
                 
                 self.currentMediaItemIsInFav = true
-                sender.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
+                sender.setImage(UIImage(named: "FavoritesFullIcon"), forState: UIControlState.Normal)
             }
             
             let attributeSet = CSSearchableItemAttributeSet(itemContentType: kUTTypeItem as String)
@@ -323,10 +323,10 @@ class PCMainDetailsTableViewController: UITableViewController {
                 cell.movie = movie
                 cell.isFav = self.currentMediaItemIsInFav
                 if self.currentMediaItemIsInFav {
-                    cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesFullBarIcon"), forState: UIControlState.Normal)
+                    cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesFullIcon"), forState: UIControlState.Normal)
                 }
                 else {
-                    cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineBarIcon"), forState: UIControlState.Normal)
+                    cell.favoriteButtonOutlet.setImage(UIImage(named: "FavoritesOutlineIcon"), forState: UIControlState.Normal)
                 }
                 
                 let attributedMediaTitleString = NSMutableAttributedString(string: "\(self.movie!.title) ")
