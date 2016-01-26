@@ -11,14 +11,14 @@
             <objects>
                 <tabBarController id="49e-Tb-3d3" customClass="PCTabBarViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="barTintColor" red="0.12941176470588234" green="0.12941176470588234" blue="0.12941176470588234" alpha="1" colorSpace="calibratedRGB"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
-                                <color key="value" red="0.16078431372549018" green="0.43529411764705883" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="value" red="0.77647058823529413" green="0.15686274509803921" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </tabBar>
@@ -37,11 +37,11 @@
             <objects>
                 <navigationController id="Bon-iA-ich" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Feed" image="FeedOutlineBarIcon" selectedImage="FeedFullBarIcon" id="Yrx-aZ-N6c"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="1Lz-Dr-2BA">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="1Lz-Dr-2BA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.16078431372549018" green="0.43529411764705883" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.77647058820000003" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <offsetWrapper key="textShadowOffset" horizontal="0.0" vertical="0.0"/>
                         </textAttributes>
@@ -59,11 +59,11 @@
             <objects>
                 <navigationController id="HRU-NU-k4f" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Favorites" image="FavoritesOutlineBarIcon" selectedImage="FavoritesFullBarIcon" id="LCR-ph-qdT"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="9HX-lI-HvO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="9HX-lI-HvO">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.16078431369999999" green="0.43529411759999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.77647058820000003" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="j8I-Z9-EVM" kind="relationship" relationship="rootViewController" id="gn5-k5-jHd"/>
@@ -78,11 +78,11 @@
             <objects>
                 <navigationController id="X0m-Qs-lHw" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Account" image="AccountOutlineBarIcon" selectedImage="AccountFullBarIcon" id="fhQ-86-8Jm"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" id="gV4-i5-Z2Z">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" barStyle="black" translucent="NO" id="gV4-i5-Z2Z">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="barTintColor" red="0.16078431369999999" green="0.43529411759999997" blue="0.56862745100000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.77647058820000003" green="0.15686274510000001" blue="0.15686274510000001" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <connections>
                         <segue destination="NkI-bK-43I" kind="relationship" relationship="rootViewController" id="ghV-fX-nNS"/>
@@ -97,30 +97,17 @@
             <objects>
                 <tableViewController id="NkI-bK-43I" customClass="PCAccountTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="rZC-01-rjO">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="accountNameCell" rowHeight="88" id="4sj-Lh-SpQ" customClass="PCAccountNameTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="88"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="88"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4sj-Lh-SpQ" id="acU-3u-fdS">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="87"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9gA-9G-0dC">
-                                            <rect key="frame" x="8" y="8" width="71" height="71"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="71" id="cUW-Lb-hMl"/>
-                                                <constraint firstAttribute="width" constant="71" id="hqF-JP-i0b"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                    <integer key="value" value="36"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAx-Oc-4VT">
                                             <rect key="frame" x="87" y="8" width="422" height="71"/>
                                             <attributedString key="attributedText">
@@ -145,6 +132,19 @@
                                                 <action selector="LogOutButtonAction:" destination="4sj-Lh-SpQ" eventType="touchUpInside" id="SGS-rg-B5S"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9gA-9G-0dC">
+                                            <rect key="frame" x="8" y="8" width="71" height="71"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="71" id="cUW-Lb-hMl"/>
+                                                <constraint firstAttribute="width" constant="71" id="hqF-JP-i0b"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="36"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="hPA-3C-4eS" firstAttribute="top" secondItem="acU-3u-fdS" secondAttribute="topMargin" constant="21" id="5he-vU-o5J"/>
@@ -164,7 +164,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="loginButtonCell" id="K6F-4V-6I3" customClass="PCAccountLoginTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="202" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="138" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K6F-4V-6I3" id="HsJ-aX-Uga">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -187,7 +187,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ActivityChartCell" rowHeight="250" id="UwF-9B-5V9" customClass="PCActivityChartTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="246" width="600" height="250"/>
+                                <rect key="frame" x="0.0" y="182" width="600" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UwF-9B-5V9" id="2mV-yO-ewP">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="249"/>
@@ -232,17 +232,17 @@
             <objects>
                 <tableViewController id="Rjp-qg-PNC" customClass="PCFeedTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="256" sectionHeaderHeight="28" sectionFooterHeight="28" id="Deg-bX-brE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="UGx-0Y-xhv">
-                            <rect key="frame" x="0.0" y="348" width="600" height="0.0"/>
+                            <rect key="frame" x="0.0" y="284" width="600" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="collectionContainerCell" id="UGE-o1-LsG" customClass="PCFeedTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="256"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="256"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UGE-o1-LsG" id="N1L-h8-vNf">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="255"/>
@@ -388,12 +388,12 @@
             <objects>
                 <tableViewController id="JWt-1O-Tjc" customClass="PCRatingTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="BgA-mA-6qw">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ratingPicker" rowHeight="217" id="6RE-tW-nKB">
-                                <rect key="frame" x="0.0" y="92" width="600" height="217"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="217"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6RE-tW-nKB" id="gmf-Li-DB4">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
@@ -438,12 +438,12 @@
             <objects>
                 <tableViewController storyboardIdentifier="PCMainDetailsTableViewController" id="j8L-WV-aGZ" customClass="PCMainDetailsTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="E8M-LI-ZCf">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieMainCell" rowHeight="377" id="dxP-Hi-Gez" customClass="PCMainDetailsMainTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="377"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="377"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dxP-Hi-Gez" id="fZu-lH-S48">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="376"/>
@@ -609,7 +609,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="movieRatingCell" id="b2b-vp-hfI" customClass="PCMainDetailsRatingTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="491" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="427" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="b2b-vp-hfI" id="WOO-yu-c9R">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -747,7 +747,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="castCollectionCell" rowHeight="213" id="QVg-cZ-pek" customClass="PCMainDetailsCastTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="535" width="600" height="213"/>
+                                <rect key="frame" x="0.0" y="471" width="600" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QVg-cZ-pek" id="m8M-gh-CNV">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
@@ -855,7 +855,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="castDirectorCell" textLabel="66s-Ud-DxL" detailTextLabel="ka3-VI-nAB" style="IBUITableViewCellStyleSubtitle" id="JdC-Vf-0eQ" customClass="PCMainDetialsReviewTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="748" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="684" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JdC-Vf-0eQ" id="ZPe-0C-spG">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -879,7 +879,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="castAllOthersCell" textLabel="bii-D4-OQy" style="IBUITableViewCellStyleDefault" id="AVd-IN-VRo" customClass="PCMainDetialsReviewTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="792" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="728" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVd-IN-VRo" id="r40-FR-kxK">
                                     <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
@@ -899,7 +899,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="reviewTableCell" rowHeight="213" id="efc-Wb-aZq" customClass="PCMainDetialsReviewTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="836" width="600" height="213"/>
+                                <rect key="frame" x="0.0" y="772" width="600" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="efc-Wb-aZq" id="FbT-cy-ZCI">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
@@ -1015,17 +1015,17 @@
             <objects>
                 <tableViewController id="W7f-3B-k8l" customClass="PCAllCrewMembersTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="xLZ-ii-A8i">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="UO7-mq-tZH">
-                            <rect key="frame" x="0.0" y="136" width="600" height="0.0"/>
+                            <rect key="frame" x="0.0" y="72" width="600" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="crewMemberCell" textLabel="rmP-Xh-9EN" detailTextLabel="y8u-HR-fnM" style="IBUITableViewCellStyleSubtitle" id="t1H-UG-qFo">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t1H-UG-qFo" id="3x5-f2-ebf">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -1065,12 +1065,12 @@
             <objects>
                 <tableViewController id="qmv-pF-Glj" customClass="PCTrailersTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="300" sectionHeaderHeight="18" sectionFooterHeight="18" id="8RV-Qu-OhE">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="trailerCell" id="Poo-2n-9dC" customClass="PCTrailerTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="300"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Poo-2n-9dC" id="gcD-WV-Nae">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="299"/>
@@ -1108,17 +1108,17 @@
             <objects>
                 <tableViewController id="j8I-Z9-EVM" customClass="PCFavoritesTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="91" sectionHeaderHeight="28" sectionFooterHeight="28" id="zgv-k5-lj7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="DCf-Rd-NtQ">
-                            <rect key="frame" x="0.0" y="183" width="600" height="0.0"/>
+                            <rect key="frame" x="0.0" y="119" width="600" height="0.0"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="favoriteMovie" id="GiZ-yE-O5i" customClass="PCFavoritesTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="91"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="91"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GiZ-yE-O5i" id="eKc-by-L7y">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="90"/>
@@ -1222,12 +1222,12 @@
             <objects>
                 <tableViewController id="P6W-8q-x9u" customClass="PCActorTableViewController" customModule="Project_Cinema" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="1sj-al-xeN">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="1200"/>
+                        <rect key="frame" x="0.0" y="64" width="600" height="1087"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="mainActorCell" rowHeight="377" id="fM9-vo-Cln" customClass="PCActorMainTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="114" width="600" height="377"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="377"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fM9-vo-Cln" id="8OO-ku-fSy">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="376"/>
@@ -1325,7 +1325,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="appearedInCell" rowHeight="213" id="0Kw-1M-yw9" customClass="PCActorCreditsTableViewCell" customModule="Project_Cinema" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="491" width="600" height="213"/>
+                                <rect key="frame" x="0.0" y="427" width="600" height="213"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Kw-1M-yw9" id="iRv-Ae-dAy">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="212"/>
