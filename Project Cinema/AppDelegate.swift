@@ -69,24 +69,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let reachability = note.object as! Reachability
         
-        let rootViewController = self.window?.rootViewController as! UITabBarController
-        let navigationControllers = rootViewController.viewControllers as! [UINavigationController]
-        
-        
         if reachability.isReachable() {
-            for navController in navigationControllers {
-                if navController.viewControllers.first is PCNetworkDependant {
-                    var mainController = navController.viewControllers.first as! PCNetworkDependant
-                    mainController.hasConnection = true
-                }
-            }
+            //
         } else {
-            for navController in navigationControllers {
-                if navController.viewControllers.first is PCNetworkDependant {
-                    var mainController = navController.viewControllers.first as! PCNetworkDependant
-                    mainController.hasConnection = false
-                }
-            }
+            //
         }
     }
     

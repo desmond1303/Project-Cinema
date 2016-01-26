@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 import RealmSwift
 
-class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate, PCNetworkDependant {
+class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate, UIViewControllerPreviewingDelegate {
     
     var mediaItems = [String:PCQueryResponse]() {
         didSet {
@@ -87,29 +87,14 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
     }
     
-    var noNetworkBanner: UIView?
-    var hasConnection: Bool? {
-        didSet {
-            if self.hasConnection! {
-                self.getFeedData(self.requests)
-                self.noNetworkBanner?.removeFromSuperview()
-            }
-            else {
-                self.view.addSubview(self.noNetworkBanner!)
-            }
-        }
-    }
-    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.hasConnection = true
+        self.getFeedData(self.requests)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.noNetworkBanner = PCNoNetworkView.getView(self.tableView.frame.width)
         
         if traitCollection.forceTouchCapability == .Available {
             registerForPreviewingWithDelegate(self, sourceView: self.view)
@@ -142,7 +127,6 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         
         self.searchController?.searchBar.setValue(UIColor.whiteColor(), forKeyPath: "searchField.textColor")
         self.searchController?.searchBar.setValue(UIColor.whiteColor(), forKeyPath: "searchField.placeholderLabel.textColor")
-
         
         self.navigationItem.titleView = self.searchController!.searchBar
         
