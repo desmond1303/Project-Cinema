@@ -126,9 +126,23 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.searchController?.hidesNavigationBarDuringPresentation = false
         self.searchController?.dimsBackgroundDuringPresentation = false
         
-        self.searchController?.searchBar.searchBarStyle = .Default
+        self.searchController?.searchBar.searchBarStyle = .Minimal
         self.searchController?.searchBar.placeholder = "Search for Movies or TV Shows"
         self.searchController?.searchBar.tintColor = UIColor.lightTextColor()
+        self.searchController?.searchBar.barStyle = .Black
+        
+        let searchField = self.searchController?.searchBar.valueForKey("searchField")
+        let leftImageView = searchField?.leftView as! UIImageView
+        leftImageView.image = leftImageView.image?.imageWithRenderingMode(.AlwaysTemplate)
+        leftImageView.tintColor = UIColor.whiteColor()
+        
+        let clearButton = searchField?.valueForKey("clearButton") as! UIButton
+        clearButton.setImage(clearButton.imageView?.image?.imageWithRenderingMode(.AlwaysTemplate), forState: .Normal)
+        clearButton.tintColor = UIColor.lightTextColor()
+        
+        self.searchController?.searchBar.setValue(UIColor.whiteColor(), forKeyPath: "searchField.textColor")
+        self.searchController?.searchBar.setValue(UIColor.whiteColor(), forKeyPath: "searchField.placeholderLabel.textColor")
+
         
         self.navigationItem.titleView = self.searchController!.searchBar
         
@@ -140,7 +154,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.tableView.reloadData()
         
         self.getFeedData(self.requests) {
-            self.refreshControl?.endRefreshing()
+
         }
     }
     
