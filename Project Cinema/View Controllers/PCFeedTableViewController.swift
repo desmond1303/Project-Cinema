@@ -154,7 +154,7 @@ class PCFeedTableViewController: UITableViewController, UISearchBarDelegate, UIS
         self.tableView.reloadData()
         
         self.getFeedData(self.requests) {
-
+            self.refreshControl?.endRefreshing()
         }
     }
     
