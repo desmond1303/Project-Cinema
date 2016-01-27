@@ -779,7 +779,8 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="90" height="125"/>
                                                                 <color key="backgroundColor" red="0.83011744970000001" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="125" id="bvl-EV-xlU"/>
+                                                                    <constraint firstAttribute="width" constant="90" id="PuP-WM-S4p"/>
+                                                                    <constraint firstAttribute="height" constant="125" id="qAD-Oj-aYN"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
                                                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -788,21 +789,15 @@
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="layer. masksToBounds" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Long Role name that requires two rows" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDB-1o-48d">
-                                                                <rect key="frame" x="8" y="153" width="74" height="21"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="21" id="yvO-ah-vwT"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Actor Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-Gi-k2E">
+                                                                <rect key="frame" x="0.0" y="129" width="90" height="14"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A Long Actor Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xbw-Gi-k2E">
-                                                                <rect key="frame" x="8" y="125" width="74" height="28"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="28" id="WwP-ck-IcO"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="role name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GDB-1o-48d">
+                                                                <rect key="frame" x="0.0" y="147" width="90" height="12"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -810,15 +805,15 @@
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                     </view>
                                                     <constraints>
-                                                        <constraint firstItem="vcw-dQ-QWM" firstAttribute="top" secondItem="DaM-57-twL" secondAttribute="top" id="0WT-kb-Khe"/>
-                                                        <constraint firstItem="GDB-1o-48d" firstAttribute="trailing" secondItem="DaM-57-twL" secondAttribute="trailingMargin" id="GCX-T4-iMr"/>
-                                                        <constraint firstItem="vcw-dQ-QWM" firstAttribute="leading" secondItem="DaM-57-twL" secondAttribute="leading" id="HSv-WO-9Yy"/>
-                                                        <constraint firstItem="GDB-1o-48d" firstAttribute="leading" secondItem="DaM-57-twL" secondAttribute="leadingMargin" id="J4Q-tc-5rR"/>
-                                                        <constraint firstItem="Xbw-Gi-k2E" firstAttribute="leading" secondItem="DaM-57-twL" secondAttribute="leadingMargin" id="JnS-Kq-bmB"/>
-                                                        <constraint firstItem="Xbw-Gi-k2E" firstAttribute="top" secondItem="vcw-dQ-QWM" secondAttribute="bottom" id="VXQ-Mn-pV7"/>
-                                                        <constraint firstAttribute="trailing" secondItem="vcw-dQ-QWM" secondAttribute="trailing" id="cxs-H0-YZj"/>
-                                                        <constraint firstItem="GDB-1o-48d" firstAttribute="top" secondItem="Xbw-Gi-k2E" secondAttribute="bottom" id="ehD-Ih-LwO"/>
-                                                        <constraint firstItem="Xbw-Gi-k2E" firstAttribute="trailing" secondItem="DaM-57-twL" secondAttribute="trailingMargin" id="uc5-i1-o8i"/>
+                                                        <constraint firstItem="GDB-1o-48d" firstAttribute="top" secondItem="Xbw-Gi-k2E" secondAttribute="bottom" constant="4" id="6eV-Sl-6Wb"/>
+                                                        <constraint firstAttribute="trailing" secondItem="GDB-1o-48d" secondAttribute="trailing" id="887-Ne-dM8"/>
+                                                        <constraint firstItem="GDB-1o-48d" firstAttribute="leading" secondItem="DaM-57-twL" secondAttribute="leading" id="Aw1-BP-Gvf"/>
+                                                        <constraint firstItem="vcw-dQ-QWM" firstAttribute="top" secondItem="DaM-57-twL" secondAttribute="top" id="Bf0-lf-amt"/>
+                                                        <constraint firstItem="GDB-1o-48d" firstAttribute="top" secondItem="Xbw-Gi-k2E" secondAttribute="bottom" constant="4" id="EZ7-Vy-Zfv"/>
+                                                        <constraint firstAttribute="trailing" secondItem="Xbw-Gi-k2E" secondAttribute="trailing" id="PG4-U2-Sop"/>
+                                                        <constraint firstItem="Xbw-Gi-k2E" firstAttribute="leading" secondItem="DaM-57-twL" secondAttribute="leading" id="QAi-bQ-fQ6"/>
+                                                        <constraint firstItem="Xbw-Gi-k2E" firstAttribute="top" secondItem="vcw-dQ-QWM" secondAttribute="bottom" constant="4" id="fTy-4x-iG9"/>
+                                                        <constraint firstItem="vcw-dQ-QWM" firstAttribute="leading" secondItem="DaM-57-twL" secondAttribute="leading" id="nsc-b3-dOu"/>
                                                     </constraints>
                                                     <connections>
                                                         <outlet property="movieImageView" destination="vcw-dQ-QWM" id="0LR-3g-q94"/>
