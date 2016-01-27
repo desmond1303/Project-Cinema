@@ -218,6 +218,8 @@ class PCMainDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.scrollsToTop = true
+    
+        self.tableView.contentInset = UIEdgeInsetsMake(-1.01, 0, 0, 0);
         
         self.refreshControl?.addTarget(self, action: "refreshTableView:", forControlEvents: UIControlEvents.ValueChanged)
         
