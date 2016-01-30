@@ -456,28 +456,27 @@ class PCMainDetailsTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:
-            switch indexPath.row {
-            case 0:
-                return 377
-            default:
-                return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
-            }
-        case 1:
-            switch indexPath.row {
-            case 0:
-                return 213
-            default:
-                return 44
-            }
         case 2:
             if self.selectedReviewRow != -1 {
                 return CGFloat(37 + (52 * CGFloat(self.reviews!.count - 1)) + self.preferedRowHeight)
             }
             return CGFloat(37 + (52 * CGFloat((self.reviews?.count ?? self.movie?.seasons.count)!)))
         default:
-            return super.tableView(tableView, heightForRowAtIndexPath: indexPath)
+            return UITableViewAutomaticDimension
         }
+    }
+    
+    override func tableView(tableView: UITableView, estimatedHeightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 2:
+            if self.selectedReviewRow != -1 {
+                return CGFloat(37 + (52 * CGFloat(self.reviews!.count - 1)) + self.preferedRowHeight)
+            }
+            return CGFloat(37 + (52 * CGFloat((self.reviews?.count ?? self.movie?.seasons.count)!)))
+        default:
+            return UITableViewAutomaticDimension
+        }
+
     }
     
     // MARK: - Navigation
