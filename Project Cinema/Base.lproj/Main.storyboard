@@ -251,6 +251,18 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftEdgeIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="rLc-HX-vKY">
+                                            <rect key="frame" x="0.0" y="37" width="20" height="218"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="8qD-Kr-ffh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightEdgeIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-OC-kmS">
+                                            <rect key="frame" x="580" y="37" width="20" height="218"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="20" id="51a-ae-3rX"/>
+                                            </constraints>
+                                        </imageView>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="o5n-sD-fuH">
                                             <rect key="frame" x="0.0" y="37" width="600" height="210"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -324,18 +336,6 @@
                                                 <outlet property="delegate" destination="UGE-o1-LsG" id="n6J-S9-ckD"/>
                                             </connections>
                                         </collectionView>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="leftEdgeIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="rLc-HX-vKY">
-                                            <rect key="frame" x="0.0" y="37" width="20" height="218"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="8qD-Kr-ffh"/>
-                                            </constraints>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightEdgeIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="JYt-OC-kmS">
-                                            <rect key="frame" x="580" y="37" width="20" height="218"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="20" id="51a-ae-3rX"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="MkH-q8-7qA" firstAttribute="top" secondItem="N1L-h8-vNf" secondAttribute="topMargin" id="1yT-R0-H5F"/>
@@ -529,7 +529,7 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jj-9Y-5ug">
-                                                                <rect key="frame" x="0.0" y="0.0" width="447" height="35"/>
+                                                                <rect key="frame" x="8" y="0.0" width="439" height="35"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -537,7 +537,7 @@
                                                         </subviews>
                                                         <constraints>
                                                             <constraint firstAttribute="trailing" secondItem="2jj-9Y-5ug" secondAttribute="trailing" id="5kb-uy-VDQ"/>
-                                                            <constraint firstItem="2jj-9Y-5ug" firstAttribute="leading" secondItem="iLw-dH-CM0" secondAttribute="leading" id="Mis-O3-JNt"/>
+                                                            <constraint firstItem="2jj-9Y-5ug" firstAttribute="leading" secondItem="iLw-dH-CM0" secondAttribute="leading" constant="8" id="Mis-O3-JNt"/>
                                                             <constraint firstAttribute="bottom" secondItem="2jj-9Y-5ug" secondAttribute="bottom" constant="8" id="NyQ-dC-shg"/>
                                                             <constraint firstItem="2jj-9Y-5ug" firstAttribute="top" secondItem="iLw-dH-CM0" secondAttribute="top" id="vmt-6c-yPA"/>
                                                         </constraints>
@@ -1459,7 +1459,7 @@
         <image name="trailerIcon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="raM-0z-gmg"/>
-        <segue reference="rc5-fB-3oZ"/>
+        <segue reference="ARj-tT-Kvi"/>
+        <segue reference="1Rd-Lm-ggH"/>
     </inferredMetricsTieBreakers>
 </document>
