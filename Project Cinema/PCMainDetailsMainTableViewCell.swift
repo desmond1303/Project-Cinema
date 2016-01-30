@@ -74,7 +74,7 @@ class PCMainDetailsMainTableViewCell: UITableViewCell, UITableViewDelegate, UITa
         
         switch indexPath.row {
         case 0:
-            return CGFloat(125)
+            return CGFloat(100)
         default:
             return CGFloat(44)
         }

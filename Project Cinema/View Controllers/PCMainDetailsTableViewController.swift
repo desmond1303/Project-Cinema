@@ -332,7 +332,7 @@ class PCMainDetailsTableViewController: UITableViewController {
                 }
                 
                 let attributedMediaTitleString = NSMutableAttributedString(string: "\(self.movie!.title) ")
-                let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(12.0)]
+                let attrs = [NSFontAttributeName : UIFont.systemFontOfSize(14.0), NSForegroundColorAttributeName: UIColor(red: 1, green: 1, blue: 1, alpha: 0.75)]
                 
                 var runtimeAndGenres = ""
                 
